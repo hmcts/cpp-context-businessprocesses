@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/bpm/json/schemas/policeOfficerInCase.json",
+  "type": "object",
+  "description": "Personal Information",
+  "properties": {
+    "personalInformation": {
+      "$ref": "http://justice.gov.uk/bpm/json/schemas/personal-information.json"
+    },
+    "policeOfficerRank": {
+      "type": "string",
+      "maxLength": 130
+    }
+  }
+}

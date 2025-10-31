@@ -1,0 +1,192 @@
+{
+  "prosecutionCase": {
+    "defendants": [
+      {
+        "courtProceedingsInitiated": "2023-06-22T15:17:47.683Z",
+        "id": "c8cc3834-4ff8-410f-854e-80a9cb66bef3",
+        "initiationCode": "C",
+        "masterDefendantId": "c8cc3834-4ff8-410f-854e-80a9cb66bef3",
+        "offences": [
+          {
+            "arrestDate": "2023-06-13",
+            "chargeDate": "2023-06-13",
+            "count": 0,
+            "endorsableFlag": false,
+            "id": "b4824cde-baba-4d90-976e-2664d0ff770a",
+            "listingNumber": 1,
+            "modeOfTrial": "Indictable",
+            "offenceCode": "TH68023A",
+            "offenceDateCode": 1,
+            "offenceDefinitionId": "9abe3e81-1de0-4c42-b0d2-2dc38f5c44c0",
+            "offenceLegislation": "Contrary to section 1(1) of the    Criminal Attempts Act 1981.",
+            "offenceLegislationWelsh": "Yn groes i adran 1(1) Deddf Ymgeisiau i Droseddu 1981.",
+            "offenceTitle": "Attempt robbery",
+            "offenceTitleWelsh": "Ymgais i ysbeilio (robbery)",
+            "orderIndex": 1,
+            "startDate": "2023-06-13",
+            "wording": "On or in 13 June 2023 at Bromley attempted to rob John of Watch to the value of 200"
+          }
+        ],
+        "personDefendant": {
+          "arrestSummonsNumber": "23235435",
+          "bailStatus": {
+            "code": "A",
+            "description": "Not applicable",
+            "id": "86009c70-759d-3308-8de4-194886ff9a77"
+          },
+          "personDetails": {
+            "address": {
+              "address1": "433 London Road",
+              "postcode": "BR1 3PR"
+            },
+            "documentationLanguageNeeds": "ENGLISH",
+            "firstName": "Dennis",
+            "gender": "NOT_SPECIFIED",
+            "hearingLanguageNeeds": "ENGLISH",
+            "lastName": "Gray",
+            "nationalityCode": "GBR",
+            "nationalityDescription": "British",
+            "nationalityId": "49433158-3542-49c8-a9af-581a0e746152",
+            "title": "Mr"
+          },
+          "policeBailStatus": {
+            "code": "A",
+            "description": "Not applicable",
+            "id": "86009c70-759d-3308-8de4-194886ff9a77"
+          }
+        },
+        "prosecutionCaseId": "c2f5b12a-ee3a-4f81-b785-4fdd34f8d059"
+      }
+    ],
+    "id": "c2f5b12a-ee3a-4f81-b785-4fdd34f8d059",
+    "initiationCode": "C",
+    "originatingOrganisation": "0450000",
+    "prosecutionCaseIdentifier": {
+      "address": {
+        "address1": "Surrey Police",
+        "address2": "Mount Browne",
+        "address3": "Sandy Lane",
+        "address4": "Guildford",
+        "postcode": "GU3 1HG"
+      },
+      "contact": {
+        "primaryEmail": "mail_data_bureau_res@surrey.pnn.police.uk"
+      },
+      "majorCreditorCode": "PO45",
+      "prosecutionAuthorityCode": "SURRPF",
+      "prosecutionAuthorityId": "764bff92-a135-34cb-b858-8bb6b4b66301",
+      "prosecutionAuthorityName": "Surrey Police",
+      "prosecutionAuthorityOUCode": "0450000",
+      "caseURN": "CLYTBISLEB"
+    },
+    "caseStatus": "ACTIVE"
+  },
+  "hearingsAtAGlance": {
+    "courtApplications": [],
+    "defendantHearings": [
+      {
+        "defendantId": "c8cc3834-4ff8-410f-854e-80a9cb66bef3",
+        "defendantName": "Dennis Gray",
+        "hearingIds": [
+          "448649ca-4682-403a-a27e-3065ef25d05f"
+        ]
+      }
+    ],
+    "hearings": [
+      {
+        "courtCentre": {
+          "address": {
+            "address1": "The Law Courts",
+            "address2": "Altyre Road",
+            "address3": "Croydon",
+            "address4": "",
+            "address5": "",
+            "postcode": "CR9 5AB"
+          },
+          "code": "C01CY00",
+          "courtHearingLocation": "C01CY00",
+          "id": "07e45c88-9e5d-3e44-b664-d5345bb13be2",
+          "lja": {
+            "ljaCode": "2576",
+            "ljaName": "South London Magistrates' Court"
+          },
+          "name": "Croydon Crown Court",
+          "roomId": "731816c1-5ee4-373a-9bda-840e13a5bcb0",
+          "roomName": "Courtroom 01"
+        },
+        "defendants": [
+          {
+            "address": {
+              "address1": "433 London Road",
+              "postcode": "BR1 3PR"
+            },
+            "age": "",
+            "courtApplications": [],
+            "defenceOrganisation": {
+              "defenceCounsels": [],
+              "defendantId": "c8cc3834-4ff8-410f-854e-80a9cb66bef3"
+            },
+            "id": "c8cc3834-4ff8-410f-854e-80a9cb66bef3",
+            "judicialResults": [],
+            "name": "Dennis Gray",
+            "offences": [
+              {
+                "count": 0,
+                "id": "b4824cde-baba-4d90-976e-2664d0ff770a",
+                "judicialResults": [],
+                "offenceCode": "TH68023A",
+                "offenceDefinitionId": "9abe3e81-1de0-4c42-b0d2-2dc38f5c44c0",
+                "offenceLegislation": "Contrary to section 1(1) of the    Criminal Attempts Act 1981.",
+                "offenceLegislationWelsh": "Yn groes i adran 1(1) Deddf Ymgeisiau i Droseddu 1981.",
+                "offenceTitle": "Attempt robbery",
+                "offenceTitleWelsh": "Ymgais i ysbeilio (robbery)",
+                "pleas": [],
+                "startDate": "2023-06-13",
+                "verdicts": [],
+                "wording": "On or in 13 June 2023 at Bromley attempted to rob John of Watch to the value of 200"
+              }
+            ]
+          }
+        ],
+        "hasResultAmended": false,
+        "hearingDays": [
+          {
+            "courtCentreId": "07e45c88-9e5d-3e44-b664-d5345bb13be2",
+            "courtRoomId": "731816c1-5ee4-373a-9bda-840e13a5bcb0",
+            "isCancelled": false,
+            "listedDurationMinutes": 20,
+            "listingSequence": 0,
+            "sittingDay": "2023-06-29T11:00:00.000Z"
+          }
+        ],
+        "hearingListingStatus": "HEARING_INITIALISED",
+        "id": "448649ca-4682-403a-a27e-3065ef25d05f",
+        "jurisdictionType": "CROWN",
+        "type": {
+          "description": "First hearing",
+          "id": "4a0e892d-c0c5-3c51-95b8-704d8c781776"
+        }
+      }
+    ],
+    "id": "c2f5b12a-ee3a-4f81-b785-4fdd34f8d059",
+    "latestHearingJurisdictionType": "CROWN",
+    "prosecutionCaseIdentifier": {
+      "address": {
+        "address1": "Surrey Police",
+        "address2": "Mount Browne",
+        "address3": "Sandy Lane",
+        "address4": "Guildford",
+        "postcode": "GU3 1HG"
+      },
+      "contact": {
+        "primaryEmail": "mail_data_bureau_res@surrey.pnn.police.uk"
+      },
+      "majorCreditorCode": "PO45",
+      "prosecutionAuthorityCode": "SURRPF",
+      "prosecutionAuthorityId": "764bff92-a135-34cb-b858-8bb6b4b66301",
+      "prosecutionAuthorityName": "Surrey Police",
+      "prosecutionAuthorityOUCode": "0450000",
+      "caseURN": "CLYTBISLEB"
+    }
+  }
+}

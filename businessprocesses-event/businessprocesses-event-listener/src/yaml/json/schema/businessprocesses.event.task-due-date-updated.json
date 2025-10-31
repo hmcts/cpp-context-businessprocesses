@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/json/schemas/businessprocesses/event/task-due-date-updated.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "details": {
+      "type": "string"
+    },
+    "changeAuthorId": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "changeAuthor": {
+      "type": "string",
+      "description": "name of the author"
+    }
+  },
+  "required": [
+    "id",
+    "dueDate",
+    "details",
+    "changeAuthorId",
+    "changeAuthor"
+  ],
+  "additionalProperties": false
+}
+

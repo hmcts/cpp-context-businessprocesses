@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1jl28x3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" camunda:diagramRelationId="22c1edbc-6238-444a-acf8-bdb1347bfd11">
+  <bpmn:process id="case-results" name="case-results" isExecutable="true">
+    <bpmn:startEvent id="start_case_results_event" name="start_case_results_event">
+      <bpmn:outgoing>Flow_1311pha</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_1hglk1a" name="Is a custodial results present?">
+      <bpmn:incoming>Flow_0rotx9l</bpmn:incoming>
+      <bpmn:outgoing>Flow_15xfaa8</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0npww59</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0rotx9l" sourceRef="Gateway_0v35wlh" targetRef="Gateway_1hglk1a" />
+    <bpmn:sequenceFlow id="Flow_15xfaa8" name="Yes" sourceRef="Gateway_1hglk1a" targetRef="Send_documents_to_prison">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{hasCustodialResults}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="end_case_results_event" name="end_case_results_event">
+      <bpmn:incoming>Flow_178itsz</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0fpqqce" sourceRef="Send_documents_to_prison" targetRef="Gateway_03zfkcc" />
+    <bpmn:sequenceFlow id="Flow_0npww59" name="false" sourceRef="Gateway_1hglk1a" targetRef="Gateway_03zfkcc">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not hasCustodialResults}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_03zfkcc">
+      <bpmn:incoming>Flow_0fpqqce</bpmn:incoming>
+      <bpmn:incoming>Flow_0npww59</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vcj2wi</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0vcj2wi" sourceRef="Gateway_03zfkcc" targetRef="Gateway_1b9mrha" />
+    <bpmn:serviceTask id="Remove_DDJ_from_hearing" name="Remove DDJ from hearing" camunda:delegateExpression="${removeDDJAccessServiceTask}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="caseId">#{caseId}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingId">#{hearingId}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1gwgcfj</bpmn:incoming>
+      <bpmn:incoming>Flow_148ck6t</bpmn:incoming>
+      <bpmn:outgoing>Flow_10rwmsy</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_10w5h9v" name="Should execute instantly?">
+      <bpmn:incoming>Flow_149hs8f</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gwgcfj</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1ysqlbe</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1gwgcfj" name="true" sourceRef="Gateway_10w5h9v" targetRef="Remove_DDJ_from_hearing">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{executeInstantly}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_10rwmsy" sourceRef="Remove_DDJ_from_hearing" targetRef="Gateway_0snb5vf" />
+    <bpmn:sequenceFlow id="Flow_1ysqlbe" name="false" sourceRef="Gateway_10w5h9v" targetRef="Event_0jiqdb1">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not executeInstantly}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1311pha" sourceRef="start_case_results_event" targetRef="Gateway_0v35wlh" />
+    <bpmn:intermediateCatchEvent id="Event_0jiqdb1" name="28 days">
+      <bpmn:incoming>Flow_1ysqlbe</bpmn:incoming>
+      <bpmn:outgoing>Flow_148ck6t</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1l5f0ri">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P28D</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_148ck6t" sourceRef="Event_0jiqdb1" targetRef="Remove_DDJ_from_hearing" />
+    <bpmn:sequenceFlow id="Flow_018439x" sourceRef="Gateway_0v35wlh" targetRef="Gateway_18nf8w4" />
+    <bpmn:sequenceFlow id="Flow_178itsz" sourceRef="Gateway_1b9mrha" targetRef="end_case_results_event" />
+    <bpmn:parallelGateway id="Gateway_0v35wlh">
+      <bpmn:incoming>Flow_1311pha</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rotx9l</bpmn:outgoing>
+      <bpmn:outgoing>Flow_018439x</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="Gateway_1b9mrha">
+      <bpmn:incoming>Flow_0vcj2wi</bpmn:incoming>
+      <bpmn:incoming>Flow_0pwn90o</bpmn:incoming>
+      <bpmn:outgoing>Flow_178itsz</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="Send_documents_to_prison" name="#{taskName}"
+    camunda:dueDate="#{dueDate}"
+    camunda:workQueue="#{workQueue}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="defendantName">#{defendantName}</camunda:inputParameter>
+          <camunda:inputParameter name="caseId">#{caseId}</camunda:inputParameter>
+          <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingId">#{hearingId}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantId">#{defendantId}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+          <camunda:inputParameter name="jurisdiction">#{jurisdiction}</camunda:inputParameter>
+          <camunda:inputParameter name="note">#{note}</camunda:inputParameter>
+          <camunda:inputParameter name="prisonName">#{prisonName}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantRemandStatus">#{defendantRemandStatus}</camunda:inputParameter>
+          <camunda:inputParameter name="deepLink">#{deepLink}</camunda:inputParameter>
+          <camunda:inputParameter name="taskTypeId">#{taskTypeId}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_15xfaa8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fpqqce</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_18nf8w4" name="Magistrates Court jurisdiction?">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_018439x</bpmn:incoming>
+      <bpmn:outgoing>Flow_149hs8f</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0607cdf</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_149hs8f" name="true" sourceRef="Gateway_18nf8w4" targetRef="Gateway_10w5h9v">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{jurisdiction == "MAGISTRATES"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_0snb5vf">
+      <bpmn:incoming>Flow_10rwmsy</bpmn:incoming>
+      <bpmn:incoming>Flow_0607cdf</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pwn90o</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0pwn90o" sourceRef="Gateway_0snb5vf" targetRef="Gateway_1b9mrha" />
+    <bpmn:sequenceFlow id="Flow_0607cdf" name="Not Magistrates Court Jurisdiction" sourceRef="Gateway_18nf8w4" targetRef="Gateway_0snb5vf">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{jurisdiction != "MAGISTRATES"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="case-results">
+      <bpmndi:BPMNEdge id="Flow_0607cdf_di" bpmnElement="Flow_0607cdf">
+        <di:waypoint x="370" y="395" />
+        <di:waypoint x="370" y="520" />
+        <di:waypoint x="870" y="520" />
+        <di:waypoint x="870" y="395" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="377" y="481" width="85" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pwn90o_di" bpmnElement="Flow_0pwn90o">
+        <di:waypoint x="895" y="370" />
+        <di:waypoint x="975" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_149hs8f_di" bpmnElement="Flow_149hs8f">
+        <di:waypoint x="395" y="370" />
+        <di:waypoint x="525" y="370" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="401" y="352" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_178itsz_di" bpmnElement="Flow_178itsz">
+        <di:waypoint x="1025" y="370" />
+        <di:waypoint x="1082" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_018439x_di" bpmnElement="Flow_018439x">
+        <di:waypoint x="285" y="370" />
+        <di:waypoint x="345" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_148ck6t_di" bpmnElement="Flow_148ck6t">
+        <di:waypoint x="638" y="460" />
+        <di:waypoint x="700" y="460" />
+        <di:waypoint x="700" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1311pha_di" bpmnElement="Flow_1311pha">
+        <di:waypoint x="188" y="370" />
+        <di:waypoint x="235" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ysqlbe_di" bpmnElement="Flow_1ysqlbe">
+        <di:waypoint x="550" y="395" />
+        <di:waypoint x="550" y="460" />
+        <di:waypoint x="602" y="460" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="564" y="433" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10rwmsy_di" bpmnElement="Flow_10rwmsy">
+        <di:waypoint x="750" y="370" />
+        <di:waypoint x="845" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gwgcfj_di" bpmnElement="Flow_1gwgcfj">
+        <di:waypoint x="575" y="370" />
+        <di:waypoint x="650" y="370" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="604" y="352" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vcj2wi_di" bpmnElement="Flow_0vcj2wi">
+        <di:waypoint x="795" y="110" />
+        <di:waypoint x="1000" y="110" />
+        <di:waypoint x="1000" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0npww59_di" bpmnElement="Flow_0npww59">
+        <di:waypoint x="490" y="135" />
+        <di:waypoint x="490" y="193" />
+        <di:waypoint x="770" y="193" />
+        <di:waypoint x="770" y="135" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="619" y="175" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fpqqce_di" bpmnElement="Flow_0fpqqce">
+        <di:waypoint x="690" y="110" />
+        <di:waypoint x="745" y="110" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15xfaa8_di" bpmnElement="Flow_15xfaa8">
+        <di:waypoint x="515" y="110" />
+        <di:waypoint x="590" y="110" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="544" y="92" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rotx9l_di" bpmnElement="Flow_0rotx9l">
+        <di:waypoint x="260" y="345" />
+        <di:waypoint x="260" y="110" />
+        <di:waypoint x="465" y="110" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_case_results_event">
+        <dc:Bounds x="152" y="352" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="136" y="321" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1hglk1a_di" bpmnElement="Gateway_1hglk1a" isMarkerVisible="true">
+        <dc:Bounds x="465" y="85" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="451" y="48" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_case_results_event_di" bpmnElement="end_case_results_event">
+        <dc:Bounds x="1082" y="352" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1066" y="314" width="68" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_03zfkcc_di" bpmnElement="Gateway_03zfkcc" isMarkerVisible="true">
+        <dc:Bounds x="745" y="85" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1cpbkdk_di" bpmnElement="Remove_DDJ_from_hearing">
+        <dc:Bounds x="650" y="330" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_10w5h9v_di" bpmnElement="Gateway_10w5h9v" isMarkerVisible="true">
+        <dc:Bounds x="525" y="345" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="512" y="321" width="77" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00esi96_di" bpmnElement="Event_0jiqdb1">
+        <dc:Bounds x="602" y="442" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="601" y="485" width="40" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1y1q3sa_di" bpmnElement="Gateway_0v35wlh">
+        <dc:Bounds x="235" y="345" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ugx8mn_di" bpmnElement="Gateway_1b9mrha">
+        <dc:Bounds x="975" y="345" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ij39uo_di" bpmnElement="Send_documents_to_prison">
+        <dc:Bounds x="590" y="70" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_18nf8w4_di" bpmnElement="Gateway_18nf8w4" isMarkerVisible="true">
+        <dc:Bounds x="345" y="345" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="326" y="314" width="88" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0snb5vf_di" bpmnElement="Gateway_0snb5vf" isMarkerVisible="true">
+        <dc:Bounds x="845" y="345" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,10 @@
+{
+  "permissions": [
+    {
+      "object": "CTSC_Manager",
+      "action": "Update",
+      "key": "CTSC_Manager_Update",
+      "keyWithOutSource": "CTSC_Manager_Update"
+    }
+  ]
+}

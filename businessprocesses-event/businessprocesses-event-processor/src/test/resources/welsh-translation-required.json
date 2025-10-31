@@ -1,0 +1,10 @@
+{
+  "welshTranslationRequired": {
+    "masterDefendantId": "%masterDefendantId%",
+    "templateName": "test",
+    "defendantName": "testDefenddant",
+    "materialId": "1234",
+    "templateName": "test",
+    "caseURN": "1123"
+  }
+}

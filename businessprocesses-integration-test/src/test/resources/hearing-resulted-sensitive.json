@@ -1,0 +1,243 @@
+{
+  "hearing": {
+    "courtCentre": {
+      "id": "7e967376-eacf-4fca-9b30-21b0c5aad427",
+      "code" : "1234",
+      "name": "Bexley Magistrates' Court",
+      "roomId": "8e912353-3b5d-36c3-953e-ad3b94b19de3",
+      "roomName": "Courtroom 01"
+    },
+    "hasSharedResults": true,
+    "hearingDays": [
+      {
+        "listedDurationMinutes": 20,
+        "listingSequence": 0,
+        "sittingDay": "2019-06-03T10:29:00.000Z"
+      }
+    ],
+    "hearingLanguage": "ENGLISH",
+    "id": "${HEARING_ID}",
+    "jurisdictionType": "MAGISTRATES",
+    "prosecutionCases": [
+      {
+        "defendants": [
+          {
+            "id": "7ba647bd-04b1-44ad-a39d-dfae01158109",
+            "masterDefendantId": "7ba647bd-04b1-44ad-a39d-dfae01158109",
+            "courtProceedingsInitiated": "2019-03-04T14:10:07.239Z",
+            "offences": [
+              {
+                "arrestDate": "2017-12-12",
+                "chargeDate": "2017-12-12",
+                "count": 0,
+                "id": "fd637140-7c86-3c2a-acc2-3ef84d01f794",
+                "allocationDecision":{
+                  "originatingHearingId":"8aaecac5-222b-402d-9047-84803679edac",
+                  "offenceId":"7aaecac5-222b-402d-9047-84803679edac",
+                  "motReasonId": "fd637140-7c86-3c2a-acc2-3ef84d01f795",
+                  "motReasonDescription": "Summary-only offence",
+                  "motReasonCode": "c",
+                  "allocationDecisionDate" : "2019-05-01",
+                  "courtIndicatedSentence" :{
+                    "courtIndicatedSentenceDescription" : "description" ,
+                    "courtIndicatedSentenceTypeId" :"4aaecac5-222b-402d-9047-84803679edac"
+                  },
+                  "sequenceNumber":1
+                },
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "1002",
+                    "courtClerk": {
+                      "firstName": "Erica",
+                      "lastName": "Wilson",
+                      "userId": "a085e359-6069-4694-8820-7810e7dfe762"
+                    },
+                    "delegatedPowers": {
+                      "firstName": "Erica",
+                      "lastName": "Wilson",
+                      "userId": "a085e359-6069-4694-8820-7810e7dfe762"
+                    },
+                    "nextHearing": {
+                      "adjournmentReason": "At request of the prosecution\nReason adasf",
+                      "courtCentre": {
+                        "address": {
+                          "address1": "181 Marylebone Road",
+                          "address2": "London",
+                          "postcode": "NW1 5BR"
+                        },
+                        "courtHearingLocation": "B01IX00",
+                        "id": "67aa82ba-67bb-4699-8176-5f572048352b",
+                        "name": "Westminster Magistrates' Court",
+                        "psaCode": 2570,
+                        "welshName": "Llys Ynadon Westminster"
+                      },
+                      "estimatedMinutes": 11880,
+                      "jurisdictionType": "CROWN",
+                      "listedStartDateTime": "2022-04-11T09:00:00.000Z",
+                      "type": {
+                        "description": "Application",
+                        "id": "3449743b-95d6-4836-8941-57f588b52068"
+                      }
+                    },
+                    "isAdjournmentResult": false,
+                    "isAvailableForCourtExtract": true,
+                    "isConvictedResult": true,
+                    "isFinancialResult": false,
+                    "publishedForNows":  false,
+                    "rollUpPrompts":  false,
+                    "judicialResultId": "dafafd26-e5d7-4f7d-9389-d614c506d160",
+                    "judicialResultTypeId": "7a0932f5-8264-412e-a83c-2b6d1dce1506",
+                    "judicialResultPrompts": [
+                      {
+                        "courtExtract": "Y",
+                        "label": "Imprisonment Period",
+                        "promptSequence": 1,
+                        "usergroups": [
+                          "Legal Advisers",
+                          "Court Clerks"
+                        ],
+                        "value": "2 Years",
+                        "welshLabel": "",
+                        "judicialResultPromptTypeId": "b7a4f98e-80cd-40f6-aeef-2625f2c776be"
+                      },
+                      {
+                        "courtExtract": "Y",
+                        "label": "Prison",
+                        "promptSequence": 10,
+                        "usergroups": [
+                          "Legal Advisers",
+                          "Court Clerks"
+                        ],
+                        "value": "1614",
+                        "welshLabel": "",
+                        "judicialResultPromptTypeId": "dab7161b-4ece-4863-a3ea-0a319bb71d14"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "de91870f-f1e3-4dcd-a8ee-fa409ee34beb",
+                        "label": "Crown Court name",
+                        "promptReference": "crownCourtName",
+                        "promptSequence": 400,
+                        "type": "TXT",
+                        "usergroups": [
+
+                        ],
+                        "value": "croydon",
+                        "welshValue": "croydon"
+                      }
+                    ],
+                    "label": "Imprisonment",
+                    "resultText": "Imprisonment",
+                    "terminatesOffenceProceedings": false,
+                    "lifeDuration": false,
+                    "publishedAsAPrompt": false,
+                    "excludedFromResults": false,
+                    "alwaysPublished": false,
+                    "urgent": false,
+                    "d20": false,
+                    "lastSharedDateTime": "2019-06-03",
+                    "orderedDate": "2019-06-03",
+                    "orderedHearingId": "e1ff9340-7b6c-4d95-883d-c6ca62c45fe7",
+                    "rank": 46,
+                    "usergroups": []
+                  }
+                ],
+                "offenceCode": "CA03012",
+                "offenceDefinitionId": "fd637140-7c86-3c2a-acc2-3ef84d01f794",
+                "offenceTitle": "Possess / control TV set with intent another use install without a licence",
+                "orderIndex": 1,
+                "plea": {
+                  "delegatedPowers": {
+                    "firstName": "Anne",
+                    "lastName": "Green",
+                    "userId": "222768ad-c607-419f-81d5-96a49613475a"
+                  },
+                  "offenceId": "fd637140-7c86-3c2a-acc2-3ef84d01f794",
+                  "originatingHearingId": "f6e8a0b1-bde6-46bc-8a22-978af22b5410",
+                  "pleaDate": "2019-05-31",
+                  "pleaValue": "GUILTY"
+                },
+                "startDate": "2017-12-12",
+                "wording": "On TEST at TEST used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986."
+              },
+              {
+                "arrestDate": "2016-12-12",
+                "chargeDate": "2016-12-12",
+                "count": 0,
+                "id": "4a81b89b-e438-331b-b527-b42d9d6591db",
+                "allocationDecision":
+                {
+                  "allocationDecisionDate" : "2019-05-01",
+                  "courtIndicatedSentence" :{
+                    "courtIndicatedSentenceDescription" : "description" ,
+                    "courtIndicatedSentenceTypeId" :"4aaecac5-222b-402d-9047-84803679edac"
+                  },
+                  "motReasonCode": "01",
+                  "motReasonDescription": "Summary-only offence",
+                  "motReasonId":"6aaecac5-222b-402d-9047-84803679edac",
+                  "offenceId":"7aaecac5-222b-402d-9047-84803679edac",
+                  "originatingHearingId":"8aaecac5-222b-402d-9047-84803679edac",
+                  "sequenceNumber":1
+                },
+                "offenceCode": "CA03013",
+                "offenceDefinitionId": "4a81b89b-e438-331b-b527-b42d9d6591db",
+                "offenceTitle": "Obstruct person executing search warrant for TV receiver",
+                "orderIndex": 22,
+                "startDate": "2016-12-12",
+                "wording": "On TEST at TEST used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986."
+              }
+            ],
+            "personDefendant": {
+              "arrestSummonsNumber": "1706EE0600000000098T",
+              "personDetails": {
+                "address": {
+                  "address1": "175 MALLERTON WAY",
+                  "address2": "DUNSTABLE",
+                  "postcode": "LN5 5TT"
+                },
+                "contact": {
+                  "home": "015324443756"
+                },
+                "dateOfBirth": "2001-01-01",
+                "documentationLanguageNeeds": "ENGLISH",
+                "ethnicity": {
+                  "observedEthnicityCode": "1",
+                  "observedEthnicityDescription": "White - North European",
+                  "observedEthnicityId": "c4ca4238-a0b9-3382-8dcc-509a6f75849b",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "c4ca4238-a0b9-3382-8dcc-509a6f75849b"
+                },
+                "firstName": "John",
+                "gender": "MALE",
+                "lastName": "Smith",
+                "nationalityCode": "GBR",
+                "occupation": "Accountant",
+                "occupationCode": "2201",
+                "title": "MR"
+              }
+            },
+            "prosecutionCaseId": "55df6649-8c4d-4614-a1db-a54b70cdc306"
+          }
+        ],
+        "id": "55df6649-8c4d-4614-a1db-a54b70cdc306",
+        "initiationCode": "C",
+        "originatingOrganisation": "B01BH00",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityCode": "B01BH00",
+          "prosecutionAuthorityId": "6b7b9adc-ccee-4b13-b2c7-499c28e98963",
+          "caseURN": "76GD6351219"
+        }
+      }
+    ],
+    "type": {
+      "description": "First hearing",
+      "id": "4a0e892d-c0c5-3c51-95b8-704d8c781776"
+    }
+  },
+  "sharedTime": "2019-06-03T15:14:14.438Z",
+  "hearingDay": "2019-06-03",
+  "isReshare": false
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://moj.gov.uk/cpp/businessprocesses/defendant/taskDefendant.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "defendantId": {
+      "type": "string",
+      "description": "The unique identifier for the defendant (alias for id)."
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName"
+  ],
+  "oneOf": [
+    {
+      "required": [
+        "id"
+      ]
+    },
+    {
+      "required": [
+        "defendantId"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+package uk.gov.moj.cpp.businessprocesses.persistence;
+
+import static java.util.UUID.randomUUID;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
+import uk.gov.justice.services.common.util.UtcClock;
+import uk.gov.moj.cpp.businessprocesses.persistence.entity.TaskEntity;
+import uk.gov.moj.cpp.businessprocesses.persistence.entity.TaskHistoryEntity;
+import uk.gov.moj.cpp.businessprocesses.persistence.repository.TaskHistoryRepository;
+
+import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.UUID;
+
+import javax.inject.Inject;
+
+import org.apache.deltaspike.testcontrol.api.junit.CdiTestRunner;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+@RunWith(CdiTestRunner.class)
+public class TaskHistoryRepositoryTest {
+
+    private static final UUID taskHistoryId = randomUUID();
+    private static final UUID taskId = randomUUID();
+    private static final ZonedDateTime eventDate = new UtcClock().now();
+    private static final String eventType = "Hearing";
+    private static final String changeAuthor = "John";
+
+    private static final String reference = "TFL4359536";
+    private static final String type = "Hearing";
+    private static final ZonedDateTime createdDate = new UtcClock().now();
+    private static final ZonedDateTime dueDate = new UtcClock().now();
+    private static final ZonedDateTime completedDate = new UtcClock().now();
+    private static final String status = "ACTIVE";
+    private static final UUID workQueue = randomUUID();
+    private static final UUID courtId = randomUUID();
+    private static final String jurisdiction = "MAGISTRATES";
+    private static final String details = "Assigned to: Bob Smith";
+    private static final ZonedDateTime hearingDate = new UtcClock().now();
+
+    @Inject
+    private TaskHistoryRepository taskHistoryRepository;
+
+    @Before
+    public void setup() {
+        taskHistoryRepository.save(createTaskHistoryEntity());
+    }
+
+    @Test
+    public void shouldFindTaskHistoryById() {
+
+        // When
+        taskHistoryRepository.save(createTaskHistoryEntity());
+        final List<TaskHistoryEntity> taskHistoryEntities = taskHistoryRepository.findById(taskHistoryId);
+
+        final TaskHistoryEntity taskHistoryEntity = taskHistoryEntities.get(0);
+        // Then
+        assertThat(taskHistoryEntity.getId(), equalTo(taskHistoryId));
+        assertThat(taskHistoryEntity.getEventDate(), equalTo(eventDate));
+        assertThat(taskHistoryEntity.getEventType(), equalTo(eventType));
+        assertThat(taskHistoryEntity.getDetails(), equalTo(details));
+        assertThat(taskHistoryEntity.getChangeAuthor(), equalTo(changeAuthor));
+
+        final TaskEntity taskEntity = taskHistoryEntity.getTask();
+        assertThat(taskEntity.getTaskId(), equalTo(taskId));
+        assertThat(taskEntity.getReference(), equalTo(reference));
+        assertThat(taskEntity.getType(), equalTo(type));
+        assertThat(taskEntity.getCreatedDate(), equalTo(createdDate));
+        assertThat(taskEntity.getDueDate(), equalTo(dueDate));
+        assertThat(taskEntity.getCompletedDate(), equalTo(completedDate));
+        assertThat(taskEntity.getStatus(), equalTo(status));
+        assertThat(taskEntity.getWorkqueue(), equalTo(workQueue));
+        assertThat(taskEntity.getCourtId(), equalTo(courtId));
+        assertThat(taskEntity.getJurisdiction(), equalTo(jurisdiction));
+        assertThat(taskEntity.getHearingDate(), equalTo(hearingDate));
+    }
+
+    @Test
+    public void shouldFindTaskHistoryByTaskId() {
+
+        // When
+        taskHistoryRepository.save(createTaskHistoryEntity());
+        final List<TaskHistoryEntity> taskHistoryEntities = taskHistoryRepository.findByTaskId(taskId);
+
+        final TaskHistoryEntity taskHistoryEntity = taskHistoryEntities.get(0);
+        // Then
+        assertThat(taskHistoryEntity.getId(), equalTo(taskHistoryId));
+        assertThat(taskHistoryEntity.getEventDate(), equalTo(eventDate));
+        assertThat(taskHistoryEntity.getEventType(), equalTo(eventType));
+        assertThat(taskHistoryEntity.getDetails(), equalTo(details));
+        assertThat(taskHistoryEntity.getChangeAuthor(), equalTo(changeAuthor));
+
+        final TaskEntity taskEntity = taskHistoryEntity.getTask();
+        assertThat(taskEntity.getTaskId(), equalTo(taskId));
+        assertThat(taskEntity.getReference(), equalTo(reference));
+        assertThat(taskEntity.getType(), equalTo(type));
+        assertThat(taskEntity.getCreatedDate(), equalTo(createdDate));
+        assertThat(taskEntity.getDueDate(), equalTo(dueDate));
+        assertThat(taskEntity.getCompletedDate(), equalTo(completedDate));
+        assertThat(taskEntity.getStatus(), equalTo(status));
+        assertThat(taskEntity.getWorkqueue(), equalTo(workQueue));
+        assertThat(taskEntity.getCourtId(), equalTo(courtId));
+        assertThat(taskEntity.getJurisdiction(), equalTo(jurisdiction));
+        assertThat(taskEntity.getHearingDate(), equalTo(hearingDate));
+    }
+
+    private TaskHistoryEntity createTaskHistoryEntity() {
+        TaskHistoryEntity taskHistoryEntity = new TaskHistoryEntity();
+        taskHistoryEntity.setId(taskHistoryId);
+        taskHistoryEntity.setDetails(details);
+        taskHistoryEntity.setEventDate(eventDate);
+        taskHistoryEntity.setEventType(eventType);
+        taskHistoryEntity.setChangeAuthor(changeAuthor);
+        taskHistoryEntity.setTask(createTaskEntity());
+        return taskHistoryEntity;
+    }
+
+    private TaskEntity createTaskEntity() {
+        TaskEntity taskEntity = new TaskEntity();
+        taskEntity.setTaskId(taskId);
+        taskEntity.setReference(reference);
+        taskEntity.setType(type);
+        taskEntity.setCreatedDate(createdDate);
+        taskEntity.setDueDate(dueDate);
+        taskEntity.setCompletedDate(completedDate);
+        taskEntity.setStatus(status);
+        taskEntity.setWorkqueue(workQueue);
+        taskEntity.setCourtId(courtId);
+        taskEntity.setJurisdiction(jurisdiction);
+        taskEntity.setHearingDate(hearingDate);
+        return taskEntity;
+    }
+
+}

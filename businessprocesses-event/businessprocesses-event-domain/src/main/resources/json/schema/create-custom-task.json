@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://moj.gov.uk/cpp/businessprocesses/create/create-custom-task.json",
+  "type": "object",
+  "properties": {
+    "displayName": {
+      "type": "string"
+    },
+    "taskName": {
+      "type": "string"
+    },
+    "due": {
+      "type": "string"
+    },
+    "caseURN": {
+      "type": "string"
+    },
+    "assignee": {
+      "type": "string"
+    },
+    "candidateGroups": {
+      "type": "string"
+    },
+    "isDeletable": {
+      "type": "boolean"
+    },
+    "isDeferrable": {
+      "type": "boolean"
+    },
+    "caseId": {
+      "type": "string"
+    },
+    "caseTag": {
+      "type": "string"
+    },
+    "workQueue": {
+      "type": "string"
+    },
+    "deepLink": {
+      "type": "string"
+    },
+    "businessUnitCodes": {
+      "type": "string"
+    },
+    "courtCodes": {
+      "type": "string"
+    },
+    "isUrgent": {
+      "type": "boolean"
+    },
+    "defendants": {
+      "type": "array",
+      "items": {
+        "$ref": "http://moj.gov.uk/cpp/businessprocesses/defendant/taskDefendant.json"
+      }
+    },
+    "comment": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

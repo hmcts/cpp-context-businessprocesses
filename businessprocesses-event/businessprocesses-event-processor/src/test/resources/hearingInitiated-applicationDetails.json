@@ -1,0 +1,29 @@
+{
+  "hearingId": "f16f6539-2a7c-4bc8-bca3-f1b17ebcfa46",
+  "jurisdictionType": "${JURISDICTION_TYPE}",
+  "hearingDateTime": "2022-08-24T01:46:36.068Z",
+  "applicationDetails": [
+    {
+      "applicationId": "${APPLICATION_ID}",
+      "applicationReference": "${APPLICATION_REF1}",
+      "subject": {
+        "defendantId": "32ff0722-c287-11e9-9cb5-2a2ae2dbcce4",
+        "defendantFirstName": "Abbie",
+        "defendantLastName": "ARMSTRONG",
+        "defendantRemandStatus": "status",
+        "interpreterLanguageNeeds": "${LANG1}"
+      }
+    },
+    {
+      "applicationId": "11ff0744-c347-66e9-8bb5-3b1ae2dbcce4",
+      "applicationReference": "${APPLICATION_REF2}",
+      "subject": {
+        "defendantId": "42ee0722-d286-22e9-8cb5-2a2ae3dbcce9",
+        "defendantFirstName": "John",
+        "defendantLastName": "Doe",
+        "defendantRemandStatus": "status",
+        "interpreterLanguageNeeds": "${LANG2}"
+      }
+    }
+  ]
+}

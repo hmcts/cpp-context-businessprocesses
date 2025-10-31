@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/bpm/json/schemas/prosecution.json",
+  "type": "object",
+  "description": "Prosecution Case File Details",
+  "properties": {
+    "caseDetails": {
+      "$ref": "http://justice.gov.uk/bpm/json/schemas/case-details.json"
+    },
+    "defendants": {
+      "type": "array",
+      "items": {
+        "$ref": "http://justice.gov.uk/bpm/json/schemas/defendant.json"
+      }
+    },
+    "channel": {
+      "type": "string",
+      "$ref": "http://justice.gov.uk/bpm/json/schemas/bpm-definitions.json#/definitions/channel"
+    }
+  },
+  "required": [
+    "caseDetails",
+    "defendants",
+    "channel"
+  ],
+  "additionalProperties": false
+}

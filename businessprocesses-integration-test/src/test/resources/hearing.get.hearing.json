@@ -1,0 +1,120 @@
+{
+  "hearing": {
+    "applicantCounsels": [],
+    "approvalsRequested": [],
+    "companyRepresentatives": [],
+    "courtCentre": {
+      "id": "f8254db1-1683-483e-afb3-b87fde5a0a26",
+      "name": "Lavender Hill Magistrates' Court",
+      "roomId": "9e4932f7-97b2-3010-b942-ddd2624e4dd8",
+      "roomName": "Courtroom 01"
+    },
+    "defenceCounsels": [],
+    "defendantAttendance": [],
+    "defendantReferralReasons": [],
+    "hasSharedResults": false,
+    "hearingCaseNotes": [],
+    "hearingDays": [
+      {
+        "courtCentreId": "f8254db1-1683-483e-afb3-b87fde5a0a26",
+        "courtRoomId": "9e4932f7-97b2-3010-b942-ddd2624e4dd8",
+        "isCancelled": false,
+        "listedDurationMinutes": 20,
+        "listingSequence": 0,
+        "sittingDay": "2024-07-12T09:30:00.000Z"
+      }
+    ],
+    "hearingLanguage": "ENGLISH",
+    "id": "${HEARING_ID}",
+    "intermediaries": [],
+    "isVacatedTrial": false,
+    "judiciary": [],
+    "jurisdictionType": "MAGISTRATES",
+    "prosecutionCases": [
+      {
+        "caseMarkers": [],
+        "caseStatus": "ACTIVE",
+        "defendants": [
+          {
+            "associatedPersons": [],
+            "courtProceedingsInitiated": "2024-07-11T07:13:49.356Z",
+            "id": "cee52543-8b97-43dd-aeb0-891d47e9ae32",
+            "isYouth": true,
+            "masterDefendantId": "cee52543-8b97-43dd-aeb0-891d47e9ae32",
+            "offences": [
+              {
+                "arrestDate": "2024-07-10",
+                "chargeDate": "2024-07-10",
+                "count": 0,
+                "endorsableFlag": false,
+                "id": "12f6967a-e40b-4028-80db-06e43f7ae597",
+                "introducedAfterInitialProceedings": false,
+                "isDiscontinued": false,
+                "listingNumber": 1,
+                "modeOfTrial": "Either Way",
+                "offenceCode": "TH68037",
+                "offenceDefinitionId": "83858ae3-7aa4-33ce-a179-04d9941e6b8f",
+                "offenceLegislation": "Contrary to section 9(1)(b) of the Theft Act 1968.",
+                "offenceLegislationWelsh": "Yn groes i adran 9(1)(b) Deddf Dwyn 1968.",
+                "offenceTitle": "Burglary other than dwelling - theft",
+                "offenceTitleWelsh": "Bwrglera heb fod mewn annedd - dwyn",
+                "orderIndex": 1,
+                "proceedingsConcluded": false,
+                "reportingRestrictions": [
+                  {
+                    "id": "069c4ed2-2405-41f0-aa04-a231d0b8f98a",
+                    "label": "Section 49 of the Children and Young Persons Act 1933 applies",
+                    "orderedDate": "2024-07-11"
+                  }
+                ],
+                "startDate": "2024-07-09",
+                "wording": "On or in 09 Jul 2024 at london having entered as a trespasser a building, namely apartment 123, stole therein laptop of a value unknown ."
+              }
+            ],
+            "personDefendant": {
+              "arrestSummonsNumber": "123457",
+              "bailStatus": {
+                "code": "A",
+                "description": "Not applicable",
+                "id": "86009c70-759d-3308-8de4-194886ff9a77"
+              },
+              "personDetails": {
+                "address": {
+                  "address1": "No fixed abode"
+                },
+                "dateOfBirth": "2020-01-01",
+                "documentationLanguageNeeds": "ENGLISH",
+                "firstName": "FN123456",
+                "gender": "NOT_SPECIFIED",
+                "lastName": "LN123456",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "British",
+                "nationalityId": "49433158-3542-49c8-a9af-581a0e746152",
+                "title": "Mr"
+              }
+            },
+            "proceedingsConcluded": false,
+            "prosecutionCaseId": "dfb62af9-1b31-48f6-9994-760a6e1a53dd"
+          }
+        ],
+        "id": "${PROSECUTION_CASE_ID}",
+        "initiationCode": "C",
+        "originatingOrganisation": "0350000",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityCode": "CAMPF",
+          "prosecutionAuthorityId": "317c62c0-eaad-3ca8-b9cf-dea1dba9b5f8",
+          "caseURN": "CAWBTCVEHB"
+        }
+      }
+    ],
+    "prosecutionCounsels": [],
+    "respondentCounsels": [],
+    "type": {
+      "description": "First hearing",
+      "id": "4a0e892d-c0c5-3c51-95b8-704d8c781776"
+    },
+    "youthCourtDefendantIds": []
+  },
+  "hearingState": "INITIALISED",
+  "witnesses": []
+}

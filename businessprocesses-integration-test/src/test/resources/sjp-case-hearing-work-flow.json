@@ -1,0 +1,19 @@
+{
+  "workFlowTaskTypes": [
+    {
+      "id": "a740ed98-31c3-43cb-9a5f-e5629e7f540c",
+      "seqNum": 10,
+      "taskName": "taskSendEmail",
+      "displayName": "Send A Email",
+      "taskGroup": "Legal Advisers, Court Administrators",
+      "isDeletable": false,
+      "isDeferrable": false,
+      "duration": 5,
+      "followUpInterval": 4,
+      "validFrom": "2020-10-01",
+      "validTo": "2030-09-30",
+      "deepLink": "https://dummyUrl/prosecution-casefile/case-at-a-glance/",
+      "workQueue": "SJPWorkQueue"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "caseId": "bfd45440-c32d-11eb-91bd-08002783bfed",
+  "caseContext": {
+    "id": "afd45440-c32d-11eb-91bd-08002783bfed",
+    "type": "context"
+  },
+  "draftCorrespondenceId": "cfd45440-c32d-11eb-91bd-08002783bfed",
+  "documentId": "dfd45440-c32d-11eb-91bd-08002783bfee",
+  "notificationId": "dfd45440-c32d-11eb-91bd-08002783bfed",
+  "failedTime": "2022-06-29",
+  "errorMessage": "Some message",
+  "statusCode": 1
+}

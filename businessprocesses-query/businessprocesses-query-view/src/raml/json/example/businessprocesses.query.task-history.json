@@ -1,0 +1,24 @@
+{
+  "taskId": "6a181e19-0cdb-40f2-9088-3e761dd87d12",
+  "history": [
+    {
+      "id": "b24090d5-5d8d-4b69-9ecc-bba4f4b61b66",
+      "eventType": "CREATED",
+      "eventDate": "2022-08-01T09:46:36.045Z",
+      "changeAuthor": "Bill Smith"
+    },
+    {
+      "id": "dce3ff70-ed34-4289-818e-8fc009c1357a",
+      "eventType": "ASSIGNED",
+      "eventDate": "2022-08-02T11:24:36.031Z",
+      "changeAuthor": "Dave Jones",
+      "details": "Assigned to: Bob Smith"
+    },
+    {
+      "id": "2721fa09-270e-4bdb-a0b8-3614be1beb1b",
+      "eventType": "COMPLETED",
+      "eventDate": "2022-08-04T14:11:22.065Z",
+      "changeAuthor": "Jessica Dox"
+    }
+  ]
+}

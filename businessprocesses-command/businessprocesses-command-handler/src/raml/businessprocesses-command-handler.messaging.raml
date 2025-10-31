@@ -1,0 +1,24 @@
+#%RAML 0.8
+title: Business Processes Command handler
+version: 1.0
+baseUri: message://command/handler/message/businessprocesses
+
+/businessprocesses.handler.command:
+  post:
+      body:
+        application/vnd.businessprocesses.command.record-task-created+json:
+          example:  !include json/businessprocesses.command.record-task-created.json
+          schema: !include json/schema/businessprocesses.command.record-task-created.json
+        application/vnd.businessprocesses.command.record-task-assigned+json:
+          example: !include json/businessprocesses.command.record-task-assigned.json
+          schema: !include json/schema/businessprocesses.command.record-task-assigned.json
+        application/vnd.businessprocesses.command.record-task-completed+json:
+          example: !include json/businessprocesses.command.record-task-completed.json
+          schema: !include json/schema/businessprocesses.command.record-task-completed.json
+        application/vnd.businessprocesses.command.record-task-deleted+json:
+          example: !include json/businessprocesses.command.record-task-deleted.json
+          schema: !include json/schema/businessprocesses.command.record-task-deleted.json
+        application/vnd.businessprocesses.command.record-task-updated+json:
+          example: !include json/businessprocesses.command.record-task-updated.json
+          schema: !include json/schema/businessprocesses.command.record-task-updated.json
+

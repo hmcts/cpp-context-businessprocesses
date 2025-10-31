@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/bpm/public.bpm.financial-means-information-deleted.json",
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "type": "string"
+    },
+    "defendantId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "caseId",
+    "defendantId"
+  ]
+}

@@ -1,0 +1,11 @@
+subscriptions_descriptor:
+  spec_version: 1.0.0
+  service: businessprocesses
+  service_component: EVENT_PROCESSOR
+  subscriptions:
+    - name: public event processor emmited events
+      events:
+        - name: public.bpm.financial-means-information-deleted
+          schema_uri: http://justice.gov.uk/bpm/public.bpm.financial-means-information-deleted.json
+
+      event_source_name: public.event.source

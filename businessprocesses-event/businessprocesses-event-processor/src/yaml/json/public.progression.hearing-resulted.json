@@ -1,0 +1,168 @@
+{
+  "hearing": {
+    "id": "a5ca6c3b-6c47-400f-acfb-4eea9cb45701",
+    "courtCentre": {
+      "id": "d2ca6c3b-6c47-400f-acfb-6eea9cb45705",
+      "name": "whEYt5pGLz",
+      "roomId": "b1355956-eaa5-47ba-bb85-48eef368fa5d",
+      "roomName": "fjm8yfzGGJ"
+    },
+    "hearingDays": [
+      {
+        "sittingDay": "2022-10-04T12:00:15.351Z",
+        "listedDurationMinutes": 0
+      },
+      {
+        "sittingDay": "2022-10-05T12:00:15.351Z",
+        "listedDurationMinutes": 0
+      }
+    ],
+    "jurisdictionType": "CROWN",
+    "prosecutionCases": [
+      {
+        "id": "ffca6c3b-6c47-400f-acfb-feea9cb457ff",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
+          "prosecutionAuthorityCode": "TFL",
+          "prosecutionAuthorityReference": "TFL1234232"
+        },
+        "originatingOrganisation": "G01FT01AB",
+        "initiationCode": "J",
+        "caseStatus": "ACTIVE",
+        "defendants": [
+          {
+            "id": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "masterDefendantId": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "prosecutionCaseId": "ffca6c3b-6c47-400f-acfb-feea9cb457ff",
+            "courtProceedingsInitiated": "2020-01-12T05:27:17.210Z",
+            "personDefendant": {
+              "bailStatus": {
+                "code": "B",
+                "description": "REMAND_CUSTODY",
+                "id": "dd4073b6-22be-3875-9d63-5da286bb3ece"
+              },
+              "personDetails": {
+                "title": "MR",
+                "firstName": "Eric",
+                "middleName": "John",
+                "lastName": "Smith",
+                "dateOfBirth": "2002-01-10",
+                "nationalityId": "2c2ef05b-6819-44ea-aa5d-c46247ed44c2",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "United Kingdom",
+                "additionalNationalityId": "743db214-2a0f-4192-9081-ad03e56126ea",
+                "additionalNationalityCode": "USA",
+                "additionalNationalityDescription": "United States Of America",
+                "ethnicity": {
+                  "observedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "observedEthnicityCode": "W1",
+                  "observedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British"
+                },
+                "gender": "MALE",
+                "documentationLanguageNeeds": "ENGLISH",
+                "nationalInsuranceNumber": "NH195839C",
+                "occupation": "Rail Transport Operative",
+                "occupationCode": "82340",
+                "address": {
+                  "address1": "Flat 4",
+                  "address2": "17 Oldberry Road",
+                  "address3": "Edgeware",
+                  "address4": "Middlesex",
+                  "address5": "London",
+                  "postcode": "HA8 9DA"
+                },
+                "contact": {
+                  "mobile": "07973 824240",
+                  "primaryEmail": "teddy_harrison@hotmail.com"
+                }
+              }
+            },
+            "offences": [
+              {
+                "id": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                "offenceDefinitionId": "490dce00-8591-49af-b2d0-1e161e7d0c36",
+                "wording": "No Travel Card",
+                "wordingWelsh": "No Travel Card In Welsh",
+                "startDate": "2018-01-01",
+                "endDate": "2018-01-01",
+                "arrestDate": "2018-01-01",
+                "chargeDate": "2018-01-01",
+                "orderIndex": 1,
+                "offenceCode": "TTH105HY",
+                "offenceTitle": "ROBBERY",
+                "count": 0,
+                "notifiedPlea": {
+                  "offenceId": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                  "notifiedPleaDate": "2018-04-01",
+                  "notifiedPleaValue": "NOTIFIED_GUILTY"
+                },
+                "offenceFacts": {
+                  "vehicleRegistration": "AA12345",
+                  "alcoholReadingAmount": 111,
+                  "alcoholReadingMethodCode": "2222"
+                },
+                "offenceDateCode": 4,
+                "maxPenalty": "Max Penalty",
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "12345",
+                    "orderedHearingId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                    "label": "a",
+                    "welshLabel": "a",
+                    "isAdjournmentResult": true,
+                    "isFinancialResult": true,
+                    "isConvictedResult": true,
+                    "isAvailableForCourtExtract": true,
+                    "amendmentReasonId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                    "amendmentReason": "a",
+                    "amendmentDate": "0000-01-01",
+                    "rank": 0.1,
+                    "orderedDate": "0000-01-01",
+                    "lastSharedDateTime": "a",
+                    "courtClerk": {
+                      "userId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                      "firstName": "a",
+                      "lastName": "a"
+                    },
+                    "delegatedPowers": {
+                      "userId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                      "firstName": "a",
+                      "lastName": "a"
+                    },
+                    "fourEyesApproval": {
+                      "userId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                      "firstName": "a",
+                      "lastName": "a"
+                    },
+                    "approvedDate": "0000-01-01",
+                    "usergroups": [
+                      "a"
+                    ],
+                    "judicialResultPrompts": [
+                      {
+                        "label": "a",
+                        "isAvailableForCourtExtract": true,
+                        "welshLabel": "a",
+                        "value": "a",
+                        "promptSequence": 0.1,
+                        "promptReference": "a",
+                        "usergroups": [
+                          "a"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sharedTime": "2016-06-01T10:00:00Z"
+}

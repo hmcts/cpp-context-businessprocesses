@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/hearing/json/schema/event/public-hearing-trial-vacated.json",
+  "type": "object",
+  "properties": {
+    "hearingId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "jurisdictionType": {
+      "$ref": "http://justice.gov.uk/core/courts/jurisdictionType.json"
+    },
+    "vacatedTrialReasonId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "hasInterpreter": {
+      "description": "Optional field, for when trial is vacated. TRUE if one or more interpreters are required for hearing",
+      "type": "boolean"
+    },
+    "hearingDateTime:": {
+      "description": "Optional field, for when trial is vacated. The first sitting day (date/time) of the hearing",
+      "type": "string",
+      "format": "date-time"
+    },
+    "caseDetails": {
+      "description": "Optional field, for when trial is vacated. Core case and defendant information",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/hearingCaseDetail"
+      }
+    },
+    "applicationDetails": {
+      "description": "Optional field, for when trial is vacated. Core case and defendant information",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/hearingApplicationDetail"
+      }
+    }
+  },
+  "required": [
+    "hearingId"
+  ],
+  "definitions": {
+    "hearingCaseDetail": {
+      "type": "object",
+      "properties": {
+        "caseId": {
+          "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+        },
+        "caseUrn": {
+          "type": "string"
+        },
+        "defendantDetails": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "defendantId": {
+              "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+            },
+            "defendantFirstName": {
+              "type": "string"
+            },
+            "defendantLastName": {
+              "type": "string"
+            },
+            "defendantRemandStatus": {
+              "type": "string"
+            },
+            "interpreterLanguageNeeds": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "hearingApplicationDetail": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+        },
+        "applicationReference": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "object",
+          "properties": {
+            "defendantId": {
+              "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"        },
+            "defendantFirstName": {
+              "type": "string"
+            },
+            "defendantLastName": {
+              "type": "string"
+            },
+            "defendantRemandStatus": {
+              "type": "string"
+            },
+            "interpreterLanguageNeeds": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

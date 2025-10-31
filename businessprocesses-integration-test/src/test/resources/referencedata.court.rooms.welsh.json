@@ -1,0 +1,60 @@
+{
+  "id": "%COURT_ROOM_ID%",
+  "oucode": "%OUCODE%",
+  "lja": "3260",
+  "oucodeL1Code": "B",
+  "oucodeL1Name": "Magistrates' Courts",
+  "oucodeL3Name": "Merthyr Tydfil Magistrates' Court",
+  "oucodeL3WelshName": "Llys Ynadon Merthyr Tudful",
+  "address1": "The Law Courts",
+  "address2": "Glebeland Place",
+  "address3": "Merthyr Tydfil",
+  "postcode": "CF47 8BU",
+  "welshAddress1": "Y Llysoedd Barn",
+  "welshAddress2": "Glebeland Place",
+  "welshAddress3": "Merthyr Tudful",
+  "defaultStartTime": "10:00:00",
+  "defaultDurationHrs": "07:00:00",
+  "isWelsh": true,
+  "oucodeL2Code": "62",
+  "oucodeL2Name": "South Wales",
+  "region": "Wales",
+  "courtrooms": [
+    {
+      "id": "c89e64d6-a53c-3f73-9e04-b6dc6a90d577",
+      "venueName": "LLANDRINDOD WELLS JUSTICE CENTRE",
+      "courtroomId": 1461,
+      "courtroomName": "Courtroom 01",
+      "venueId": 286,
+      "welshVenueName": "Canolfan Gyfiawnder Llandrindod",
+      "welshCourtroomName": "Ystafell Llys 01"
+    },
+    {
+      "id": "c0d08630-7ef8-356b-8ba3-59f4ba0144ed",
+      "venueName": "MERTHYR TYDFIL COMBINED COURT",
+      "courtroomId": 1654,
+      "courtroomName": "Magistrates' 1",
+      "venueId": 317,
+      "welshVenueName": "Llys Cyfunedig Merthyr Tudful",
+      "welshCourtroomName": "Llys Ynadon 1"
+    },
+    {
+      "id": "59d0cd20-6a97-3768-9498-c846e123b2f6",
+      "venueName": "MERTHYR TYDFIL COMBINED COURT",
+      "courtroomId": 1655,
+      "courtroomName": "Magistrates' 2",
+      "venueId": 317,
+      "welshVenueName": "Llys Cyfunedig Merthyr Tudful",
+      "welshCourtroomName": "Llys Ynadon 2"
+    },
+    {
+      "id": "4aa36ee2-d1c6-381b-be8e-f8f6336f5ede",
+      "venueName": "MERTHYR TYDFIL COMBINED COURT",
+      "courtroomId": 1656,
+      "courtroomName": "Magistrates' 3",
+      "venueId": 317,
+      "welshVenueName": "Llys Cyfunedig Merthyr Tudful",
+      "welshCourtroomName": "Llys Ynadon 3"
+    }
+  ]
+}

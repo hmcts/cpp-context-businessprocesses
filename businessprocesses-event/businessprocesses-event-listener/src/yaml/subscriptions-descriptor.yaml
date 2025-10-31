@@ -1,0 +1,28 @@
+subscriptions_descriptor:
+  spec_version: 1.0.0
+  service: businessprocesses
+  service_component: EVENT_LISTENER
+  subscriptions:
+
+    - name: businessprocesses.event.source
+      events:
+        - name: businessprocesses.event.task-created
+          schema_uri: http://justice.gov.uk/json/schemas/businessprocesses/event/task-created.json
+
+        - name: businessprocesses.event.task-completed
+          schema_uri: http://justice.gov.uk/json/schemas/businessprocesses/event/task-completed.json
+
+        - name: businessprocesses.event.task-deleted
+          schema_uri: http://justice.gov.uk/json/schemas/businessprocesses/event/task-deleted.json
+
+        - name: businessprocesses.event.task-assigned
+          schema_uri: http://justice.gov.uk/json/schemas/businessprocesses/event/task-assigned.json
+
+        - name: businessprocesses.event.task-due-date-updated
+          schema_uri: http://justice.gov.uk/json/schemas/businessprocesses/event/task-due-date-updated.json
+
+        - name: businessprocesses.event.task-workqueue-updated
+          schema_uri: http://justice.gov.uk/json/schemas/businessprocesses/event/task-workqueue-updated.json
+
+
+      event_source_name: businessprocesses.event.source

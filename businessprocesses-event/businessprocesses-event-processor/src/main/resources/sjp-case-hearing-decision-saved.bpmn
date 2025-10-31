@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_05gzg1z" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" camunda:diagramRelationId="7a1fccdc-d71a-47df-b03b-6e05586f253e">
+  <bpmn:process id="sjp-case-hearing-decision-saved" name="sjp-case-hearing-decision-saved" isExecutable="true">
+    <bpmn:extensionElements />
+    <bpmn:startEvent id="start_sjp_case_hearing_decision_saved_event" name="start_sjp_case_hearing_decision_saved_event">
+      <bpmn:outgoing>Flow_0790fby</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="referCourtHearing" name="Refer Court Hearing">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="referCourtHearing" value="#{referCourtHearing}" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0790fby</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qmejll</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1dp1k5t</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0790fby" sourceRef="start_sjp_case_hearing_decision_saved_event" targetRef="referCourtHearing" />
+    <bpmn:sequenceFlow id="Flow_1qmejll" name="true" sourceRef="referCourtHearing" targetRef="Refer_SJS_case_for_hearing">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{referCourtHearing}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="Refer_SJS_case_for_hearing" name="#{taskName}"
+    camunda:dueDate="#{dueDate}"
+    camunda:workQueue="#{workQueue}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="caseId">#{caseId}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantId">#{defendantId}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantName">#{defendantName}</camunda:inputParameter>
+          <camunda:inputParameter name="deepLink">#{deepLink}</camunda:inputParameter>
+          <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+          <camunda:inputParameter name="taskTypeId">#{taskTypeId}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1qmejll</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fzrs82</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_06xyn7d">
+      <bpmn:incoming>Flow_0fzrs82</bpmn:incoming>
+      <bpmn:incoming>Flow_1dp1k5t</bpmn:incoming>
+      <bpmn:outgoing>Flow_0snho2l</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0fzrs82" sourceRef="Refer_SJS_case_for_hearing" targetRef="Gateway_06xyn7d" />
+    <bpmn:endEvent id="end_sjp_case_hearing_decision_saved_event" name="end_sjp_case_hearing_decision_saved_event">
+      <bpmn:incoming>Flow_0snho2l</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0snho2l" sourceRef="Gateway_06xyn7d" targetRef="end_sjp_case_hearing_decision_saved_event" />
+    <bpmn:sequenceFlow id="Flow_1dp1k5t" name="false" sourceRef="referCourtHearing" targetRef="Gateway_06xyn7d">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not referCourtHearing}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sjp-case-hearing-decision-saved">
+      <bpmndi:BPMNEdge id="Flow_1dp1k5t_di" bpmnElement="Flow_1dp1k5t">
+        <di:waypoint x="290" y="175" />
+        <di:waypoint x="290" y="260" />
+        <di:waypoint x="550" y="260" />
+        <di:waypoint x="550" y="175" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="408" y="242" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0snho2l_di" bpmnElement="Flow_0snho2l">
+        <di:waypoint x="575" y="150" />
+        <di:waypoint x="632" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fzrs82_di" bpmnElement="Flow_0fzrs82">
+        <di:waypoint x="470" y="150" />
+        <di:waypoint x="525" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qmejll_di" bpmnElement="Flow_1qmejll">
+        <di:waypoint x="315" y="150" />
+        <di:waypoint x="370" y="150" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="334" y="132" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0790fby_di" bpmnElement="Flow_0790fby">
+        <di:waypoint x="215" y="150" />
+        <di:waypoint x="265" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_06sqhhy_di" bpmnElement="start_sjp_case_hearing_decision_saved_event">
+        <dc:Bounds x="179" y="132" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="154" y="175" width="86" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0yczmyl_di" bpmnElement="referCourtHearing" isMarkerVisible="true">
+        <dc:Bounds x="265" y="125" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="267" y="80" width="57" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0t4itmc_di" bpmnElement="Refer_SJS_case_for_hearing">
+        <dc:Bounds x="370" y="110" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_06xyn7d_di" bpmnElement="Gateway_06xyn7d" isMarkerVisible="true">
+        <dc:Bounds x="525" y="125" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_sjp_case_hearing_decision_saved_event_di" bpmnElement="end_sjp_case_hearing_decision_saved_event">
+        <dc:Bounds x="632" y="132" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="609" y="175" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

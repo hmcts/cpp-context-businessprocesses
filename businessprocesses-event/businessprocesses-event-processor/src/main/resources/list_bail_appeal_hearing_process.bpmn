@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1n13doi" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="list_bail_appeal_hearing_process" name="list_bail_appeal_hearing_process" isExecutable="true">
+    <bpmn:startEvent id="start_list_bail_appeal_hearing_process_event" name="start_list_bail_appeal_hearing_process_event">
+      <bpmn:outgoing>Flow_1h8kazo</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1h8kazo" sourceRef="start_list_bail_appeal_hearing_process_event" targetRef="list_bail_appeal_hearing" />
+    <bpmn:userTask id="list_bail_appeal_hearing" name="#{taskName}"
+    camunda:dueDate="#{dueDate}"
+    camunda:workQueue="#{workQueue}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="taskName">#{taskName}</camunda:inputParameter>
+          <camunda:inputParameter name="taskTypeId">#{taskTypeId}</camunda:inputParameter>
+          <camunda:inputParameter name="candidateGroups">#{candidateGroups}</camunda:inputParameter>
+          <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingId">#{hearingId}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingType">#{hearingType}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+          <camunda:inputParameter name="region">#{region}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1h8kazo</bpmn:incoming>
+      <bpmn:outgoing>Flow_11i1krr</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="end_list_bail_appeal_hearing_process_event" name="end_list_bail_appeal_hearing_process_event">
+      <bpmn:incoming>Flow_11i1krr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_11i1krr" sourceRef="list_bail_appeal_hearing" targetRef="end_list_bail_appeal_hearing_process_event" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="list_bail_appeal_hearing_process">
+      <bpmndi:BPMNEdge id="Flow_11i1krr_di" bpmnElement="Flow_11i1krr">
+        <di:waypoint x="420" y="120" />
+        <di:waypoint x="532" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1h8kazo_di" bpmnElement="Flow_1h8kazo">
+        <di:waypoint x="215" y="120" />
+        <di:waypoint x="320" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_list_bail_appeal_hearing_process_event">
+        <dc:Bounds x="179" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="186" y="145" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1se10n8_di" bpmnElement="list_bail_appeal_hearing">
+        <dc:Bounds x="320" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1stx9gj_di" bpmnElement="end_list_bail_appeal_hearing_process_event">
+        <dc:Bounds x="532" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="541" y="145" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

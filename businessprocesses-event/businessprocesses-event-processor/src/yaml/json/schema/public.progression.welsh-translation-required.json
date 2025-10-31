@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://moj.gov.uk/cpp/progression/events/public.progression.welsh-translation-required.json",
+  "description": "public event from hearing for each now document that is required to be generated and processed",
+  "type": "object",
+  "properties": {
+    "welshTranslationRequired": {
+      "masterDefendantId": {
+        "description": "Master defendant id",
+        "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+      },
+      "defendantName": {
+        "type": "string"
+      },
+      "caseURN": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "welshTranslationRequired"
+  ],
+  "additionalProperties": false
+}

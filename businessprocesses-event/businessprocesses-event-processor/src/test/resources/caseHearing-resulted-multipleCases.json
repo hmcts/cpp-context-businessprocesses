@@ -1,0 +1,547 @@
+{
+  "hearing": {
+    "id": "${ID}",
+    "courtCentre": {
+      "id": "d2ca6c3b-6c47-400f-acfb-6eea9cb45705",
+      "name": "whEYt5pGLz",
+      "roomId": "b1355956-eaa5-47ba-bb85-48eef368fa5d",
+      "roomName": "fjm8yfzGGJ",
+      "code": "B01LY00"
+    },
+    "hearingDays": [
+      {
+        "sittingDay": "2022-10-04T12:00:15.351Z",
+        "listedDurationMinutes": 0
+      },
+      {
+        "sittingDay": "2022-10-05T12:00:15.351Z",
+        "listedDurationMinutes": 0
+      }
+    ],
+    "jurisdictionType": "${JURISDICTION_TYPE}",
+    "prosecutionCases": [
+      {
+        "id": "${PROSECUTION_CASE1}",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
+          "prosecutionAuthorityCode": "TFL",
+          "caseURN": "${CASE_URN1}"
+        },
+        "originatingOrganisation": "G01FT01AB",
+        "initiationCode": "J",
+        "caseStatus": "${CASE_STATUS}",
+        "defendants": [
+          {
+            "id": "${DEFENDANT_ID1}",
+            "masterDefendantId": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "prosecutionCaseId": "${PROSECUTION_CASE1}",
+            "courtProceedingsInitiated": "2020-01-12T05:27:17.210Z",
+            "offences": [
+              {
+                "id": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                "offenceDefinitionId": "490dce00-8591-49af-b2d0-1e161e7d0c36",
+                "wording": "No Travel Card",
+                "wordingWelsh": "No Travel Card In Welsh",
+                "startDate": "2018-01-01",
+                "endDate": "2018-01-01",
+                "arrestDate": "2018-01-01",
+                "chargeDate": "2018-01-01",
+                "orderIndex": 1,
+                "offenceCode": "TTH105HY",
+                "offenceTitle": "ROBBERY",
+                "count": 0,
+                "notifiedPlea": {
+                  "offenceId": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                  "notifiedPleaDate": "2018-04-01",
+                  "notifiedPleaValue": "NOTIFIED_GUILTY"
+                },
+                "offenceFacts": {
+                  "vehicleRegistration": "AA12345",
+                  "alcoholReadingAmount": 111,
+                  "alcoholReadingMethodCode": "2222"
+                },
+                "offenceDateCode": 4,
+                "maxPenalty": "Max Penalty",
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "${CJS_CODE1}",
+                    "orderedHearingId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f"
+                  }
+                ]
+              }
+            ],
+            "personDefendant": {
+              "bailStatus": {
+                "code": "B",
+                "description": "${REMAND_STATUS}",
+                "id": "dd4073b6-22be-3875-9d63-5da286bb3ece"
+              },
+              "personDetails": {
+                "title": "MR",
+                "firstName": "${FIRST_NAME_1}",
+                "middleName": "John",
+                "lastName": "${LAST_NAME_1}",
+                "dateOfBirth": "2002-01-10",
+                "nationalityId": "2c2ef05b-6819-44ea-aa5d-c46247ed44c2",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "United Kingdom",
+                "additionalNationalityId": "743db214-2a0f-4192-9081-ad03e56126ea",
+                "additionalNationalityCode": "USA",
+                "additionalNationalityDescription": "United States Of America",
+                "ethnicity": {
+                  "observedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "observedEthnicityCode": "W1",
+                  "observedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British"
+                },
+                "gender": "MALE",
+                "documentationLanguageNeeds": "ENGLISH",
+                "nationalInsuranceNumber": "NH195839C",
+                "occupation": "Rail Transport Operative",
+                "occupationCode": "82340",
+                "address": {
+                  "address1": "Flat 4",
+                  "address2": "17 Oldberry Road",
+                  "address3": "Edgeware",
+                  "address4": "Middlesex",
+                  "address5": "London",
+                  "postcode": "HA8 9DA"
+                },
+                "contact": {
+                  "mobile": "07973 824240",
+                  "primaryEmail": "teddy_harrison@hotmail.com"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "${PROSECUTION_CASE2}",
+
+        "originatingOrganisation": "G01FT01AB",
+        "initiationCode": "J",
+        "caseStatus": "${CASE_STATUS}",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityCode": "4ZKOPhuyh5",
+          "prosecutionAuthorityId": "e677b61a-3360-48b0-8eee-649911475106",
+          "caseURN": "${CASE_URN2}"
+        },
+        "defendants": [
+          {
+            "id": "${DEFENDANT_ID2_1}",
+            "masterDefendantId": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "prosecutionCaseId": "${PROSECUTION_CASE2}",
+            "courtProceedingsInitiated": "2020-01-12T05:27:17.210Z",
+            "bailStatus": {
+              "code": "B",
+              "description": "${REMAND_STATUS}",
+              "id": "dd4073b6-22be-3875-9d63-5da286bb3ece"
+            },
+            "offences": [
+              {
+                "id": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                "offenceDefinitionId": "490dce00-8591-49af-b2d0-1e161e7d0c36",
+                "wording": "No Travel Card",
+                "wordingWelsh": "No Travel Card In Welsh",
+                "startDate": "2018-01-01",
+                "endDate": "2018-01-01",
+                "arrestDate": "2018-01-01",
+                "chargeDate": "2018-01-01",
+                "orderIndex": 1,
+                "offenceCode": "TTH105HY",
+                "offenceTitle": "ROBBERY",
+                "count": 0,
+                "custodyTimeLimit": {
+                  "isCtlExtended": false,
+                  "timeLimit": "2027-05-21"
+                },
+                "notifiedPlea": {
+                  "offenceId": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                  "notifiedPleaDate": "2018-04-01",
+                  "notifiedPleaValue": "NOTIFIED_GUILTY"
+                },
+                "offenceFacts": {
+                  "vehicleRegistration": "AA12345",
+                  "alcoholReadingAmount": 111,
+                  "alcoholReadingMethodCode": "2222"
+                },
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "${CJS_CODE2_1}",
+                    "orderedHearingId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f"
+                  }
+                ],
+                "offenceDateCode": 4,
+                "maxPenalty": "Max Penalty"
+              }
+            ],
+            "personDefendant": {
+              "personDetails": {
+                "title": "MR",
+                "firstName": "${FIRST_NAME2_1}",
+                "middleName": "John",
+                "lastName": "${LAST_NAME2_1}",
+                "dateOfBirth": "2002-01-10",
+                "nationalityId": "2c2ef05b-6819-44ea-aa5d-c46247ed44c2",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "United Kingdom",
+                "additionalNationalityId": "743db214-2a0f-4192-9081-ad03e56126ea",
+                "additionalNationalityCode": "USA",
+                "additionalNationalityDescription": "United States Of America",
+                "ethnicity": {
+                  "observedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "observedEthnicityCode": "W1",
+                  "observedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British"
+                },
+                "gender": "MALE",
+                "documentationLanguageNeeds": "ENGLISH",
+                "nationalInsuranceNumber": "NH195839C",
+                "occupation": "Rail Transport Operative",
+                "occupationCode": "82340",
+                "address": {
+                  "address1": "Flat 4",
+                  "address2": "17 Oldberry Road",
+                  "address3": "Edgeware",
+                  "address4": "Middlesex",
+                  "address5": "London",
+                  "postcode": "HA8 9DA"
+                },
+                "contact": {
+                  "mobile": "07973 824240",
+                  "primaryEmail": "teddy_harrison@hotmail.com"
+                }
+              }
+            }
+          },
+          {
+            "id": "${DEFENDANT_ID2_2}",
+            "personDefendant": {
+              "bailStatus": {
+                "code": "B",
+                "description": "${REMAND_STATUS}",
+                "id": "dd4073b6-22be-3875-9d63-5da286bb3ece"
+              },
+              "personDetails": {
+                "dateOfBirth": "1964-11-17",
+                "documentationLanguageNeeds": "ENGLISH",
+                "firstName": "${FIRST_NAME2_2}",
+                "gender": "FEMALE",
+                "lastName": "${LAST_NAME2_2}"
+              }
+            },
+            "offences": [
+              {
+                "id": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "${CJS_CODE2_2}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "${PROSECUTION_CASE3}",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
+          "prosecutionAuthorityCode": "TFL",
+          "prosecutionAuthorityReference": "${CASE_URN3}"
+        },
+        "originatingOrganisation": "G01FT01AB",
+        "initiationCode": "J",
+        "caseStatus": "${CASE_STATUS}",
+        "defendants": [
+          {
+            "id": "${DEFENDANT_ID3_1}",
+            "masterDefendantId": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "prosecutionCaseId": "${PROSECUTION_CASE3}",
+            "courtProceedingsInitiated": "2020-01-12T05:27:17.210Z",
+            "offences": [
+              {
+                "id": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                "offenceDefinitionId": "490dce00-8591-49af-b2d0-1e161e7d0c36",
+                "wording": "No Travel Card",
+                "wordingWelsh": "No Travel Card In Welsh",
+                "startDate": "2018-01-01",
+                "endDate": "2018-01-01",
+                "arrestDate": "2018-01-01",
+                "chargeDate": "2018-01-01",
+                "orderIndex": 1,
+                "offenceCode": "TTH105HY",
+                "offenceTitle": "ROBBERY",
+                "count": 0,
+                "notifiedPlea": {
+                  "offenceId": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                  "notifiedPleaDate": "2018-04-01",
+                  "notifiedPleaValue": "NOTIFIED_GUILTY"
+                },
+                "offenceFacts": {
+                  "vehicleRegistration": "AA12345",
+                  "alcoholReadingAmount": 111,
+                  "alcoholReadingMethodCode": "2222"
+                },
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "${CJS_CODE3_1}",
+                    "orderedHearingId": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                    "judicialResultPrompts": [
+                      {
+                        "courtExtract": "Y",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "9dbe839c-3804-4c47-bf9e-5be6f9b9b3bb",
+                        "label": "Total custodial period is life",
+                        "promptReference": "totalCustodialPeriodIsLife",
+                        "promptSequence": 200,
+                        "type": "BOOLEAN",
+                        "usergroups": [],
+                        "value": "true",
+                        "welshValue": "true"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "2d6330a2-1f12-45fb-bb72-65f4c1215e9c",
+                        "label": "Prison organisation name",
+                        "promptReference": "prisonOrganisationName",
+                        "promptSequence": 800,
+                        "type": "NAMEADDRESS",
+                        "usergroups": [],
+                        "value": "HMP/YOI Low Newton",
+                        "welshValue": "HMP/YOI Low Newton"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "2d6330a2-1f12-45fb-bb72-65f4c1215e9c",
+                        "label": "Prison email address 1",
+                        "promptReference": "prisonEmailAddress1",
+                        "promptSequence": 800,
+                        "type": "NAMEADDRESS",
+                        "usergroups": [],
+                        "value": "OMU.LowNewton@justice.gov.uk",
+                        "welshValue": "OMU.LowNewton@justice.gov.uk"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "2d6330a2-1f12-45fb-bb72-65f4c1215e9c",
+                        "label": "Prison email address 2",
+                        "promptReference": "prisonEmailAddress2",
+                        "promptSequence": 800,
+                        "type": "NAMEADDRESS",
+                        "usergroups": [],
+                        "value": "Reception.LowNewton@justice.gov.uk",
+                        "welshValue": "Reception.LowNewton@justice.gov.uk"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "6927b6ac-4c85-4532-838d-88ac00ea83f9",
+                        "label": "Conveyor / custodian name organisation name",
+                        "promptReference": "conveyorcustodiannameOrganisationName",
+                        "promptSequence": 900,
+                        "type": "NAMEADDRESS",
+                        "usergroups": [],
+                        "value": "Bexley Magistrates' Court: PECS",
+                        "welshValue": "Bexley Magistrates' Court: PECS"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "6927b6ac-4c85-4532-838d-88ac00ea83f9",
+                        "label": "Conveyor / custodian name email address 1",
+                        "promptReference": "conveyorcustodiannameEmailAddress1",
+                        "promptSequence": 900,
+                        "type": "NAMEADDRESS",
+                        "usergroups": [],
+                        "value": "periodicwarrants@geoamey.co.uk",
+                        "welshValue": "periodicwarrants@geoamey.co.uk"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "68c92035-27fd-4ee6-b03c-fe18ea6dbcb0",
+                        "label": "Probation team to be notified organisation name",
+                        "promptReference": "probationteamtobenotifiedOrganisationName",
+                        "promptSequence": 1100,
+                        "type": "NAMEADDRESS",
+                        "usergroups": [],
+                        "value": "London Division NPS",
+                        "welshValue": "London Division NPS"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "68c92035-27fd-4ee6-b03c-fe18ea6dbcb0",
+                        "label": "Probation team to be notified email address 1",
+                        "promptReference": "probationteamtobenotifiedEmailAddress1",
+                        "promptSequence": 1100,
+                        "type": "NAMEADDRESS",
+                        "usergroups": [],
+                        "value": "londonnps.court@justice.gov.uk",
+                        "welshValue": "londonnps.court@justice.gov.uk"
+                      },
+                      {
+                        "courtExtract": "Y",
+                        "durationSequence": 1,
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "76f15753-1706-42fb-b922-0d56d01e5706",
+                        "label": "Imprisonment Period",
+                        "promptReference": "imprisonmentPeriod",
+                        "promptSequence": 100,
+                        "type": "INT",
+                        "usergroups": [],
+                        "value": "1 Months",
+                        "welshLabel": "Cyfnod Carcharu",
+                        "welshValue": "1 Months"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "4d10cd4b-fb39-40dd-88e1-2397832bc914",
+                        "label": "Bail remand days to count (tagged days)",
+                        "promptReference": "bailRemandDaysToCountTaggedDays",
+                        "promptSequence": 500,
+                        "type": "INT",
+                        "usergroups": [],
+                        "value": "30",
+                        "welshLabel": "Dyddiau mechnïaeth ar remand i’w cyfrif (dyddiad gyda tag)",
+                        "welshValue": "30"
+                      }
+                    ]
+                  }
+                ],
+                "offenceDateCode": 4,
+                "maxPenalty": "Max Penalty"
+              }
+            ],
+            "personDefendant": {
+              "bailStatus": {
+                "code": "B",
+                "description": "${REMAND_STATUS}",
+                "id": "dd4073b6-22be-3875-9d63-5da286bb3ece"
+              },
+              "personDetails": {
+                "title": "MR",
+                "firstName": "${FIRST_NAME3_1}",
+                "middleName": "John",
+                "lastName": "${LAST_NAME3_1}",
+                "dateOfBirth": "2002-01-10",
+                "nationalityId": "2c2ef05b-6819-44ea-aa5d-c46247ed44c2",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "United Kingdom",
+                "additionalNationalityId": "743db214-2a0f-4192-9081-ad03e56126ea",
+                "additionalNationalityCode": "USA",
+                "additionalNationalityDescription": "United States Of America",
+                "ethnicity": {
+                  "observedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "observedEthnicityCode": "W1",
+                  "observedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British"
+                },
+                "gender": "MALE",
+                "documentationLanguageNeeds": "ENGLISH",
+                "nationalInsuranceNumber": "NH195839C",
+                "occupation": "Rail Transport Operative",
+                "occupationCode": "82340",
+                "address": {
+                  "address1": "Flat 4",
+                  "address2": "17 Oldberry Road",
+                  "address3": "Edgeware",
+                  "address4": "Middlesex",
+                  "address5": "London",
+                  "postcode": "HA8 9DA"
+                },
+                "contact": {
+                  "mobile": "07973 824240",
+                  "primaryEmail": "teddy_harrison@hotmail.com"
+                }
+              }
+            }
+          },
+          {
+            "id": "${DEFENDANT_ID3_2}",
+            "personDefendant": {
+              "bailStatus": {
+                "code": "B",
+                "description": "${REMAND_STATUS}",
+                "id": "dd4073b6-22be-3875-9d63-5da286bb3ece"
+              },
+              "personDetails": {
+                "dateOfBirth": "1964-11-17",
+                "documentationLanguageNeeds": "ENGLISH",
+                "firstName": "${FIRST_NAME3_2}",
+                "gender": "FEMALE",
+                "lastName": "${LAST_NAME3_2}"
+              }
+            },
+            "offences": [
+              {
+                "id": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "${CJS_CODE3_2_1}"
+                  },
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "${CJS_CODE3_2_2}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "${PROSECUTION_CASE4}",
+        "caseStatus": "${CASE_STATUS}",
+        "initiationCode": "J",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityCode": "4ZKOPhuyh5",
+          "prosecutionAuthorityId": "e677b61a-3360-48b0-8eee-649911475106",
+          "caseURN": "${CASE_URN4}"
+        },
+        "defendants": [
+          {
+            "id": "${DEFENDANT_ID4_1}",
+            "offences": [
+              {
+                "id": "88cdf36e-93e4-41b0-8277-17d9dba7f06f"
+              }
+            ]
+          },
+          {
+            "id": "${DEFENDANT_ID4_2}",
+            "offences": [
+              {
+                "id": "88cdf36e-93e4-41b0-8277-17d9dba7f06f",
+                "judicialResults": [
+                  {
+                    "category": "FINAL"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sharedTime": "2016-06-01T10:00:00Z"
+
+}

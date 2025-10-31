@@ -1,0 +1,13 @@
+{
+  "nowDocumentNotificationSuppressed": {
+    "masterDefendantId": "%masterDefendantId%",
+    "templateName": "test",
+    "defendantName": "testDefenddant",
+    "materialId": "%materialId%",
+    "caseUrns": [
+      "1123",
+      "1334",
+      "1114"
+    ]
+  }
+}

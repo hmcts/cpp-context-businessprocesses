@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0dhza9d" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="new_application_magistrates_request" name="new_application_magistrates_request" isExecutable="true">
+    <bpmn:startEvent id="start_new_application_magistrates_request_event" name="start_new_application_magistrates_request_event">
+      <bpmn:outgoing>Flow_0lbrche</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0lbrche" sourceRef="start_new_application_magistrates_request_event" targetRef="new_application_magistrates" />
+    <bpmn:userTask id="new_application_magistrates" name="New Application (Magistrates)" camunda:priority="100">
+      <bpmn:extensionElements>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0lbrche</bpmn:incoming>
+      <bpmn:outgoing>Flow_1eh65ny</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1eh65ny" sourceRef="new_application_magistrates" targetRef="end_new_application_magistrates_request_event" />
+    <bpmn:endEvent id="end_new_application_magistrates_request_event" name="end_new_application_magistrates_request_event">
+      <bpmn:incoming>Flow_1eh65ny</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_2">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="new_application_magistrates_request">
+      <bpmndi:BPMNEdge id="Flow_1eh65ny_di" bpmnElement="Flow_1eh65ny">
+        <di:waypoint x="510" y="117" />
+        <di:waypoint x="832" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lbrche_di" bpmnElement="Flow_0lbrche">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="410" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_new_application_magistrates_request_event">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="187" y="142" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0boev8l_di" bpmnElement="new_application_magistrates">
+        <dc:Bounds x="410" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0s5f8f5_di" bpmnElement="end_new_application_magistrates_request_event">
+        <dc:Bounds x="832" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="841" y="142" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

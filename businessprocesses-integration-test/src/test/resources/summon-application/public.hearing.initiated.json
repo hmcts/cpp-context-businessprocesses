@@ -1,0 +1,18 @@
+{
+  "hearingId": "9c4894cb-0708-4f80-bee5-95236dfdd7e8",
+  "jurisdictionType": "MAGISTRATES",
+  "cases": ["0c42449a-10da-444e-9bc6-8c3b8e524101"],
+  "hearingDateTime": "2024-06-28T00:00:00.000Z",
+  "applicationDetails": [
+    {
+      "applicationId": "f5772929-9511-4235-a65f-66ecfd08acfb",
+      "applicationReference": "CPJKJUAK8G",
+      "subject": {
+        "defendantId":"59c2b1a3-e8f1-4b9e-ba37-08a4e74f7d0f",
+        "defendantFirstName": "FN12345",
+        "defendantLastName": "LN12345",
+        "defendantRemandStatus": "status"
+      }
+    }
+  ]
+}

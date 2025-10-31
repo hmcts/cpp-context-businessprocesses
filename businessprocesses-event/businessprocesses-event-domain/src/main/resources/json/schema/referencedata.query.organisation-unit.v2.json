@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/businessprocesses/refdata/query/api/referencedata.query.organisation-unit.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "oucode": {
+      "type": "string"
+    },
+    "oucodeL3Code": {
+      "type": "string"
+    },
+    "oucodeL3Name": {
+      "type": "string"
+    },
+    "oucodeL2Code": {
+      "type": "string"
+    },
+    "oucodeL2Name": {
+      "type": "string"
+    },
+    "oucodeL1Code": {
+      "type": "string"
+    },
+    "oucodeL1Name": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "oucodeEffectiveFromDate": {
+      "type": "string"
+    },
+    "oucodeEffectiveToDate": {
+      "type": "string"
+    },
+    "lja": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "address3": {
+      "type": "string"
+    },
+    "address4": {
+      "type": "string"
+    },
+    "address5": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "isWelsh": {
+      "type": "boolean"
+    },
+    "oucodeL3WelshName": {
+      "type": "string"
+    },
+    "welshAddress1": {
+      "type": "string"
+    },
+    "welshAddress2": {
+      "type": "string"
+    },
+    "welshAddress3": {
+      "type": "string"
+    },
+    "welshAddress4": {
+      "type": "string"
+    },
+    "welshAddress5": {
+      "type": "string"
+    },
+    "defaultStartTime": {
+      "type": "string"
+    },
+    "defaultDurationHrs": {
+      "type": "string"
+    },
+    "enforcementArea": {
+      "type": "object",
+      "properties": {
+        "bankAccntName": {
+          "type": "string"
+        },
+        "bankAccntNum": {
+          "type": "string"
+        },
+        "bankAccntSortCode": {
+          "type": "string"
+        },
+        "bankAddressLine1": {
+          "type": "string"
+        },
+        "bankAddressLine2": {
+          "type": "string"
+        },
+        "bankAddressLine3": {
+          "type": "string"
+        },
+        "paymentQueriesAddress1": {
+          "type": "string"
+        },
+        "paymentQueriesAddress2": {
+          "type": "string"
+        },
+        "paymentQueriesAddress3": {
+          "type": "string"
+        },
+        "paymentQueriesAddress4": {
+          "type": "string"
+        },
+        "paymentQueriesAddress5": {
+          "type": "string"
+        },
+        "paymentQueriesPostcode": {
+          "type": "string"
+        },
+        "remittanceAdviceEmailAddress": {
+          "type": "string"
+        },
+        "ncesArea": {
+          "type": "string"
+        },
+        "ncesNotificationEmail": {
+          "type": "string"
+        }
+      }
+    },
+    "cpsEmailAddress": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "oucodeL3Code"
+  ]
+}

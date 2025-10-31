@@ -1,0 +1,11 @@
+event_sources:
+  - name: businessprocesses.event.source
+    is_default: true
+    location:
+      jms_uri:  jms:topic:businessprocesses.event
+      rest_uri: http://localhost:8080/businessprocesses-service/event-source-api/rest
+      data_source: java:/app/businessprocesses-service/DS.eventstore
+
+  - name: public.event.source
+    location:
+      jms_uri:  jms:topic:public.event

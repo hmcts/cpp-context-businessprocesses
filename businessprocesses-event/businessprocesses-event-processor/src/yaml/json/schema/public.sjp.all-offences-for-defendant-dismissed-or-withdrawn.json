@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/bpm/public.sjp.all-offences-for-defendant-dismissed-or-withdrawn.json",
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "type": "string"
+    },
+    "defendantId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "caseId",
+    "defendantId"
+  ]
+}

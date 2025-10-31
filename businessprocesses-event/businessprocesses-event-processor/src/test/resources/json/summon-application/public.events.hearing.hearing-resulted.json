@@ -1,0 +1,342 @@
+{
+  "sharedTime": "2024-06-25T10:15:50.091Z",
+  "hearing": {
+    "courtApplications": [
+      {
+        "applicant": {
+          "id": "764bff92-a135-34cb-b858-8bb6b4b66301",
+          "notificationRequired": false,
+          "prosecutingAuthority": {
+            "address": {
+              "address1": "Surrey Police",
+              "address2": "Mount Browne",
+              "address3": "Sandy Lane",
+              "address4": "Guildford",
+              "postcode": "GU3 1HG"
+            },
+            "contact": {
+              "primaryEmail": "mail_data_bureau_res@surrey.pnn.police.uk"
+            },
+            "majorCreditorCode": "PO45",
+            "name": "Surrey Police",
+            "prosecutionAuthorityCode": "SURRPF",
+            "prosecutionAuthorityId": "764bff92-a135-34cb-b858-8bb6b4b66301",
+            "prosecutionAuthorityOUCode": "0450000",
+            "welshName": "Heddlu Surrey"
+          },
+          "summonsRequired": false
+        },
+        "applicationReceivedDate": "2024-06-25",
+        "applicationReference": "CPJKJUAK8G",
+        "applicationStatus": "IN_PROGRESS",
+        "courtApplicationCases": [
+          {
+            "caseStatus": "ACTIVE",
+            "isSJP": false,
+            "offences": [
+              {
+                "arrestDate": "2021-01-01",
+                "chargeDate": "2020-12-28",
+                "count": 0,
+                "id": "cf0a2c5c-dd65-4709-86af-fd9453198d14",
+                "maxPenalty": "S:L3",
+                "modeOfTrial": "Summary",
+                "offenceCode": "CA03012",
+                "offenceDateCode": 1,
+                "offenceDefinitionId": "6588ffee-89ec-36a2-ab90-a54177cbda97",
+                "offenceLegislation": "Contrary to section 363(3)(b) and (4) of the Communications Act 2003.",
+                "offenceLegislationWelsh": "Yn groes i adran 363(3)(b) a (4) Deddf Cyfathrebu 2003.",
+                "offenceTitle": "Possess / control TV set with intent another use install without a licence",
+                "offenceTitleWelsh": "Meddu ar/mewn rheolaeth set deledu gan fwriadu i unigolyn arall ei ddefnyddio/osod heb drwydded",
+                "orderIndex": 1,
+                "startDate": "2022-05-28",
+                "wording": "Theft of pedal cycle.",
+                "judicialResults": [{
+                  "alwaysPublished": false,
+                  "canBeSubjectOfBreach": false,
+                  "canBeSubjectOfVariation": false,
+                  "category": "INTERMEDIARY",
+                  "courtClerk": {
+                    "firstName": "Erica",
+                    "lastName": "Wilson",
+                    "userId": "a085e359-6069-4694-8820-7810e7dfe762"
+                  },
+                  "d20": false,
+                  "excludedFromResults": false,
+                  "isAdjournmentResult": false,
+                  "isAvailableForCourtExtract": false,
+                  "isConvictedResult": false,
+                  "isDeleted": false,
+                  "isFinancialResult": false,
+                  "isUnscheduled": false,
+                  "judicialResultId": "7c19b67e-78e3-4ca6-8c9f-cf095ad7615b",
+                  "judicialResultPrompts": [
+                    {
+                      "courtExtract": "N",
+                      "isFinancialImposition": false,
+                      "judicialResultPromptTypeId": "428e2b37-88f9-4f9c-beda-450b96bac466",
+                      "label": "Prosecution costs",
+                      "promptReference": "prosecutionCosts",
+                      "promptSequence": 100,
+                      "type": "CURR",
+                      "usergroups": [
+                        "CPS",
+                        "Defence",
+                        "Judiciary",
+                        "NCES",
+                        "Probation",
+                        "YOTs",
+                        "Prosecuting Authorities"
+                      ],
+                      "value": "PROSECUTION_COST",
+                      "welshValue": "£245.56"
+                    },
+                    {
+                      "courtExtract": "N",
+                      "isFinancialImposition": false,
+                      "judicialResultPromptTypeId": "04d5d843-f530-43e4-927f-57942b310d5c",
+                      "label": "THIS SUMMONS IS FOR PERSONAL SERVICE",
+                      "promptReference": "tHISSUMMONSISFORPERSONALSERVICE",
+                      "promptSequence": 200,
+                      "type": "BOOLEAN",
+                      "usergroups": [
+                        "CPS",
+                        "Defence",
+                        "Judiciary",
+                        "Probation",
+                        "NCES",
+                        "Prosecuting Authorities",
+                        "YOTs"
+                      ],
+                      "value": "PERSONAL_SERVICE",
+                      "welshValue": "true"
+                    },
+                    {
+                      "courtExtract": "N",
+                      "isFinancialImposition": false,
+                      "judicialResultPromptTypeId": "1d068bf5-5149-4bb2-b333-7c8b288ca119",
+                      "label": "This summons will be served by a Prosecutor",
+                      "promptReference": "thisSummonsWillBeServedByAProsecutor",
+                      "promptSequence": 300,
+                      "type": "BOOLEAN",
+                      "usergroups": [
+                        "CPS",
+                        "Defence",
+                        "Judiciary",
+                        "NCES",
+                        "Probation",
+                        "Prosecuting Authorities",
+                        "YOTs"
+                      ],
+                      "value": "SUMMONS_SUPPRESSED",
+                      "welshValue": "true"
+                    },
+                    {
+                      "courtExtract": "N",
+                      "isFinancialImposition": false,
+                      "judicialResultPromptTypeId": "7d881e55-50ee-4098-9d3a-9b9c8f9eb834",
+                      "label": "Prosecutor's email address (used summons notification)",
+                      "promptReference": "prosecutorsEmailAddressUsedSummonsNotification",
+                      "promptSequence": 100,
+                      "type": "TXT",
+                      "usergroups": [
+                        "CPS",
+                        "Defence",
+                        "Judiciary",
+                        "NCES",
+                        "Probation",
+                        "YOTs",
+                        "Prosecuting Authorities"
+                      ],
+                      "value": "PROSECUTOR_EMAIL",
+                      "welshValue": ""
+                    }
+                  ],
+                  "judicialResultTypeId": "0f44eeb9-2c81-430d-9a60-bbdaf8c4a093",
+                  "label": "Summons approved",
+                  "lastSharedDateTime": "2021-01-29",
+                  "level": "C",
+                  "lifeDuration": false,
+                  "orderedDate": "2021-01-30",
+                  "orderedHearingId": "f6cad15d-b8a3-4aec-91bd-beb11ef017cb",
+                  "postHearingCustodyStatus": "A",
+                  "publishedAsAPrompt": false,
+                  "publishedForNows": false,
+                  "rank": 14100,
+                  "resultText": "Summons approved\nProsecution costs £245.56\nTHIS SUMMONS IS FOR PERSONAL SERVICE true\nThis summons will be served by a Prosecutor true",
+                  "rollUpPrompts": false,
+                  "terminatesOffenceProceedings": false,
+                  "urgent": false,
+                  "usergroups": [
+                  ]
+                }]
+              }
+            ],
+            "prosecutionCaseId": "387b7b30-dd52-4c9c-8287-b95252ae8134",
+            "prosecutionCaseIdentifier": {
+              "address": {
+                "address1": "Surrey Police",
+                "address2": "Mount Browne",
+                "address3": "Sandy Lane",
+                "address4": "Guildford",
+                "postcode": "GU3 1HG"
+              },
+              "contact": {
+                "primaryEmail": "mail_data_bureau_res@surrey.pnn.police.uk"
+              },
+              "majorCreditorCode": "PO45",
+              "prosecutionAuthorityCode": "SURRPF",
+              "prosecutionAuthorityId": "764bff92-a135-34cb-b858-8bb6b4b66301",
+              "prosecutionAuthorityName": "Surrey Police",
+              "prosecutionAuthorityOUCode": "0450000",
+              "caseURN": "RA264550969"
+            }
+          }
+        ],
+        "id": "03f26b2f-2008-4d63-8592-890d22dfd0b9",
+        "respondents": [
+          {
+            "id": "cebc2e69-fe98-44f2-ac12-91036a0617bb",
+            "masterDefendant": {
+              "isYouth": false,
+              "masterDefendantId": "cebc2e69-fe98-44f2-ac12-91036a0617bb",
+              "personDefendant": {
+                "arrestSummonsNumber": "2391NX000001324378",
+                "driverNumber": "VANFL002222OW9PH",
+                "personDetails": {
+                  "address": {
+                    "address1": "9999A9999AAAA",
+                    "address2": "Woodlane",
+                    "address3": "addressline 3",
+                    "address4": "Bristol",
+                    "address5": "Avon"
+                  },
+                  "contact": {
+                    "home": "0201324378",
+                    "mobile": "07771324378",
+                    "primaryEmail": "REDDY.TEST011324378@gmail.com"
+                  },
+                  "dateOfBirth": "1986-12-13",
+                  "documentationLanguageNeeds": "ENGLISH",
+                  "ethnicity": {
+                    "observedEthnicityCode": "1",
+                    "observedEthnicityDescription": "White",
+                    "observedEthnicityId": "c4ca4238-a0b9-3382-8dcc-509a6f75849b",
+                    "selfDefinedEthnicityCode": "W1",
+                    "selfDefinedEthnicityDescription": "British",
+                    "selfDefinedEthnicityId": "c4ca4238-a0b9-3382-8dcc-509a6f75849b"
+                  },
+                  "firstName": "JasonBf1Kv",
+                  "gender": "MALE",
+                  "hearingLanguageNeeds": "ENGLISH",
+                  "lastName": "USERBF1KV",
+                  "title": "Mr"
+                }
+              },
+              "prosecutionAuthorityReference": "2391NX000001324378"
+            },
+            "notificationRequired": false,
+            "summonsRequired": true
+          }
+        ],
+        "subject": {
+          "id": "cebc2e69-fe98-44f2-ac12-91036a0617bb",
+          "masterDefendant": {
+            "isYouth": false,
+            "masterDefendantId": "cebc2e69-fe98-44f2-ac12-91036a0617bb",
+            "personDefendant": {
+              "arrestSummonsNumber": "2391NX000001324378",
+              "driverNumber": "VANFL002222OW9PH",
+              "personDetails": {
+                "address": {
+                  "address1": "9999A9999AAAA",
+                  "address2": "Woodlane",
+                  "address3": "addressline 3",
+                  "address4": "Bristol",
+                  "address5": "Avon"
+                },
+                "contact": {
+                  "home": "0201324378",
+                  "mobile": "07771324378",
+                  "primaryEmail": "REDDY.TEST011324378@gmail.com"
+                },
+                "dateOfBirth": "1986-12-13",
+                "documentationLanguageNeeds": "ENGLISH",
+                "ethnicity": {
+                  "observedEthnicityCode": "1",
+                  "observedEthnicityDescription": "White",
+                  "observedEthnicityId": "c4ca4238-a0b9-3382-8dcc-509a6f75849b",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "c4ca4238-a0b9-3382-8dcc-509a6f75849b"
+                },
+                "firstName": "JasonBf1Kv",
+                "gender": "MALE",
+                "hearingLanguageNeeds": "ENGLISH",
+                "lastName": "USERBF1KV",
+                "title": "Mr"
+              }
+            },
+            "prosecutionAuthorityReference": "2391NX000001324378"
+          },
+          "notificationRequired": false,
+          "summonsRequired": true
+        },
+        "type": {
+          "appealFlag": false,
+          "applicantAppellantFlag": false,
+          "boxworkNotifTemplate": "NOT_APPLICABLE",
+          "breachType": "NOT_APPLICABLE",
+          "categoryCode": "CR",
+          "code": "MC80804",
+          "commrOfOathFlag": false,
+          "courtExtractAvlFlag": false,
+          "courtOfAppealFlag": false,
+          "hearingCode": "APN",
+          "id": "bfa61811-b917-3bce-9cc1-7ea8e554bd3b",
+          "jurisdiction": "MAGISTRATES",
+          "legislation": "In accordance with section 1 of the Magistrates' Courts Act 1980.",
+          "legislationWelsh": "Yn unol ag adran 1 Deddf Llysoedd Ynadon 1980.",
+          "linkType": "FIRST_HEARING",
+          "listingNotifTemplate": "NOT_APPLICABLE",
+          "offenceActiveOrder": "OFFENCE",
+          "pleaApplicableFlag": false,
+          "prosecutorThirdPartyFlag": false,
+          "spiOutApplicableFlag": false,
+          "summonsTemplateType": "NOT_APPLICABLE",
+          "type": "Application for issue of summons to accused or warrant for their arrest in relation to a criminal case",
+          "typeWelsh": "Cais am godi gwŷs i’r sawl a gyhuddwyd neu warant i’w harestio yng nghyswllt achos troseddol",
+          "validTo": "2021-12-31"
+        }
+      }
+    ],
+    "courtCentre": {
+      "address": {
+        "address1": "176A Lavender Hill",
+        "address2": "London",
+        "postcode": "SW11 1JU"
+      },
+      "code": "B01LY00",
+      "courtHearingLocation": "B01LY00",
+      "id": "f8254db1-1683-483e-afb3-b87fde5a0a26",
+      "name": "Lavender Hill Magistrates' Court"
+    },
+    "hasSharedResults": true,
+    "hearingDays": [
+      {
+        "hasSharedResults": true,
+        "listedDurationMinutes": 10,
+        "sittingDay": "2024-06-25T00:00:00.000Z"
+      }
+    ],
+    "id": "0adf8ff5-5e7e-4abd-b00b-df7585b8a3a5",
+    "isBoxHearing": true,
+    "jurisdictionType": "MAGISTRATES",
+    "type": {
+      "description": "Application",
+      "id": "3449743b-95d6-4836-8941-57f588b52068"
+    }
+  },
+  "isReshare": false,
+  "hearingDay": "2024-06-25"
+}
