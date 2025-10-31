@@ -1,0 +1,69 @@
+---
+resource_descriptor:
+  spec_version: '1.0.0'
+  version: '${project.version}'
+
+  resources:
+    - name: java:/app/businessprocesses-service/DS.eventstore
+      type: xa-datasource
+      setup:
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: event-repository-liquibase
+            type: jar
+            version: '${cpp.framework.version}'
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: aggregate-snapshot-repository-liquibase
+            type: jar
+            version: '${project.version}'
+
+    - name: java:/DS.businessprocesses
+      type: xa-datasource
+      setup:
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: event-buffer-liquibase
+            type: jar
+            version: '${cpp.framework.version}'
+        - type: liquibase
+          maven:
+            groupId: uk.gov.moj.cpp.bpm
+            artifactId: businessprocesses-viewstore-liquibase
+            type: jar
+            version: '${project.version}'
+
+    - name: java:/app/DS.workmanagement
+      type: xa-datasource
+      setup:
+      - type: liquibase
+        maven:
+          groupId: uk.gov.justice.services
+          artifactId: cpp-camunda-liquibase
+          type: jar
+          version: '${cpp.camunda.version}'
+      - type: liquibase
+
+    - name: businessprocesses.handler.command
+      type: queue
+    - name: businessprocesses.event
+      type: topic
+    - name: public.event
+      type: topic
+
+      services:
+        # businessprocesses provides these service mappings
+    - name: 'businessprocesses-service'
+      id: 'businessprocesses'
+      target: '/businessprocesses-service'
+      map:
+        - '/businessprocesses-command-handler'
+        - '/businessprocesses-event-listener'
+        - '/businessprocesses-event-processor'
+        - '/businessprocesses-query-api'
+        - '/businessprocesses-query-view'
+      matcher: '/businessprocesses-[^/]+'
+

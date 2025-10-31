@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "defendants": [
+        {
+          "chargeDate": "2022-04-04",
+          "hearingDate": "1999-02-04",
+          "id": "01bd504a-b608-430e-95c2-bd97fbaaad61",
+          "errors": [
+            {
+              "fieldName": "individual_selfDefinedInformation_nationality",
+              "errorValue": "ABC",
+              "displayName": "DEFENDANT_NATIONALITY_INVALID",
+              "version": 2692
+            },
+            {
+              "fieldName": "initialHearing_dateOfHearing",
+              "errorValue": "1999-02-04",
+              "displayName": "DEFENDANT_DATE_OF_HEARING_INVALID",
+              "version": 2692
+            }
+          ],
+          "offences": [
+            {
+              "id": "2013c181-7458-4fb2-a637-b596fbe0e792",
+              "errors": [
+                {
+                  "id": "2013c181-7458-4fb2-a637-b596fbe0e792",
+                  "fieldName": "offence_arrestDate",
+                  "errorValue": "2021-04-04",
+                  "displayName": "DEFENDANT_OFFENCE_ARREST_DATE",
+                  "version": 8174
+                },
+                {
+                  "id": "2013c181-7458-4fb2-a637-b596fbe0e792",
+                  "fieldName": "offence_chargeDate",
+                  "errorValue": "2022-04-04",
+                  "displayName": "DEFENDANT_OFFENCE_CHARGE_DATE",
+                  "version": 8174
+                }
+              ]
+            }
+          ],
+          "firstName": "John",
+          "lastName": "Smith"
+        }
+      ],
+      "id": "aa2b29aa-6fa8-4d19-957f-eaa78a10dd04",
+      "urn": "ucpEpbxetS",
+      "version": 2693,
+      "courtLocation": "abcd",
+      "region": "NW",
+      "caseType": "S",
+      "errorDescription": "Multiple Errors",
+      "errors": [
+        {
+          "fieldName": "summonsCode",
+          "errorValue": "summonsCode",
+          "displayName": "SUMMONS_CODE_INVALID",
+          "version": 2693
+        },
+        {
+          "fieldName": "originatingOrganisation",
+          "errorValue": "123",
+          "displayName": "PROSECUTOR_OUCODE_NOT_RECOGNISED",
+          "version": 2693
+        }
+      ]
+    }
+  ],
+  "results": 2,
+  "pageCount": 2
+}

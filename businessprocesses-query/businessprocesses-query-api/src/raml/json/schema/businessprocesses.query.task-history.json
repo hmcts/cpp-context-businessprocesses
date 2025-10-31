@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/json/schemas/businessprocesses/queries/task-history.json",
+  "type": "object",
+  "properties": {
+    "taskId": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/history"
+      }
+    }
+  },
+  "required": [
+    "taskId",
+    "history"
+  ],
+  "definitions": {
+    "history": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+        },
+        "eventType": {
+          "type": "string"
+        },
+        "eventDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "changeAuthor": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "eventType",
+        "eventDate",
+        "changeAuthor"
+      ]
+    }
+  }
+}

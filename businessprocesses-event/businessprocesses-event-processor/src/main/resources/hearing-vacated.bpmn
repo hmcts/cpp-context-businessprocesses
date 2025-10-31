@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1egpq9g" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" camunda:diagramRelationId="176c4379-69a8-49ab-895f-e057c74a2616">
+  <bpmn:process id="hearing-vacated" name="hearing-vacated" isExecutable="true">
+    <bpmn:startEvent id="start_hearing_vacated_event" name="start_hearing_vacated_event">
+      <bpmn:outgoing>Flow_00xq7lv</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="end_hearing_vacated_event" name="end_hearing_vacated_event">
+      <bpmn:incoming>SequenceFlow_0iy1k3f</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0x2l4df</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_00xq7lv" sourceRef="start_hearing_vacated_event" targetRef="Gateway_12srzng" />
+    <bpmn:sequenceFlow id="Flow_0z7z8y7" name="Has Interpreter" sourceRef="Gateway_12srzng" targetRef="Gateway_0a91uv1">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{hasInterpreter}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0173j0y" sourceRef="Cancel_interpreter_case" targetRef="Gateway_0hfmky2" />
+    <bpmn:userTask id="Cancel_interpreter_case" name="#{Cancel_interpreter_case_taskName}"
+    camunda:dueDate="#{Cancel_interpreter_case_dueDate}"
+    camunda:workQueue="#{workQueue}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="caseId">#{caseId}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantId">#{defendantId}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantName">#{defendantName}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingId">#{hearingId}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantRemandStatus">#{defendantRemandStatus}</camunda:inputParameter>
+          <camunda:inputParameter name="deepLink">#{Cancel_interpreter_case_deepLink}</camunda:inputParameter>
+          <camunda:inputParameter name="taskTypeId">#{Cancel_interpreter_case_taskTypeId}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{Cancel_interpreter_case_isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{Cancel_interpreter_case_isDeferrable}</camunda:inputParameter>
+          <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+          <camunda:inputParameter name="jurisdiction">#{jurisdiction}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_10dvy19</bpmn:incoming>
+      <bpmn:outgoing>Flow_0173j0y</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_0a91uv1" name="Does the hearing contain one or more cases?">
+      <bpmn:incoming>Flow_0z7z8y7</bpmn:incoming>
+      <bpmn:outgoing>Flow_10dvy19</bpmn:outgoing>
+      <bpmn:outgoing>Flow_013unq7</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_10dvy19" name="Cancel interpreters for case" sourceRef="Gateway_0a91uv1" targetRef="Cancel_interpreter_case">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{hasCases}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_0hfmky2">
+      <bpmn:incoming>Flow_0173j0y</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1wcyfyg</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0iy1k3f</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_013unq7" name="Cancel interpreters for application" sourceRef="Gateway_0a91uv1" targetRef="Cancel_interpreter_application">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not hasCases}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_12srzng" name="Was an interpreter required for the hearing?">
+      <bpmn:incoming>Flow_00xq7lv</bpmn:incoming>
+      <bpmn:outgoing>Flow_0z7z8y7</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0x2l4df</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Cancel_interpreter_application" name="#{Cancel_interpreter_application_taskName}"
+    camunda:dueDate="#{Cancel_interpreter_application_dueDate}"
+    camunda:workQueue="#{workQueue}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="applicationId">#{applicationId}</camunda:inputParameter>
+          <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantId">#{defendantId}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantName">#{defendantName}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingId">#{hearingId}</camunda:inputParameter>
+          <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantRemandStatus">#{defendantRemandStatus}</camunda:inputParameter>
+          <camunda:inputParameter name="deepLink">#{Cancel_interpreter_application_deepLink}</camunda:inputParameter>
+          <camunda:inputParameter name="taskTypeId">#{Cancel_interpreter_application_taskTypeId}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{Cancel_interpreter_application_isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{Cancel_interpreter_application_isDeferrable}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+          <camunda:inputParameter name="jurisdiction">#{jurisdiction}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_013unq7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1wcyfyg</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1wcyfyg" sourceRef="Cancel_interpreter_application" targetRef="Gateway_0hfmky2" />
+    <bpmn:sequenceFlow id="SequenceFlow_0iy1k3f" sourceRef="Gateway_0hfmky2" targetRef="end_hearing_vacated_event" />
+    <bpmn:sequenceFlow id="SequenceFlow_0x2l4df" sourceRef="Gateway_12srzng" targetRef="end_hearing_vacated_event" />
+    <bpmn:textAnnotation id="TextAnnotation_1hn11dr">
+      <bpmn:text>The hearing may be marked as vacate at any point in time before a court appearance. 
+        Listens to Hearing updated/Case resulted event and List Assist event.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1tt2zho" sourceRef="start_hearing_vacated_event" targetRef="TextAnnotation_1hn11dr" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="hearing-vacated">
+      <bpmndi:BPMNEdge id="SequenceFlow_0x2l4df_di" bpmnElement="SequenceFlow_0x2l4df">
+        <di:waypoint x="350" y="335" />
+        <di:waypoint x="350" y="416" />
+        <di:waypoint x="871" y="416" />
+        <di:waypoint x="871" y="367" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0iy1k3f_di" bpmnElement="SequenceFlow_0iy1k3f">
+        <di:waypoint x="795" y="170" />
+        <di:waypoint x="871" y="170" />
+        <di:waypoint x="871" y="331" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wcyfyg_di" bpmnElement="SequenceFlow_1wcyfyg">
+        <di:waypoint x="677" y="278" />
+        <di:waypoint x="770" y="278" />
+        <di:waypoint x="770" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_013unq7_di" bpmnElement="Flow_013unq7">
+        <di:waypoint x="450" y="195" />
+        <di:waypoint x="450" y="278" />
+        <di:waypoint x="576" y="278" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="467" y="236" width="72" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10dvy19_di" bpmnElement="Flow_10dvy19">
+        <di:waypoint x="475" y="170" />
+        <di:waypoint x="577" y="170" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="487" y="127" width="72" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0173j0y_di" bpmnElement="Flow_0173j0y">
+        <di:waypoint x="677" y="170" />
+        <di:waypoint x="745" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0z7z8y7_di" bpmnElement="Flow_0z7z8y7">
+        <di:waypoint x="350" y="285" />
+        <di:waypoint x="350" y="170" />
+        <di:waypoint x="425" y="170" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="272" y="238" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00xq7lv_di" bpmnElement="Flow_00xq7lv">
+        <di:waypoint x="268" y="310" />
+        <di:waypoint x="325" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="start_hearing_vacated_event_di" bpmnElement="start_hearing_vacated_event">
+        <dc:Bounds x="232" y="292" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="210" y="335" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_hearing_vacated_event_di" bpmnElement="end_hearing_vacated_event">
+        <dc:Bounds x="853" y="331" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="910" y="335" width="81" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qx3sio_di" bpmnElement="Cancel_interpreter_case">
+        <dc:Bounds x="577" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0a91uv1_di" bpmnElement="Gateway_0a91uv1" isMarkerVisible="true">
+        <dc:Bounds x="425" y="145" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="362" y="109" width="84" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0hfmky2_di" bpmnElement="Gateway_0hfmky2" isMarkerVisible="true">
+        <dc:Bounds x="745" y="145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0qkxqqb_di" bpmnElement="Gateway_12srzng" isMarkerVisible="true">
+        <dc:Bounds x="325" y="285" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="377" y="283" width="75" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1rlskim_di" bpmnElement="Cancel_interpreter_application">
+        <dc:Bounds x="577" y="238" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1hn11dr_di" bpmnElement="TextAnnotation_1hn11dr">
+        <dc:Bounds x="160" y="80" width="180" height="98" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1tt2zho_di" bpmnElement="Association_1tt2zho">
+        <di:waypoint x="250" y="292" />
+        <di:waypoint x="250" y="178" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

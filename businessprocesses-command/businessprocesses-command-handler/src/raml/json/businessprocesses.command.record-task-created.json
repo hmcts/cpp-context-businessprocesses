@@ -1,0 +1,14 @@
+{
+  "id": "5c5a1d30-0414-11e7-93ae-92361f002671",
+  "taskTypeId": "2c2a1d30-0414-44e7-93ae-11361f002671",
+  "workqueue": "6c5a1d30-0414-11e7-93ae-92361f002671",
+  "courtId": "bfd45440-c32d-11eb-91bd-08002783bfed",
+  "changeAuthorId": "6c6a1d30-0414-11e7-93ae-92361f002671",
+  "changeAuthor": "egungor",
+  "reference": "TFL34652354",
+  "note": "task notes",
+  "createdDate": "2021-02-04T12:00:15.351Z",
+  "dueDate": "2021-02-04T12:01:15.351Z",
+  "hearingDate": "2021-03-04T12:01:15.351Z",
+  "jurisdiction": "CROWN"
+}

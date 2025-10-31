@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0co85z0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0">
+  <bpmn:process id="application-received" name="application-received" isExecutable="true">
+    <bpmn:startEvent id="start_application_received_event" name="start_application_received_event">
+      <bpmn:outgoing>Flow_1isnw9p</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1isnw9p" sourceRef="start_application_received_event" targetRef="isApplicationProsecutorOrDefence" />
+    <bpmn:endEvent id="end_application_received_event" name="end_application_received_event">
+      <bpmn:incoming>Flow_00z964i</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Process_Application" name="Process #{appType} Application"
+    camunda:dueDate="#{dueDate}"
+    camunda:workQueue="#{workQueue}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="caseId">#{caseId}</camunda:inputParameter>
+          <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantId">#{defendantId}</camunda:inputParameter>
+          <camunda:inputParameter name="defendantName">#{defendantName}</camunda:inputParameter>
+          <camunda:inputParameter name="applicationId">#{applicationId}</camunda:inputParameter>
+          <camunda:inputParameter name="deepLink">#{deepLink}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+          <camunda:inputParameter name="jurisdiction">#{jurisdiction}</camunda:inputParameter>
+          <camunda:inputParameter name="taskTypeId">#{taskTypeId}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0svnqe9</bpmn:incoming>
+      <bpmn:outgoing>Flow_04l45d2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="isApplicationProsecutorOrDefence" name="Has the application been created by a Prosecutor or Defence?">
+      <bpmn:incoming>Flow_1isnw9p</bpmn:incoming>
+      <bpmn:outgoing>Flow_0svnqe9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0ax8zkb</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0svnqe9" name="true" sourceRef="isApplicationProsecutorOrDefence" targetRef="Process_Application">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{isApplicationProsecutorOrDefence}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0ax8zkb" name="false" sourceRef="isApplicationProsecutorOrDefence" targetRef="Gateway_04uug34">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not isApplicationProsecutorOrDefence}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_04uug34">
+      <bpmn:incoming>Flow_04l45d2</bpmn:incoming>
+      <bpmn:incoming>Flow_0ax8zkb</bpmn:incoming>
+      <bpmn:outgoing>Flow_00z964i</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_04l45d2" sourceRef="Process_Application" targetRef="Gateway_04uug34" />
+    <bpmn:sequenceFlow id="Flow_00z964i" sourceRef="Gateway_04uug34" targetRef="end_application_received_event" />
+    <bpmn:textAnnotation id="TextAnnotation_0p6enoj">
+      <bpmn:text>Technical: CPS API or Defence Creation contains Application Type variable ?
+        Eg: Bad Character, Special Measures, etc. refrs to the confluence page.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_11lpgtu" sourceRef="start_application_received_event" targetRef="TextAnnotation_0p6enoj" />
+    <bpmn:textAnnotation id="TextAnnotation_12l2lmi">
+      <bpmn:text>Technical: AAAG deep link</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0b3wyof" sourceRef="Process_Application" targetRef="TextAnnotation_12l2lmi" />
+    <bpmn:textAnnotation id="TextAnnotation_10la9gp">
+      <bpmn:text>A form of triaging, potentially listing for boxwork/listing for hearing.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_04e6j7j" sourceRef="Process_Application" targetRef="TextAnnotation_10la9gp" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="application-received">
+      <bpmndi:BPMNEdge id="Flow_00z964i_di" bpmnElement="Flow_00z964i">
+        <di:waypoint x="635" y="267" />
+        <di:waypoint x="682" y="267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04l45d2_di" bpmnElement="Flow_04l45d2">
+        <di:waypoint x="520" y="267" />
+        <di:waypoint x="585" y="267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ax8zkb_di" bpmnElement="Flow_0ax8zkb">
+        <di:waypoint x="330" y="292" />
+        <di:waypoint x="330" y="360" />
+        <di:waypoint x="610" y="360" />
+        <di:waypoint x="610" y="292" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="441" y="342" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0svnqe9_di" bpmnElement="Flow_0svnqe9">
+        <di:waypoint x="355" y="267" />
+        <di:waypoint x="420" y="267" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="378" y="249" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1isnw9p_di" bpmnElement="Flow_1isnw9p">
+        <di:waypoint x="238" y="267" />
+        <di:waypoint x="305" y="267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_application_received_event">
+        <dc:Bounds x="202" y="249" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="194" y="292" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_application_received_event_di" bpmnElement="end_application_received_event">
+        <dc:Bounds x="682" y="249" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="674" y="292" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0lxzosc_di" bpmnElement="Process_Application">
+        <dc:Bounds x="420" y="227" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0qkxqqb_di" bpmnElement="isApplicationProsecutorOrDefence" isMarkerVisible="true">
+        <dc:Bounds x="305" y="242" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="289" y="157" width="81" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_04uug34_di" bpmnElement="Gateway_04uug34" isMarkerVisible="true">
+        <dc:Bounds x="585" y="242" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0p6enoj_di" bpmnElement="TextAnnotation_0p6enoj">
+        <dc:Bounds x="161" y="80" width="118" height="138" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_12l2lmi_di" bpmnElement="TextAnnotation_12l2lmi">
+        <dc:Bounds x="420" y="150" width="100" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_10la9gp_di" bpmnElement="TextAnnotation_10la9gp">
+        <dc:Bounds x="420" y="450" width="120" height="96" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_11lpgtu_di" bpmnElement="Association_11lpgtu">
+        <di:waypoint x="220" y="249" />
+        <di:waypoint x="220" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0b3wyof_di" bpmnElement="Association_0b3wyof">
+        <di:waypoint x="470" y="227" />
+        <di:waypoint x="470" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_04e6j7j_di" bpmnElement="Association_04e6j7j">
+        <di:waypoint x="470" y="307" />
+        <di:waypoint x="470" y="450" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

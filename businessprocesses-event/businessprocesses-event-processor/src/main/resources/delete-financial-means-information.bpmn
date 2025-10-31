@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.2.1">
+  <bpmn:process id="delete-financial-means-information" name="delete-financial-means-information" isExecutable="true" camunda:versionTag="1.2" camunda:isStartableInTasklist="false">
+    <bpmn:startEvent id="start_delete_financial_means_information_event" name="start_delete_financial_means_information_event">
+      <bpmn:outgoing>SequenceFlow_0g72sur</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="end_delete_financial_means_information_event" name="end_delete_financial_means_information_event">
+      <bpmn:incoming>SequenceFlow_0wyffxn</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0g72sur" sourceRef="start_delete_financial_means_information_event" targetRef="WaitFor28Days" />
+    <bpmn:sequenceFlow id="SequenceFlow_0wyffxn" sourceRef="SendMeansInformationDeletedEvent" targetRef="end_delete_financial_means_information_event" />
+    <bpmn:serviceTask id="SendMeansInformationDeletedEvent" name="Send Means Information Deleted Event" camunda:asyncBefore="true" camunda:delegateExpression="${sendMeansInformationDeletedEvent}">
+      <bpmn:incoming>SequenceFlow_1ps1w5e</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0wyffxn</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="IssueDeleteMeansInformationCommands" name="Issue Delete Means Information Command" camunda:asyncBefore="true" camunda:delegateExpression="${issueDeleteMeansInformationCommands}">
+      <bpmn:incoming>SequenceFlow_1v24f9p</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1ps1w5e</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1ps1w5e" sourceRef="IssueDeleteMeansInformationCommands" targetRef="SendMeansInformationDeletedEvent" />
+    <bpmn:sequenceFlow id="SequenceFlow_1v24f9p" sourceRef="WaitFor28Days" targetRef="IssueDeleteMeansInformationCommands" />
+    <bpmn:intermediateCatchEvent id="WaitFor28Days" name="Wait For 28 Days">
+      <bpmn:incoming>SequenceFlow_0g72sur</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1v24f9p</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">${delayBeforeFinancialMeansDeletion}</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="delete-financial-means-information">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_delete_financial_means_information_event">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="end_delete_financial_means_information_event">
+        <dc:Bounds x="810" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="808" y="64.5" width="40" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0g72sur_di" bpmnElement="SequenceFlow_0g72sur">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="302" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0wyffxn_di" bpmnElement="SequenceFlow_0wyffxn">
+        <di:waypoint x="709" y="120" />
+        <di:waypoint x="810" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_1irrt0t_di" bpmnElement="SendMeansInformationDeletedEvent">
+        <dc:Bounds x="609" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1tknwwm_di" bpmnElement="IssueDeleteMeansInformationCommands">
+        <dc:Bounds x="456" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ps1w5e_di" bpmnElement="SequenceFlow_1ps1w5e">
+        <di:waypoint x="556" y="120" />
+        <di:waypoint x="609" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1v24f9p_di" bpmnElement="SequenceFlow_1v24f9p">
+        <di:waypoint x="338" y="120" />
+        <di:waypoint x="456" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_0isx5nl_di" bpmnElement="WaitFor28Days">
+        <dc:Bounds x="302" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="279" y="145" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

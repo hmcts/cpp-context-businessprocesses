@@ -1,0 +1,122 @@
+{
+  "caseId": "1082bd2f-63ef-42e7-86c7-6cfaaf3ba10a",
+  "caseDetails": {
+    "caseMarkers": [
+      "Human Trafficking"
+    ],
+    "caseStatus": "ACTIVE",
+    "caseURN": "57GD8230821",
+    "initiationCode": "C"
+  },
+  "prosecutorDetails": {
+    "address": {
+      "address1": "Southern House",
+      "address2": "Bond Street",
+      "address3": "Guildford",
+      "postcode": "GU15 1TL"
+    },
+    "prosecutionAuthorityCode": "SURRPF",
+    "prosecutionAuthorityId": "764bff92-a135-34cb-b858-8bb6b4b66301"
+  },
+  "defendants": [
+    {
+      "address": {
+        "address1": "gYuiKosyuY",
+        "address2": "56Police HouseD",
+        "address3": "StreetDescriptionD",
+        "address4": "LocalityD",
+        "address5": "TownD",
+        "postcode": "TW14 9XD"
+      },
+      "age": 43,
+      "caagDefendantOffences": [
+        {
+          "caagResults": [
+            {
+              "caagResultPrompts": [
+                {
+                  "label": "Custody time limit expires",
+                  "value": "31/03/2022"
+                },
+                {
+                  "label": "CTL has been agreed with the prosecutor",
+                  "value": "true"
+                }
+              ],
+              "id": "66ef6e10-8fed-4bff-a39c-86e68247efb5",
+              "label": "Custody time limit",
+              "lastSharedDateTime": "2021-08-03",
+              "orderedDate": "2022-02-03"
+            },
+            {
+              "caagResultPrompts": [
+                {
+                  "label": "Next hearing in magistrates' court",
+                  "value": "Date of hearing:15/02/2022\nTime of hearing:10:00\nCourtroom:Courtroom 01\nHearing type:Plea & Trial Preparation\nEstimated duration:20 MINUTES\nBooking reference:03df8ca2-43aa-4d9b-a1ec-3569bab77959\nCourthouse organisation name:Lavender Hill Magistrates' Court\nCourthouse address line 1:176A Lavender Hill\nCourthouse address line 2:London\nCourthouse post code:SW11 1JU"
+                },
+                {
+                  "label": "Remand basis",
+                  "value": "Before conviction"
+                },
+                {
+                  "label": "Bail exception",
+                  "value": "Breach of bail"
+                },
+                {
+                  "label": "Bail exception reason",
+                  "value": "Attempted suicide, Broken bail conditions"
+                },
+                {
+                  "label": "Prison organisation name",
+                  "value": "HMP/YOI Low Newton"
+                },
+                {
+                  "label": "Prison email address 1",
+                  "value": "OMU.LowNewton@justice.gov.uk"
+                },
+                {
+                  "label": "Prison email address 2",
+                  "value": "Reception.LowNewton@justice.gov.uk"
+                },
+                {
+                  "label": "Conveyor / custodian name organisation name",
+                  "value": "Bexley Magistrates' Court: PECS"
+                },
+                {
+                  "label": "Conveyor / custodian name email address 1",
+                  "value": "periodicwarrants@geoamey.co.uk"
+                }
+              ],
+              "id": "20117041-c171-43ef-8966-82d4662e80cb",
+              "label": "Remanded in custody",
+              "lastSharedDateTime": "2021-08-03",
+              "orderedDate": "2022-02-03"
+            }
+          ],
+          "count": 0,
+          "custodyTimeLimit": {
+            "isCtlExtended": false,
+            "timeLimit": "2022-03-31"
+          },
+          "endDate": "2005-05-05",
+          "id": "1e0dcea3-27e4-4ba7-8496-be5221769cd9",
+          "offenceCode": "CA03014",
+          "offenceLegislation": "Contrary to section 366(8)(b) and (9) of the Communications Act 2003.",
+          "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+          "orderIndex": 500,
+          "startDate": "1996-05-04",
+          "wording": "-- Legislation: Has a violent past and fear that he will commit further offences and\n                interfere with witnesse"
+        }
+      ],
+      "ctlExpiryCountDown": 240,
+      "ctlExpiryDate": "2025-03-31",
+      "dateOfBirth": "1978-05-15",
+      "firstName": "Robert",
+      "id": "990059f8-c4b0-4db5-b890-20a87da6e6f8",
+      "interpreterLanguageNeeds": "LanguageNeeds0",
+      "lastName": "Smith",
+      "masterDefendantId": "990059f8-c4b0-4db5-b890-20a87da6e6f8",
+      "remandStatus": "Custody or remanded into custody"
+    }
+  ]
+}

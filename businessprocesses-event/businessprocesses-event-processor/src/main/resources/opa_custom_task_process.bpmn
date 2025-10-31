@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0dhza9d" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="opa_custom_task_process" name="opa_custom_task_process" isExecutable="true">
+    <bpmn:startEvent id="start_opa_custom_task_process_event" name="start_opa_custom_task_process_event">
+      <bpmn:outgoing>Flow_Start_To_Activity</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_Start_To_Activity" sourceRef="start_opa_custom_task_process_event" targetRef="opa_custom_activity" />
+    <bpmn:userTask id="opa_custom_activity" name="opa custom user activity">
+      <bpmn:extensionElements>
+        <camunda:taskListener delegateExpression="${opaTaskCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Start_To_Activity</bpmn:incoming>
+      <bpmn:outgoing>Flow_Activity_To_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_Activity_To_End" sourceRef="opa_custom_activity" targetRef="end_opa_custom_task_process_event" />
+    <bpmn:endEvent id="end_opa_custom_task_process_event" name="end_opa_custom_task_process_event">
+      <bpmn:incoming>Flow_Activity_To_End</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="opa_custom_task_process">
+      <bpmndi:BPMNEdge id="Flow_1eh65ny_di" bpmnElement="Flow_Activity_To_End">
+        <di:waypoint x="440" y="130" />
+        <di:waypoint x="592" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lbrche_di" bpmnElement="Flow_Start_To_Activity">
+        <di:waypoint x="188" y="130" />
+        <di:waypoint x="340" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_opa_custom_task_process_event">
+        <dc:Bounds x="152" y="112" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="160" y="155" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0boev8l_di" bpmnElement="opa_custom_activity">
+        <dc:Bounds x="340" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0s5f8f5_di" bpmnElement="end_opa_custom_task_process_event">
+        <dc:Bounds x="592" y="112" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="601" y="155" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

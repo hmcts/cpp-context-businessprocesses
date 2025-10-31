@@ -1,0 +1,7 @@
+{
+  "caseId": "${CASE_ID}",
+  "caseURN": "3aa6d35d-70c3-45fb-a05e-bfedbce16412",
+  "defendantId": "3aa6d35d-70c3-45fb-a05e-bfedbce16412",
+  "defendantName": "Jane Doe",
+  "documentTypeId": "3aa6d35d-70c3-45fb-a05e-bfedbce16412"
+}

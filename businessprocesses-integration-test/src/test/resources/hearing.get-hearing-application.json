@@ -1,0 +1,194 @@
+{
+  "hearing": {
+    "applicantCounsels": [],
+    "approvalsRequested": [],
+    "companyRepresentatives": [],
+    "courtApplications": [
+      {
+        "applicant": {
+          "id": "317c62c0-eaad-3ca8-b9cf-dea1dba9b5f8",
+          "notificationRequired": false,
+          "prosecutingAuthority": {
+            "address": {
+              "address1": "CTC Prosecutions Team",
+              "address2": "Stevenage Police Station",
+              "address3": "Lytton Way",
+              "address4": "Stevenage",
+              "address5": "Herts",
+              "postcode": "SG1 1HF"
+            },
+            "contact": {
+              "primaryEmail": "cpnotifications@bch.police.uk"
+            },
+            "majorCreditorCode": "PO35",
+            "name": "Cambridgeshire Police",
+            "prosecutionAuthorityCode": "CAMPF",
+            "prosecutionAuthorityId": "317c62c0-eaad-3ca8-b9cf-dea1dba9b5f8",
+            "prosecutionAuthorityOUCode": "0350000",
+            "welshName": "Heddlu Swydd Gaergrawnt"
+          },
+          "summonsRequired": false
+        },
+        "applicationReceivedDate": "2024-06-28",
+        "applicationReference": "CPJKJUAK8G",
+        "applicationStatus": "IN_PROGRESS",
+        "courtApplicationCases": [
+          {
+            "caseStatus": "ACTIVE",
+            "isSJP": false,
+            "offences": [
+              {
+                "count": 0,
+                "id": "9816c4c6-f5b5-41a4-b9e1-406101189d2b",
+                "laidDate": "2024-06-28",
+                "maxPenalty": "EW:6M &/or Ultd Fine",
+                "modeOfTrial": "Either Way",
+                "offenceCode": "TH68037",
+                "offenceDateCode": 1,
+                "offenceDefinitionId": "83858ae3-7aa4-33ce-a179-04d9941e6b8f",
+                "offenceLegislation": "Contrary to section 9(1)(b) of the Theft Act 1968.",
+                "offenceLegislationWelsh": "Yn groes i adran 9(1)(b) Deddf Dwyn 1968.",
+                "offenceTitle": "Burglary other than dwelling - theft",
+                "offenceTitleWelsh": "Bwrglera heb fod mewn annedd - dwyn",
+                "orderIndex": 1,
+                "startDate": "2024-06-27",
+                "wording": "On or in 27 Jun 2024 at london having entered as a trespasser a building, namely tall building, stole therein laptop of a value unknown ."
+              }
+            ],
+            "prosecutionCaseId": "${PROSECUTION_CASE_ID}",
+            "prosecutionCaseIdentifier": {
+              "address": {
+                "address1": "CTC Prosecutions Team",
+                "address2": "Stevenage Police Station",
+                "address3": "Lytton Way",
+                "address4": "Stevenage",
+                "address5": "Herts",
+                "postcode": "SG1 1HF"
+              },
+              "contact": {
+                "primaryEmail": "cpnotifications@bch.police.uk"
+              },
+              "majorCreditorCode": "PO35",
+              "prosecutionAuthorityCode": "CAMPF",
+              "prosecutionAuthorityId": "317c62c0-eaad-3ca8-b9cf-dea1dba9b5f8",
+              "prosecutionAuthorityName": "Cambridgeshire Police",
+              "prosecutionAuthorityOUCode": "0350000",
+              "caseURN": "CPJKJUAK8G"
+            }
+          }
+        ],
+        "id": "${APPLICATION_ID}",
+        "respondents": [
+          {
+            "id": "59c2b1a3-e8f1-4b9e-ba37-08a4e74f7d0f",
+            "masterDefendant": {
+              "isYouth": false,
+              "masterDefendantId": "59c2b1a3-e8f1-4b9e-ba37-08a4e74f7d0f",
+              "personDefendant": {
+                "arrestSummonsNumber": "12345",
+                "personDetails": {
+                  "address": {
+                    "address1": "No fixed abode"
+                  },
+                  "dateOfBirth": "2000-01-01",
+                  "documentationLanguageNeeds": "ENGLISH",
+                  "firstName": "FN12345",
+                  "gender": "NOT_SPECIFIED",
+                  "hearingLanguageNeeds": "ENGLISH",
+                  "lastName": "LN12345",
+                  "title": "Mr"
+                }
+              },
+              "prosecutionAuthorityReference": "12345"
+            },
+            "notificationRequired": false,
+            "summonsRequired": true
+          }
+        ],
+        "subject": {
+          "id": "59c2b1a3-e8f1-4b9e-ba37-08a4e74f7d0f",
+          "masterDefendant": {
+            "isYouth": false,
+            "masterDefendantId": "59c2b1a3-e8f1-4b9e-ba37-08a4e74f7d0f",
+            "personDefendant": {
+              "arrestSummonsNumber": "12345",
+              "personDetails": {
+                "address": {
+                  "address1": "No fixed abode"
+                },
+                "dateOfBirth": "2000-01-01",
+                "documentationLanguageNeeds": "ENGLISH",
+                "firstName": "FN12345",
+                "gender": "NOT_SPECIFIED",
+                "hearingLanguageNeeds": "ENGLISH",
+                "lastName": "LN12345",
+                "title": "Mr"
+              }
+            },
+            "prosecutionAuthorityReference": "12345"
+          },
+          "notificationRequired": false,
+          "summonsRequired": true
+        },
+        "type": {
+          "appealFlag": false,
+          "applicantAppellantFlag": false,
+          "boxworkNotifTemplate": "NOT_APPLICABLE",
+          "breachType": "NOT_APPLICABLE",
+          "categoryCode": "CR",
+          "code": "MC80804",
+          "commrOfOathFlag": false,
+          "courtExtractAvlFlag": false,
+          "courtOfAppealFlag": false,
+          "hearingCode": "APN",
+          "id": "bfa61811-b917-3bce-9cc1-7ea8e554bd3b",
+          "jurisdiction": "MAGISTRATES",
+          "legislation": "In accordance with section 1 of the Magistrates' Courts Act 1980.",
+          "legislationWelsh": "Yn unol ag adran 1 Deddf Llysoedd Ynadon 1980.",
+          "linkType": "FIRST_HEARING",
+          "listingNotifTemplate": "NOT_APPLICABLE",
+          "offenceActiveOrder": "OFFENCE",
+          "pleaApplicableFlag": false,
+          "prosecutorThirdPartyFlag": false,
+          "spiOutApplicableFlag": false,
+          "summonsTemplateType": "NOT_APPLICABLE",
+          "type": "Application for issue of summons to accused or warrant for their arrest in relation to a criminal case",
+          "typeWelsh": "Cais am godi gwŷs i’r sawl a gyhuddwyd neu warant i’w harestio yng nghyswllt achos troseddol",
+          "validTo": "2021-12-31"
+        }
+      }
+    ],
+    "courtCentre": {
+      "id": "f8254db1-1683-483e-afb3-b87fde5a0a26",
+      "name": "Lavender Hill Magistrates' Court"
+    },
+    "defenceCounsels": [],
+    "defendantAttendance": [],
+    "defendantReferralReasons": [],
+    "hasSharedResults": false,
+    "hearingCaseNotes": [],
+    "hearingDays": [
+      {
+        "listedDurationMinutes": 10,
+        "sittingDay": "2024-06-28T00:00:00.000Z"
+      }
+    ],
+    "hearingLanguage": "ENGLISH",
+    "id": "${HEARING_ID}",
+    "intermediaries": [],
+    "isBoxHearing": true,
+    "isVacatedTrial": false,
+    "judiciary": [],
+    "jurisdictionType": "MAGISTRATES",
+    "prosecutionCases": [],
+    "prosecutionCounsels": [],
+    "respondentCounsels": [],
+    "type": {
+      "description": "Application",
+      "id": "3449743b-95d6-4836-8941-57f588b52068"
+    },
+    "youthCourtDefendantIds": []
+  },
+  "hearingState": "INITIALISED",
+  "witnesses": []
+}

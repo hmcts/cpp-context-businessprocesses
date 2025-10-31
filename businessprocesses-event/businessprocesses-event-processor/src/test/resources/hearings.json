@@ -1,0 +1,234 @@
+{
+  "hearings": [
+    {
+      "id": "189a6bf4-fb19-4a7b-8896-93a11cdd6574",
+      "type": {
+        "id": "ff7f05e1-8a65-39bf-8d65-f73ef9a4ebed",
+        "description": "Hearing"
+      },
+      "endDate": "2020-09-17",
+      "allocated": false,
+      "judiciary": [],
+      "startDate": "2025-08-15",
+      "courtRoomId": "4294a92c-8827-3296-be53-c74b7e9e31d8",
+      "hearingDays": [
+        {
+          "endTime": "2025-09-17T15:00:00.000Z",
+          "sequence": 0,
+          "startTime": "2025-08-15T09:00:00.000Z",
+          "courtRoomId": "4294a92c-8827-3296-be53-c74b7e9e31d8",
+          "hearingDate": "2025-08-15",
+          "courtCentreId": "c133d0de-c989-48b9-bd20-0431943e347e",
+          "durationMinutes": 360
+        }
+      ],
+      "listedCases": [
+        {
+          "id": "8e4b2be0-f92a-4291-9b99-17af7e645472",
+          "markers": [],
+          "defendants": [
+            {
+              "id": "21289d9c-682a-4b58-8c8d-e96187f0ed7d",
+              "address": {
+                "address1": "Address Line1",
+                "address2": "Address Line2",
+                "address3": "Address Line3",
+                "address4": "Address Line4",
+                "address5": "Address Line5",
+                "postcode": "RT3 4DF"
+              },
+              "isYouth": false,
+              "lastName": "Scenario378",
+              "offences": [
+                {
+                  "id": "ad65b47a-78e1-4317-a32a-3c5491424bbf",
+                  "startDate": "2019-08-11",
+                  "offenceCode": "RC86443",
+                  "shadowListed": false,
+                  "offenceWording": "On 2019-08-11 at Chelmsford intentionally obstructed a person authorised by the BBC in the exercise of a power conferred by virtue of a search warrant issued under section 366 of the Communications Act 2003 by Chelmsford Magistrates Court on 25/10/2017 ",
+                  "statementOfOffence": {
+                    "title": "Cause use of motor vehicle - tv / film visible to the driver",
+                    "welshTitle": "",
+                    "legislation": "Contrary to regulation 109 of the Road Vehicles (Construction    and Use) Regulations 1986, section 42 of the Road Traffic Act 1988    and Schedule 2 to the Road Traffic Offenders Act 1988.",
+                    "welshLegislation": ""
+                  },
+                  "restrictFromCourtList": false
+                },
+                {
+                  "id": "7ad18e08-2f73-466a-873f-73b4736c90e6",
+                  "startDate": "2019-08-11",
+                  "offenceCode": "CA03013",
+                  "shadowListed": false,
+                  "offenceWording": "On 2019-08-11 at Chelmsford intentionally obstructed a person authorised by the BBC in the exercise of a power conferred by virtue of a search warrant issued under section 366 of the Communications Act 2003 by Chelmsford Magistrates Court on 25/10/2017 ",
+                  "statementOfOffence": {
+                    "title": "Obstruct    person executing search warrant for TV receiver",
+                    "welshTitle": "Rhwystro unigolyn a oedd yn gweithredu gwarant chwilio ar gyfer derbynnydd teledu",
+                    "legislation": "Contrary to section 366(8)(a) and    (9) of the Communications Act 2003.",
+                    "welshLegislation": "Yn groes i adran 366(8)(a) a (9) Deddf Cyfathrebu 2003."
+                  },
+                  "restrictFromCourtList": false
+                }
+              ],
+              "firstName": "Scenario378",
+              "bailStatus": {
+                "id": "12e69486-4d01-3403-a50a-7419ca040635",
+                "code": "C",
+                "description": "Custody or remanded into custody"
+              },
+              "dateOfBirth": "1998-09-18",
+              "custodyTimeLimit": "2020-11-19",
+              "masterDefendantId": "976017a3-abfc-40fc-8ea2-ea0804716d61",
+              "specificRequirements": "no special needs",
+              "restrictFromCourtList": false,
+              "nationalityDescription": "British",
+              "courtProceedingsInitiated": "2020-09-17T10:09:17.442Z"
+            }
+          ],
+          "shadowListed": false,
+          "caseIdentifier": {
+            "authorityId": "6b7b9adc-ccee-4b13-b2c7-499c28e98962",
+            "authorityCode": "TVL",
+            "caseReference": "TVLMD14254661"
+          },
+          "restrictFromCourtList": false
+        }
+      ],
+      "courtCentreId": "f2cedc01-cbeb-3b81-95b9-549da128c303",
+      "isSlotsBooked": false,
+      "nonDefaultDays": [],
+      "nonSittingDays": [],
+      "hearingLanguage": "ENGLISH",
+      "estimatedMinutes": 30,
+      "jurisdictionType": "CROWN",
+      "adjournedFromDate": "2020-09-17",
+      "courtApplications": [],
+      "courtCentreDetails": {
+        "id": "f2cedc01-cbeb-3b81-95b9-549da128c303",
+        "defaultDuration": 360,
+        "defaultStartTime": "10:30:00"
+      },
+      "weekCommencingEndDate": "2020-09-26",
+      "weekCommencingStartDate": "2020-09-19",
+      "weekCommencingDurationInWeeks": 1
+    },
+    {
+      "id": "1cc912fe-f5c0-4de1-b422-5714286d2608",
+      "type": {
+        "id": "06b0c2bf-3f98-46ed-ab7e-56efaf9ecced",
+        "description": "Plea and Trial Preparation"
+      },
+      "endDate": "2020-09-17",
+      "allocated": true,
+      "judiciary": [],
+      "startDate": "2025-08-01",
+      "courtRoomId": "4294a92c-8827-3296-be53-c74b7e9e31d8",
+      "hearingDays": [
+        {
+          "endTime": "2025-09-17T15:00:00.000Z",
+          "sequence": 0,
+          "startTime": "2025-08-01T09:00:00.000Z",
+          "courtRoomId": "4294a92c-8827-3296-be53-c74b7e9e31d8",
+          "hearingDate": "2025-08-01",
+          "courtCentreId": "c133d0de-c989-48b9-bd20-0431943e347e",
+          "durationMinutes": 360
+        }
+      ],
+      "listedCases": [
+        {
+          "id": "8e4b2be0-f92a-4291-9b99-17af7e645472",
+          "markers": [],
+          "caseStatus": "SJP_REFERRAL",
+          "defendants": [
+            {
+              "id": "21289d9c-682a-4b58-8c8d-e96187f0ed7d",
+              "address": {
+                "address1": "Address Line1",
+                "address2": "Address Line2",
+                "address3": "Address Line3",
+                "address4": "Address Line4",
+                "address5": "Address Line5",
+                "postcode": "RT3 4DF"
+              },
+              "isYouth": false,
+              "lastName": "Scenario378",
+              "offences": [
+                {
+                  "id": "ad65b47a-78e1-4317-a32a-3c5491424bbf",
+                  "startDate": "2022-08-11",
+                  "offenceCode": "RC86443",
+                  "shadowListed": false,
+                  "listingNumber": 1,
+                  "offenceWording": "On 2019-08-11 at Chelmsford intentionally obstructed a person authorised by the BBC in the exercise of a power conferred by virtue of a search warrant issued under section 366 of the Communications Act 2003 by Chelmsford Magistrates Court on 25/10/2017 ",
+                  "statementOfOffence": {
+                    "title": "Cause use of motor vehicle - tv / film visible to the driver",
+                    "welshTitle": "",
+                    "legislation": "Contrary to regulation 109 of the Road Vehicles (Construction    and Use) Regulations 1986, section 42 of the Road Traffic Act 1988    and Schedule 2 to the Road Traffic Offenders Act 1988.",
+                    "welshLegislation": ""
+                  },
+                  "restrictFromCourtList": false
+                },
+                {
+                  "id": "7ad18e08-2f73-466a-873f-73b4736c90e6",
+                  "startDate": "2022-08-11",
+                  "offenceCode": "CA03013",
+                  "shadowListed": false,
+                  "listingNumber": 1,
+                  "offenceWording": "On 2019-08-11 at Chelmsford intentionally obstructed a person authorised by the BBC in the exercise of a power conferred by virtue of a search warrant issued under section 366 of the Communications Act 2003 by Chelmsford Magistrates Court on 25/10/2017 ",
+                  "statementOfOffence": {
+                    "title": "Obstruct    person executing search warrant for TV receiver",
+                    "welshTitle": "Rhwystro unigolyn a oedd yn gweithredu gwarant chwilio ar gyfer derbynnydd teledu",
+                    "legislation": "Contrary to section 366(8)(a) and    (9) of the Communications Act 2003.",
+                    "welshLegislation": "Yn groes i adran 366(8)(a) a (9) Deddf Cyfathrebu 2003."
+                  },
+                  "restrictFromCourtList": false
+                }
+              ],
+              "firstName": "Scenario378",
+              "dateOfBirth": "1998-09-18",
+              "masterDefendantId": "976017a3-abfc-40fc-8ea2-ea0804716d61",
+              "hearingLanguageNeeds": "ENGLISH",
+              "proceedingsConcluded": false,
+              "specificRequirements": "no special needs",
+              "restrictFromCourtList": false,
+              "nationalityDescription": "British",
+              "courtProceedingsInitiated": "2020-09-17T10:09:17.442Z"
+            }
+          ],
+          "shadowListed": false,
+          "caseIdentifier": {
+            "authorityId": "6b7b9adc-ccee-4b13-b2c7-499c28e98962",
+            "authorityCode": "TVL",
+            "caseReference": "TVLMD14254661"
+          },
+          "restrictFromCourtList": false
+        }
+      ],
+      "courtCentreId": "c133d0de-c989-48b9-bd20-0431943e347e",
+      "isSlotsBooked": false,
+      "isVacatedTrial": false,
+      "nonDefaultDays": [
+        {
+          "oucode": "B01DU00",
+          "roomId": "4294a92c-8827-3296-be53-c74b7e9e31d8",
+          "session": "AD",
+          "duration": 360,
+          "startTime": "2020-09-17T09:00:00.000Z",
+          "courtRoomId": 699,
+          "courtCentreId": "c133d0de-c989-48b9-bd20-0431943e347e",
+          "courtScheduleId": "8e3ca736-00db-368f-b98c-d412b1ea11fd"
+        }
+      ],
+      "nonSittingDays": [],
+      "hearingLanguage": "ENGLISH",
+      "estimatedMinutes": 20,
+      "jurisdictionType": "MAGISTRATES",
+      "courtApplications": [],
+      "courtCentreDetails": {
+        "id": "c133d0de-c989-48b9-bd20-0431943e347e",
+        "defaultDuration": 420,
+        "defaultStartTime": "10:00:00"
+      },
+      "vacatedTrialReasonId": ""
+    }
+  ]
+}

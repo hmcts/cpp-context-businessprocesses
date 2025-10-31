@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/progression/json/schemas/event/public.defence.opa-task-requested.json",
+  "type": "object",
+  "properties": {
+    "opaId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "courtCode": {
+      "type": "string"
+    },
+    "organisationId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "taskName": {
+      "type": "string"
+    },
+    "caseUrn": {
+      "type": "string"
+    },
+    "roles": {
+      "type": "string"
+    },
+    "numberOfDays": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "opaId",
+    "organisationId",
+    "taskName",
+    "roles",
+    "numberOfDays"
+  ],
+  "additionalProperties": false
+}

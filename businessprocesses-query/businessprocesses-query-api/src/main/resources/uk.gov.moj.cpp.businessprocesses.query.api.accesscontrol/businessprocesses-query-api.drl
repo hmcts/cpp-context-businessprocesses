@@ -1,0 +1,17 @@
+package uk.gov.moj.cpp.businessprocesses.query.api.accesscontrol;
+
+import uk.gov.moj.cpp.accesscontrol.drools.Outcome;
+import uk.gov.moj.cpp.accesscontrol.drools.Action;
+
+import uk.gov.moj.cpp.businessprocesses.query.api.accesscontrol.PermissionProvider;
+
+global uk.gov.moj.cpp.accesscontrol.common.providers.UserAndGroupProvider userAndGroupProvider;
+
+rule "Command - Task History Query"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "businessprocesses.query.task-history");
+    eval(true);
+  then
+    $outcome.setSuccess(true);
+end

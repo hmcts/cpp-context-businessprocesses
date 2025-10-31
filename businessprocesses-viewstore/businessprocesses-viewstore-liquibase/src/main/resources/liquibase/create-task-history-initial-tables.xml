@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet id="create-task-history-initial-tables" author="CTSC-hustle-dev">
+        <createTable tableName="task">
+            <column name="task_id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="reference" type="TEXT"/>
+            <column name="type" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="due_date" type="DATETIME"/>
+            <column name="completed_date" type="DATETIME"/>
+            <column name="status" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="workqueue" type="UUID"/>
+            <column name="court_id" type="UUID"/>
+            <column name="jurisdiction" type="TEXT"/>
+            <column name="hearing_date" type="DATETIME"/>
+        </createTable>
+
+        <createTable tableName="task_history">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="event_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="event_type" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="change_author" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addColumn tableName="task_history">
+            <column name="task_id" type="UUID">
+                <constraints foreignKeyName="fk_task_history_task_id" referencedTableName="task" referencedColumnNames="task_id"/>
+            </column>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

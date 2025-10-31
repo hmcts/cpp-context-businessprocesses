@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<process-application
+        xmlns="http://www.camunda.org/schema/1.0/ProcessApplication">
+
+    <process-archive name="application-received">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="bcm_welsh_language_translation_request">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="book_interpreter_welsh_case">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="case-results-v2">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="correspondence_failure_identified">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="cotr_custom_task_process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="delete-financial-means-information">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="hearing-listed">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="hearing-vacated">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="list_bail_appeal_hearing_process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="list_murder_case_for_bail_hearing_process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="opa_custom_task_process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="process_new_summons_application">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="review_case_process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="single_custom_task_process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="sjp-case-hearing-decision-saved">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="spi_error_identified">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="triage_incoming_document_identified">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="update_access_to_sensitive_case_process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="welsh-translation-process">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <!--    BELOW ARE THE OTHER PROCESSES NOT IN USE    -->
+
+    <process-archive name="list_serious_case_bail_hearing">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="new_application_magistrates_request">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="new_application_crown_request">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+    </process-archive>
+
+</process-application>

@@ -1,0 +1,18 @@
+{
+  "displayName": "Test Activity",
+  "taskName": "test_activity",
+  "due": "2024-06-27T23:59:00.000Z",
+  "caseURN": "29GD7875621",
+  "assignee": "customTaskAssignee",
+  "candidateGroups": "3d1b2be0-f92a-4291-9b99-17af7e645904,6b1b2be0-f92a-4291-9b99-17af7e645123",
+  "isDeletable": true,
+  "isDeferrable": false,
+  "organisationId": "7f2b2be0-f92a-4291-9b99-17af7e645321",
+  "caseId": "8e4b2be0-f92a-4291-9b99-17af7e645472",
+  "businessUnitCodes": "businessUnitOuCode",
+  "courtCodes": "courtOuCode",
+  "isUrgent": false,
+  "lastUpdatedByID": "4b1b2be0-f92a-4291-9b99-17af7e645123",
+  "lastUpdatedByName": "John Smith Created"
+}
+   

@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/json/schemas/businessprocesses/event/task-created.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "taskTypeId": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "type": {
+      "type": "string"
+    },
+    "workQueue": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "workQueueName": {
+      "type": "string"
+    },
+    "courtId": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "changeAuthorId": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "changeAuthor": {
+      "type": "string",
+      "description": "name of the author"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "hearingDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "jurisdiction": {
+      "$ref": "http://justice.gov.uk/core/courts/jurisdictionType.json"
+    }
+  },
+  "required": [
+    "id",
+    "changeAuthorId",
+    "taskTypeId",
+    "changeAuthor",
+    "createdDate",
+    "type"
+  ],
+  "additionalProperties": false
+}
+

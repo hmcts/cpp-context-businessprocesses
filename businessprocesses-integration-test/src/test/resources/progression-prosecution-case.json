@@ -1,0 +1,192 @@
+{
+  "prosecutionCase": {
+    "defendants": [
+      {
+        "courtProceedingsInitiated": "2024-07-16T09:43:22.360Z",
+        "id": "924f3321-6e89-4486-9277-97b84dec6e3e",
+        "initiationCode": "C",
+        "masterDefendantId": "924f3321-6e89-4486-9277-97b84dec6e3e",
+        "offences": [
+          {
+            "arrestDate": "2024-07-16",
+            "chargeDate": "2024-07-16",
+            "count": 0,
+            "endorsableFlag": false,
+            "id": "d7059c03-2155-42b5-abec-b60c10897e9c",
+            "listingNumber": 1,
+            "modeOfTrial": "Indictable",
+            "offenceCode": "TH68023",
+            "offenceDateCode": 1,
+            "offenceDefinitionId": "18affe3a-82be-4a4f-9a13-27f4a23c9a2f",
+            "offenceLegislation": "Contrary to section 8(1) of the Theft Act 1968.",
+            "offenceLegislationWelsh": "Yn groes i adran 8(1) Deddf Dwyn 1968.",
+            "offenceTitle": "Robbery",
+            "offenceTitleWelsh": "Ysbeilio/Lladrad",
+            "orderIndex": 1,
+            "startDate": "2024-07-05",
+            "wording": "On or in 05 Jul 2024 at London robbed Test of London  of a value unknown ."
+          }
+        ],
+        "personDefendant": {
+          "arrestSummonsNumber": "12345",
+          "bailStatus": {
+            "code": "A",
+            "description": "Not applicable",
+            "id": "86009c70-759d-3308-8de4-194886ff9a77"
+          },
+          "personDetails": {
+            "address": {
+              "address1": "No fixed abode"
+            },
+            "dateOfBirth": "1980-01-01",
+            "documentationLanguageNeeds": "WELSH",
+            "firstName": "Test10",
+            "gender": "NOT_SPECIFIED",
+            "hearingLanguageNeeds": "WELSH",
+            "interpreterLanguageNeeds": "i want welsh interpreter-test10",
+            "lastName": "Test42",
+            "nationalityCode": "GBR",
+            "nationalityDescription": "British",
+            "nationalityId": "49433158-3542-49c8-a9af-581a0e746152",
+            "title": "Mr"
+          },
+          "policeBailStatus": {
+            "code": "A",
+            "description": "Not applicable",
+            "id": "86009c70-759d-3308-8de4-194886ff9a77"
+          }
+        },
+        "prosecutionCaseId": "dff4254f-d92a-4015-9576-bdf33172351a"
+      }
+    ],
+    "id": "dff4254f-d92a-4015-9576-bdf33172351a",
+    "initiationCode": "C",
+    "originatingOrganisation": "0930000",
+    "prosecutionCaseIdentifier": {
+      "address": {
+        "address1": "Central London Police Station",
+        "address2": "16-24 Whitfield Street",
+        "address3": "London",
+        "postcode": "W1T 2RA"
+      },
+      "contact": {
+        "primaryEmail": "BTP-JUSTICE-UNIT@BTP.POLICE.UK"
+      },
+      "majorCreditorCode": "BTP",
+      "prosecutionAuthorityCode": "BTP",
+      "prosecutionAuthorityId": "433ab45d-bfb6-3c38-a6a5-a30e114c9a5f",
+      "prosecutionAuthorityName": "British Transport Police",
+      "prosecutionAuthorityOUCode": "0930000",
+      "caseURN": "CGGAUI6ODO"
+    },
+    "caseStatus": "ACTIVE"
+  },
+  "hearingsAtAGlance": {
+    "courtApplications": [],
+    "defendantHearings": [
+      {
+        "defendantId": "924f3321-6e89-4486-9277-97b84dec6e3e",
+        "defendantName": "Test10 Test42",
+        "hearingIds": [
+          "cf139ee6-a887-42e2-a18e-f6cffbedd232"
+        ]
+      }
+    ],
+    "hearings": [
+      {
+        "courtCentre": {
+          "address": {
+            "address1": "The Law Courts",
+            "address2": "Glebeland Place",
+            "address3": "Merthyr Tydfil",
+            "address4": "",
+            "address5": "",
+            "postcode": "CF47 8BU"
+          },
+          "code": "B62IZ00",
+          "courtHearingLocation": "B62IZ00",
+          "id": "9cb28565-d38d-35c1-9044-1f6ac802a669",
+          "lja": {
+            "ljaCode": "3260",
+            "ljaName": "Mid Wales (South Wales Area) Magistrates' Court",
+            "welshLjaName": "Llys Ynadon Canolbarth Cymru (Ardal De Cymru)"
+          },
+          "name": "Merthyr Tydfil Magistrates' Court",
+          "roomId": "c89e64d6-a53c-3f73-9e04-b6dc6a90d577",
+          "roomName": "Courtroom 01"
+        },
+        "defendants": [
+          {
+            "address": {
+              "address1": "No fixed abode"
+            },
+            "age": "44",
+            "courtApplications": [],
+            "dateOfBirth": "1980-01-01",
+            "defenceOrganisation": {
+              "defenceCounsels": [],
+              "defendantId": "924f3321-6e89-4486-9277-97b84dec6e3e"
+            },
+            "id": "924f3321-6e89-4486-9277-97b84dec6e3e",
+            "judicialResults": [],
+            "name": "Test10 Test42",
+            "offences": [
+              {
+                "count": 0,
+                "id": "d7059c03-2155-42b5-abec-b60c10897e9c",
+                "judicialResults": [],
+                "offenceCode": "TH68023",
+                "offenceDefinitionId": "18affe3a-82be-4a4f-9a13-27f4a23c9a2f",
+                "offenceLegislation": "Contrary to section 8(1) of the Theft Act 1968.",
+                "offenceLegislationWelsh": "Yn groes i adran 8(1) Deddf Dwyn 1968.",
+                "offenceTitle": "Robbery",
+                "offenceTitleWelsh": "Ysbeilio/Lladrad",
+                "pleas": [],
+                "startDate": "2024-07-05",
+                "verdicts": [],
+                "wording": "On or in 05 Jul 2024 at London robbed Test of London  of a value unknown ."
+              }
+            ]
+          }
+        ],
+        "hasResultAmended": false,
+        "hearingDays": [
+          {
+            "courtCentreId": "9cb28565-d38d-35c1-9044-1f6ac802a669",
+            "courtRoomId": "c89e64d6-a53c-3f73-9e04-b6dc6a90d577",
+            "isCancelled": false,
+            "listedDurationMinutes": 20,
+            "listingSequence": 0,
+            "sittingDay": "2024-08-31T11:10:00.000Z"
+          }
+        ],
+        "hearingListingStatus": "HEARING_INITIALISED",
+        "id": "cf139ee6-a887-42e2-a18e-f6cffbedd232",
+        "jurisdictionType": "MAGISTRATES",
+        "type": {
+          "description": "First hearing",
+          "id": "4a0e892d-c0c5-3c51-95b8-704d8c781776"
+        }
+      }
+    ],
+    "id": "dff4254f-d92a-4015-9576-bdf33172351a",
+    "latestHearingJurisdictionType": "MAGISTRATES",
+    "prosecutionCaseIdentifier": {
+      "address": {
+        "address1": "Central London Police Station",
+        "address2": "16-24 Whitfield Street",
+        "address3": "London",
+        "postcode": "W1T 2RA"
+      },
+      "contact": {
+        "primaryEmail": "BTP-JUSTICE-UNIT@BTP.POLICE.UK"
+      },
+      "majorCreditorCode": "BTP",
+      "prosecutionAuthorityCode": "BTP",
+      "prosecutionAuthorityId": "433ab45d-bfb6-3c38-a6a5-a30e114c9a5f",
+      "prosecutionAuthorityName": "British Transport Police",
+      "prosecutionAuthorityOUCode": "0930000",
+      "caseURN": "CGGAUI6ODO"
+    }
+  }
+}

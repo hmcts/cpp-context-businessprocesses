@@ -1,0 +1,237 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/businessprocesses/refdata/query/api/resultdefinition.json",
+  "type": [
+    "object",
+    "null"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "label": {
+      "type": "string"
+    },
+    "shortCode": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "rank": {
+      "type": "integer"
+    },
+    "wordGroups": {
+      "$ref": "#/definitions/wordGroups"
+    },
+    "userGroups": {
+      "$ref": "#/definitions/userGroups"
+    },
+    "version": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "prompts": {
+      "$ref": "#/definitions/prompts"
+    },
+    "startDate": {
+      "$ref": "#/definitions/isoDate"
+    },
+    "endDate": {
+      "$ref": "#/definitions/isoDate"
+    },
+    "welshLabel": {
+      "type": "string"
+    },
+    "isAvailableForCourtExtract": {
+      "type": "boolean"
+    },
+    "adjournment": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "urgent": {
+      "type": "boolean"
+    },
+    "d20": {
+      "type": "boolean"
+    },
+    "terminatesOffenceProceedings": {
+      "type": "boolean"
+    },
+    "lifeDuration": {
+      "type": "boolean"
+    },
+    "publishedAsAPrompt": {
+      "type": "boolean"
+    },
+    "excludedFromResults": {
+      "type": "boolean"
+    },
+    "alwaysPublished": {
+      "type": "boolean"
+    },
+    "resultWording": {
+      "type": "string"
+    },
+    "welshResultWording": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "required": [
+        "id",
+        "label",
+        "shortCode",
+        "level",
+        "rank",
+        "version",
+        "prompts",
+        "isAvailableForCourtExtract",
+        "terminatesOffenceProceedings",
+        "lifeDuration",
+        "publishedAsAPrompt",
+        "excludedFromResults",
+        "alwaysPublished",
+        "urgent",
+        "d20"
+      ]
+    },
+    {
+      "required": [
+        "id",
+        "label",
+        "shortCode",
+        "level",
+        "rank",
+        "version",
+        "userGroups",
+        "isAvailableForCourtExtract",
+        "terminatesOffenceProceedings",
+        "lifeDuration",
+        "publishedAsAPrompt",
+        "excludedFromResults",
+        "alwaysPublished",
+        "urgent",
+        "d20"
+      ]
+    }
+  ],
+  "definitions": {
+    "isoDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-[01]\\d-[0-3]\\d$"
+    },
+    "wordGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "wordGroup": {
+            "$ref": "#/definitions/wordGroup"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "wordGroup"
+        ]
+      }
+    },
+    "wordGroup": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prompts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+          },
+          "label": {
+            "type": "string"
+          },
+          "resultPromptRule": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "wordGroup": {
+            "$ref": "#/definitions/wordGroup"
+          },
+          "userGroups": {
+            "$ref": "#/definitions/userGroups"
+          },
+          "fixedListId": {
+            "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "welshLabel": {
+            "type": "string"
+          },
+          "durationSequence": {
+            "type": "integer"
+          },
+          "nameAddressType": {
+            "type": "string"
+          },
+          "componentLabel": {
+            "type": "string"
+          },
+          "fixListLabel": {
+            "type": "string"
+          },
+          "referenceDataKey": {
+            "type": "string"
+          },
+          "associateToReferenceData": {
+            "type": "boolean"
+          },
+          "partName": {
+            "type": "string"
+          },
+          "nameEmail": {
+            "type": "boolean"
+          },
+          "isDurationStartDate": {
+            "type": "boolean"
+          },
+          "isDurationEndDate": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "resultPromptRule",
+          "type",
+          "sequence",
+          "userGroups"
+        ]
+      }
+    },
+    "userGroups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

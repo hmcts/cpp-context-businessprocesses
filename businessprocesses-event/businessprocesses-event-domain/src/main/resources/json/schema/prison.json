@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/businessprocesses/refdata/query/api/prison.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "seqNum": {
+      "type": "integer"
+    },
+    "nsdtIdentifier": {
+      "type": "string",
+      "maxLength": 10
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "addressLine1": {
+      "type": "string",
+      "maxLength": 35
+    },
+    "addressLine2": {
+      "type": "string",
+      "maxLength": 35
+    },
+    "addressLine3": {
+      "type": "string",
+      "maxLength": 35
+    },
+    "addressLine4": {
+      "type": "string",
+      "maxLength": 35
+    },
+    "addressLine5": {
+      "type": "string",
+      "maxLength": 35
+    },
+    "postCode": {
+      "type": "string",
+      "maxLength": 11
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "omuEmailAddress": {
+      "type": "string"
+    },
+    "receptionEmailAddress": {
+      "type": "string"
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date"
+    },
+    "validTo": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "id",
+    "seqNum",
+    "name",
+    "nsdtIdentifier"
+  ],
+  "additionalProperties": false
+}

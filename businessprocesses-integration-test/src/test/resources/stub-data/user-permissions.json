@@ -1,0 +1,11 @@
+{
+  "permissions": [
+    {
+      "permissionId": "PERMISSION_ID",
+      "description": "Permission for DEPUTY_DISTRICT_JUDGE",
+      "object" :"Case",
+      "action" : "Access",
+      "active": "true"
+    }
+  ]
+}

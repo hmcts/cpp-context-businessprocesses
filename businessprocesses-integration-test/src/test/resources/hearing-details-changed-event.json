@@ -1,0 +1,40 @@
+{
+  "id": "${HEARING_ID}",
+  "type": {
+    "description": "Trial",
+    "id": "bf8155e1-90b9-4080-b133-bfbad895d6e4"
+  },
+  "courtCentre": {
+    "address": {
+      "address1": "The Law Courts",
+      "address2": "Glebeland Place",
+      "address3": "Merthyr Tydfil",
+      "address4": "",
+      "address5": "",
+      "postcode": "CF47 8BU"
+    },
+    "code": "B62IZ00",
+    "courtHearingLocation": "B62IZ01",
+    "id": "9cb28565-d38d-35c1-9044-1f6ac802a669",
+    "lja": {
+      "ljaCode": "3260",
+      "ljaName": "Mid Wales (South Wales Area) Magistrates' Court",
+      "welshLjaName": "Llys Ynadon Canolbarth Cymru (Ardal De Cymru)"
+    },
+    "name": "Merthyr Tydfil Magistrates' Court",
+    "roomId": "c0d08630-7ef8-356b-8ba3-59f4ba0144ed",
+    "roomName": "Magistrates' 1"
+  },
+  "jurisdictionType": "MAGISTRATES",
+  "hearingLanguage": "ENGLISH",
+  "hearingDays": [
+    {
+      "courtCentreId": "9cb28565-d38d-35c1-9044-1f6ac802a669",
+      "courtRoomId": "c0d08630-7ef8-356b-8ba3-59f4ba0144ed",
+      "isCancelled": false,
+      "listedDurationMinutes": 20,
+      "listingSequence": 0,
+      "sittingDay": "2024-12-20T10:00:00.000Z"
+    }
+  ]
+}

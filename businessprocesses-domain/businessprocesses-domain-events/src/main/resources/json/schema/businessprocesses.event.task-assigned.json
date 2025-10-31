@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/json/schemas/businessprocesses/event/task-assigned.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "assignTo": {
+      "description": "Optional as there is no assignee for unassigned tasks",
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "assignName": {
+      "description": "Optional as there is no assignee for unassigned tasks",
+      "type": "string"
+    },
+    "assignmentType": {
+      "enum": [
+        "ASSIGNED",
+        "REASSIGNED",
+        "UNASSIGNED"
+      ]
+    },
+    "details": {
+      "type": "string"
+    },
+    "changeAuthorId": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "changeAuthor": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "assignmentType",
+    "details",
+    "changeAuthorId",
+    "changeAuthor"
+  ],
+  "additionalProperties": false
+}

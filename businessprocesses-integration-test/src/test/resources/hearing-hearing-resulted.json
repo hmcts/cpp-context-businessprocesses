@@ -1,0 +1,364 @@
+{
+  "hearing": {
+    "id": "${HEARING_ID}",
+    "courtCentre": {
+      "id": "d2ca6c3b-6c47-400f-acfb-6eea9cb45705",
+      "name": "whEYt5pGLz",
+      "roomId": "b1355956-eaa5-47ba-bb85-48eef368fa5d",
+      "roomName": "fjm8yfzGGJ",
+      "address": {
+        "address1": "1 Queen Victoria Street",
+        "address2": "London",
+        "address3": "",
+        "address4": "",
+        "address5": "",
+        "postcode": "EC4N 4XY"
+      }
+    },
+    "hearingDays": [
+      {
+        "sittingDay": "2018-09-28T12:13:00.000Z",
+        "listedDurationMinutes": 0
+      },
+      {
+        "sittingDay": "2018-09-30T09:30:00.000Z",
+        "listedDurationMinutes": 0
+      }
+    ],
+    "jurisdictionType": "MAGISTRATES",
+    "prosecutionCases": [
+      {
+        "id": "${CASE_ID1}",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
+          "prosecutionAuthorityCode": "TFL",
+          "caseURN": "TFL98765"
+        },
+        "originatingOrganisation": "G01FT01AB",
+        "initiationCode": "J",
+        "caseStatus": "${CASE_ID1_STATUS}",
+        "defendants": [
+          {
+            "id": "36e43e49-f644-4884-9261-8485537fe9ab",
+            "masterDefendantId": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "prosecutionCaseId": "${CASE_ID1}",
+            "courtProceedingsInitiated": "2020-01-12T05:27:17.210Z",
+            "offences": [
+              {
+                "id": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                "offenceDefinitionId": "490dce00-8591-49af-b2d0-1e161e7d0c36",
+                "wording": "No Travel Card",
+                "wordingWelsh": "No Travel Card In Welsh",
+                "startDate": "2018-01-01",
+                "endDate": "2018-01-01",
+                "arrestDate": "2018-01-01",
+                "chargeDate": "2018-01-01",
+                "orderIndex": 1,
+                "offenceCode": "TTH105HY",
+                "offenceTitle": "ROBBERY",
+                "count": 0,
+                "notifiedPlea": {
+                  "offenceId": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                  "notifiedPleaDate": "2018-04-01",
+                  "notifiedPleaValue": "NOTIFIED_GUILTY"
+                },
+                "offenceFacts": {
+                  "vehicleRegistration": "AA12345",
+                  "alcoholReadingAmount": 111,
+                  "alcoholReadingMethodCode": "2222"
+                },
+                "judicialResults": [
+                  {
+                    "category": "FINAL",
+                    "cjsCode": "1002",
+                    "courtClerk": {
+                      "firstName": "Erica",
+                      "lastName": "Wilson",
+                      "userId": "a085e359-6069-4694-8820-7810e7dfe762"
+                    },
+                    "delegatedPowers": {
+                      "firstName": "Erica",
+                      "lastName": "Wilson",
+                      "userId": "a085e359-6069-4694-8820-7810e7dfe762"
+                    },
+                    "isAdjournmentResult": false,
+                    "isAvailableForCourtExtract": true,
+                    "isConvictedResult": true,
+                    "isFinancialResult": false,
+                    "publishedForNows":  false,
+                    "rollUpPrompts":  false,
+                    "judicialResultId": "dafafd26-e5d7-4f7d-9389-d614c506d160",
+                    "judicialResultTypeId": "7a0932f5-8264-412e-a83c-2b6d1dce1506",
+                    "judicialResultPrompts": [
+                      {
+                        "courtExtract": "Y",
+                        "label": "Imprisonment Period",
+                        "promptSequence": 1,
+                        "usergroups": [
+                          "Legal Advisers",
+                          "Court Clerks"
+                        ],
+                        "value": "2 Years",
+                        "welshLabel": "",
+                        "judicialResultPromptTypeId": "b7a4f98e-80cd-40f6-aeef-2625f2c776be"
+                      },
+                      {
+                        "courtExtract": "Y",
+                        "label": "Prison",
+                        "promptSequence": 10,
+                        "usergroups": [
+                          "Legal Advisers",
+                          "Court Clerks"
+                        ],
+                        "value": "1614",
+                        "welshLabel": "",
+                        "judicialResultPromptTypeId": "dab7161b-4ece-4863-a3ea-0a319bb71d14"
+                      }
+                    ],
+                    "label": "Imprisonment",
+                    "resultText": "Imprisonment",
+                    "terminatesOffenceProceedings": false,
+                    "lifeDuration": false,
+                    "publishedAsAPrompt": false,
+                    "excludedFromResults": false,
+                    "alwaysPublished": false,
+                    "urgent": false,
+                    "d20": false,
+                    "lastSharedDateTime": "2019-06-03",
+                    "orderedDate": "2019-06-03",
+                    "orderedHearingId": "e1ff9340-7b6c-4d95-883d-c6ca62c45fe7",
+                    "rank": 46,
+                    "usergroups": []
+                  }
+                ],
+                "offenceDateCode": 4,
+                "maxPenalty": "Max Penalty"
+              }
+            ],
+            "personDefendant": {
+              "personDetails": {
+                "title": "MR",
+                "firstName": "Edward",
+                "middleName": "John",
+                "lastName": "Harrison",
+                "dateOfBirth": "2002-01-10",
+                "nationalityId": "2c2ef05b-6819-44ea-aa5d-c46247ed44c2",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "United Kingdom",
+                "additionalNationalityId": "743db214-2a0f-4192-9081-ad03e56126ea",
+                "additionalNationalityCode": "USA",
+                "additionalNationalityDescription": "United States Of America",
+                "ethnicity": {
+                  "observedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "observedEthnicityCode": "W1",
+                  "observedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British"
+                },
+                "gender": "MALE",
+                "documentationLanguageNeeds": "ENGLISH",
+                "nationalInsuranceNumber": "NH195839C",
+                "occupation": "Rail Transport Operative",
+                "occupationCode": "82340",
+                "address": {
+                  "address1": "Flat 4",
+                  "address2": "17 Oldberry Road",
+                  "address3": "Edgeware",
+                  "address4": "Middlesex",
+                  "address5": "London",
+                  "postcode": "HA8 9DA"
+                },
+                "contact": {
+                  "mobile": "07973 824240",
+                  "primaryEmail": "teddy_harrison@hotmail.com"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "${CASE_ID2}",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
+          "prosecutionAuthorityCode": "TFL",
+          "caseURN": "TFL98765"
+        },
+        "originatingOrganisation": "G01FT01AB",
+        "initiationCode": "J",
+        "caseStatus": "${CASE_ID2_STATUS}",
+        "defendants": [
+          {
+            "id": "46e43e49-f644-4884-9261-8485537fe9ab",
+            "masterDefendantId": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "prosecutionCaseId": "${CASE_ID2}",
+            "courtProceedingsInitiated": "2020-01-12T05:27:17.210Z",
+            "offences": [
+              {
+                "id": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                "offenceDefinitionId": "490dce00-8591-49af-b2d0-1e161e7d0c36",
+                "wording": "No Travel Card",
+                "wordingWelsh": "No Travel Card In Welsh",
+                "startDate": "2018-01-01",
+                "endDate": "2018-01-01",
+                "arrestDate": "2018-01-01",
+                "chargeDate": "2018-01-01",
+                "orderIndex": 1,
+                "offenceCode": "TTH105HY",
+                "offenceTitle": "ROBBERY",
+                "count": 0,
+                "notifiedPlea": {
+                  "offenceId": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                  "notifiedPleaDate": "2018-04-01",
+                  "notifiedPleaValue": "NOTIFIED_GUILTY"
+                },
+                "offenceFacts": {
+                  "vehicleRegistration": "AA12345",
+                  "alcoholReadingAmount": 111,
+                  "alcoholReadingMethodCode": "2222"
+                },
+                "offenceDateCode": 4,
+                "maxPenalty": "Max Penalty"
+              }
+            ],
+            "personDefendant": {
+              "personDetails": {
+                "title": "MR",
+                "firstName": "Edward",
+                "middleName": "John",
+                "lastName": "Harrison",
+                "dateOfBirth": "2002-01-10",
+                "nationalityId": "2c2ef05b-6819-44ea-aa5d-c46247ed44c2",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "United Kingdom",
+                "additionalNationalityId": "743db214-2a0f-4192-9081-ad03e56126ea",
+                "additionalNationalityCode": "USA",
+                "additionalNationalityDescription": "United States Of America",
+                "ethnicity": {
+                  "observedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "observedEthnicityCode": "W1",
+                  "observedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British"
+                },
+                "gender": "MALE",
+                "documentationLanguageNeeds": "ENGLISH",
+                "nationalInsuranceNumber": "NH195839C",
+                "occupation": "Rail Transport Operative",
+                "occupationCode": "82340",
+                "address": {
+                  "address1": "Flat 4",
+                  "address2": "17 Oldberry Road",
+                  "address3": "Edgeware",
+                  "address4": "Middlesex",
+                  "address5": "London",
+                  "postcode": "HA8 9DA"
+                },
+                "contact": {
+                  "mobile": "07973 824240",
+                  "primaryEmail": "teddy_harrison@hotmail.com"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "${CASE_ID3}",
+        "prosecutionCaseIdentifier": {
+          "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
+          "prosecutionAuthorityCode": "TFL",
+          "caseURN": "TFL98765"
+        },
+        "originatingOrganisation": "G01FT01AB",
+        "initiationCode": "J",
+        "caseStatus": "${CASE_ID3_STATUS}",
+        "defendants": [
+          {
+            "id": "46e43e49-f644-4884-9261-8485537fe9ab",
+            "masterDefendantId": "cf73207f-3ced-488a-82a0-3fba79c2ce01",
+            "prosecutionCaseId": "${CASE_ID3}",
+            "courtProceedingsInitiated": "2020-01-12T05:27:17.210Z",
+            "offences": [
+              {
+                "id": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                "offenceDefinitionId": "490dce00-8591-49af-b2d0-1e161e7d0c36",
+                "wording": "No Travel Card",
+                "wordingWelsh": "No Travel Card In Welsh",
+                "startDate": "2018-01-01",
+                "endDate": "2018-01-01",
+                "arrestDate": "2018-01-01",
+                "chargeDate": "2018-01-01",
+                "orderIndex": 1,
+                "offenceCode": "TTH105HY",
+                "offenceTitle": "ROBBERY",
+                "count": 0,
+                "notifiedPlea": {
+                  "offenceId": "3789ab16-0bb7-4ef1-87ef-c936bf0364f1",
+                  "notifiedPleaDate": "2018-04-01",
+                  "notifiedPleaValue": "NOTIFIED_GUILTY"
+                },
+                "offenceFacts": {
+                  "vehicleRegistration": "AA12345",
+                  "alcoholReadingAmount": 111,
+                  "alcoholReadingMethodCode": "2222"
+                },
+                "offenceDateCode": 4,
+                "maxPenalty": "Max Penalty"
+              }
+            ],
+            "personDefendant": {
+              "personDetails": {
+                "title": "MR",
+                "firstName": "Edward",
+                "middleName": "John",
+                "lastName": "Harrison",
+                "dateOfBirth": "2002-01-10",
+                "nationalityId": "2c2ef05b-6819-44ea-aa5d-c46247ed44c2",
+                "nationalityCode": "GBR",
+                "nationalityDescription": "United Kingdom",
+                "additionalNationalityId": "743db214-2a0f-4192-9081-ad03e56126ea",
+                "additionalNationalityCode": "USA",
+                "additionalNationalityDescription": "United States Of America",
+                "ethnicity": {
+                  "observedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "observedEthnicityCode": "W1",
+                  "observedEthnicityDescription": "British",
+                  "selfDefinedEthnicityId": "ea2b54e1-33fe-45f8-93c5-89640bf0dc2e",
+                  "selfDefinedEthnicityCode": "W1",
+                  "selfDefinedEthnicityDescription": "British"
+                },
+                "gender": "MALE",
+                "documentationLanguageNeeds": "ENGLISH",
+                "nationalInsuranceNumber": "NH195839C",
+                "occupation": "Rail Transport Operative",
+                "occupationCode": "82340",
+                "address": {
+                  "address1": "Flat 4",
+                  "address2": "17 Oldberry Road",
+                  "address3": "Edgeware",
+                  "address4": "Middlesex",
+                  "address5": "London",
+                  "postcode": "HA8 9DA"
+                },
+                "contact": {
+                  "mobile": "07973 824240",
+                  "primaryEmail": "teddy_harrison@hotmail.com"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": {
+      "description": "Bail Application",
+      "id": "4a0e892d-c0c5-3c51-95b8-704d8c781776"
+    }
+  },
+  "sharedTime": "2016-06-01T10:00:00Z",
+  "isReshare": false,
+  "hearingDay": "2018-06-09"
+}

@@ -1,0 +1,26 @@
+#%RAML 0.8
+title: Business Processes Query view
+baseUri: http://localhost:8080/businessprocesses-query-view/query/view/rest/businessprocesses
+protocols: [ HTTP, HTTPS ]
+
+/tasks/{taskId}/history:
+  uriParameters:
+    taskId:
+      description: ID of the task
+      type: string
+  get:
+    description: |
+      Gets the Tasks  Hstory - placeholder endpoint.
+      ...
+      (mapping):
+        responseType: application/vnd.businessprocesses.query.task-history+json
+        name: businessprocesses.query.task-history
+      ...
+    responses:
+              200:
+                body:
+                  application/vnd.businessprocesses.query.task-history+json:
+                    example:
+                      !include json/example/businessprocesses.query.task-history.json
+                    schema:
+                      !include json/schema/businessprocesses.query.task-history.json

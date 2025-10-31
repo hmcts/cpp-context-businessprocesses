@@ -1,0 +1,43 @@
+{
+  "decisionId": "11111111-1111-43e4-96c4-10fed16278ac",
+  "sessionId": "87a321ef-ea34-47d7-865d-7f430b4775be",
+  "caseId": "${CASE_ID}",
+  "urn": "TFL34652354",
+  "savedAt": "2019-05-01T15:12:30.741Z",
+  "offenceDecisions": [
+    {
+      "offenceDecisionInformation": {
+        "offenceId": "b0fb4f52-43c1-424b-976a-1dd4c9792cb0",
+        "verdict": "NO_VERDICT",
+        "pressRestrictable": true
+      },
+      "type": "WITHDRAW",
+      "withdrawalReasonId": "030d4335-f9fe-39e0-ad7e-d01a0791ff87"
+    },
+    {
+      "offenceDecisionInformation": {
+        "offenceId": "b0fb4f52-43c1-424b-976a-1dd4c9792cb1",
+        "verdict": "NO_VERDICT",
+        "pressRestrictable": false
+      },
+      "type": "${TYPE}",
+      "withdrawalReasonId": "030d4335-f9fe-39e0-ad7e-d01a0791ff87",
+      "nextHearing": {
+        "type": {
+          "description": "Trial",
+          "id": "bf8155e1-90b9-4080-b133-bfbad895d6e4"
+        },
+        "courtCentre": {
+          "id": "4b6185e1-92f2-3634-b749-87d2fcadf1c8",
+          "name": "Basingstoke Magistrates' Court",
+          "roomId": "5c432fcf-ba6c-47ad-8c46-dd717106bf4d"
+        },
+        "estimatedMinutes": 20,
+        "listedStartDateTime": "2023-10-12T10:10:09.123Z"
+      }
+    }
+  ],
+  "defendantId":"1a71d4b1-e0e1-4685-beb7-97e33fb2e799" ,
+  "defendantName": "Abbie ARMSTRONG"
+}
+

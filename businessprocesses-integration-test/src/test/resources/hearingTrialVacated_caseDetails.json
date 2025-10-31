@@ -1,0 +1,21 @@
+{
+  "hearingId": "${HEARING_ID}",
+  "jurisdictionType": "${JURISDICTION_TYPE}",
+  "vacatedTrialReasonId": "0baecac5-222b-402d-9047-84803679edae",
+  "hasInterpreter": ${HAS_INTERPRETER},
+  "hearingDateTime": "2022-08-24T01:46:36.068Z",
+  "caseDetails": [
+    {
+      "caseId": "${CASE_ID}",
+      "caseUrn": "TFL34652354",
+      "defendantDetails": [
+        {
+          "defendantId":"32ff0722-c287-11e9-9cb5-2a2ae2dbcce4",
+          "defendantFirstName": "Abbie",
+          "defendantLastName": "ARMSTRONG",
+          "defendantRemandStatus": "status"
+        }
+      ]
+    }
+  ]
+}

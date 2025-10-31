@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/bpm/schemas/businessprocesses/command/businessprocesses.command.record-task-assigned.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "assignTo": {
+      "type": "string"
+    },
+    "assignToId": {
+      "description": "Optional as there is no assignee for unassigned tasks",
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "changeAuthorId": {
+      "description": "Optional as there is no assignee for unassigned tasks",
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "changeAuthor": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "changeAuthorId",
+    "changeAuthor"
+  ],
+  "additionalProperties": false
+}

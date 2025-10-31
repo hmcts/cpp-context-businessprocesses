@@ -1,0 +1,42 @@
+{
+  "hearingId": "${HEARING_ID}",
+  "jurisdictionType": "${JURISDICTION_TYPE}",
+  "cases": ["22ff0722-c287-11e9-9cb5-2a2ae2dbcce4"],
+  "hearingDateTime": "2015-01-12T05:27:17.210Z",
+  "caseDetails": [
+    {
+      "caseId": "${CASE_ID}",
+      "caseUrn": "TFL34652354",
+      "defendantDetails": [
+        {
+          "defendantId":"${DEFENDANT_ID}",
+          "defendantFirstName": "Abbie",
+          "defendantLastName": "ARMSTRONG",
+          "defendantRemandStatus": "status",
+          "interpreterLanguageNeeds": "Welsh"
+        },
+        {
+          "defendantId": "42ee0722-d286-22e9-8cb5-2a2ae3dbcce9",
+          "defendantFirstName": "John",
+          "defendantLastName": "Doe",
+          "defendantRemandStatus": "status",
+          "interpreterLanguageNeeds": "French"
+        }
+      ]
+    },
+    {
+      "caseId": "42ee0722-d286-22e9-8cb5-1a2ae3dbcce6",
+      "caseUrn": "TFL12346523",
+      "defendantDetails": [
+        {
+          "defendantId": "42ee0722-d286-22e9-8cb5-2a2ae3dbcce9",
+          "defendantFirstName": "John",
+          "defendantLastName": "Doe",
+          "defendantRemandStatus": "status",
+          "interpreterLanguageNeeds": "French"
+        }
+      ]
+    }
+  ]
+}
+

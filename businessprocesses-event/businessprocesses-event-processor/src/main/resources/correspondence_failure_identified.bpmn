@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0cjlsi6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" camunda:diagramRelationId="75032208-e39f-4cef-aa2a-97104ea81b8d">
+  <bpmn:process id="correspondence_failure_identified" name="correspondence_failure_identified" isExecutable="true">
+    <bpmn:startEvent id="start_correspondence_failure_identified_event" name="start_correspondence_failure_identified_event">
+      <bpmn:outgoing>Flow_0p04adt</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0p04adt" sourceRef="start_correspondence_failure_identified_event" targetRef="Correspondence_failure" />
+    <bpmn:userTask id="Correspondence_failure" name="#{taskName}"
+    camunda:dueDate="#{dueDate}"
+    camunda:workQueue="#{workQueue}">
+      <bpmn:extensionElements>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+        <camunda:inputOutput>
+          <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+          <camunda:inputParameter name="candidateGroups">#{candidateGroups}</camunda:inputParameter>
+          <camunda:inputParameter name="taskName">#{taskName}</camunda:inputParameter>
+          <camunda:inputParameter name="deepLink">#{deepLink}</camunda:inputParameter>
+          <camunda:inputParameter name="taskTypeId">#{taskTypeId}</camunda:inputParameter>
+          <camunda:inputParameter name="caseId">#{caseId}</camunda:inputParameter>
+          <camunda:inputParameter name="correspondenceId">#{correspondenceId}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+          <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0p04adt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sn3uvp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="end_correspondence_failure_identified_event" name="end_correspondence_failure_identified_event">
+      <bpmn:incoming>Flow_1sn3uvp</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1sn3uvp" sourceRef="Correspondence_failure" targetRef="end_correspondence_failure_identified_event" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="correspondence_failure_identified">
+      <bpmndi:BPMNEdge id="Flow_1sn3uvp_di" bpmnElement="Flow_1sn3uvp">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="432" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0p04adt_di" bpmnElement="Flow_0p04adt">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_correspondence_failure_identified_event">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="175" y="142" width="45" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xeitt0_di" bpmnElement="Correspondence_failure">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_correspondence_failure_identified_event_di" bpmnElement="end_correspondence_failure_identified_event">
+        <dc:Bounds x="432" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="425" y="142" width="51" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

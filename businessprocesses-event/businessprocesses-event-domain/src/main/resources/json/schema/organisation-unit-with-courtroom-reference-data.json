@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/businessprocesses/refdata/query/api/organisation-unit-with-courtroom-reference-data.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "oucode": {
+      "type": "string"
+    },
+    "oucodeL3Code": {
+      "type": "string"
+    },
+    "oucodeL3Name": {
+      "type": "string"
+    },
+    "oucodeL1Code": {
+      "type": "string"
+    },
+    "oucodeL1Name": {
+      "type": "string"
+    },
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "address3": {
+      "type": "string"
+    },
+    "address4": {
+      "type": "string"
+    },
+    "address5": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "isWelsh": {
+      "type": "boolean"
+    },
+    "oucodeL3WelshName": {
+      "type": "string"
+    },
+    "welshAddress1": {
+      "type": "string"
+    },
+    "welshAddress2": {
+      "type": "string"
+    },
+    "welshAddress3": {
+      "type": "string"
+    },
+    "welshAddress4": {
+      "type": "string"
+    },
+    "welshAddress5": {
+      "type": "string"
+    },
+    "defaultStartTime": {
+      "type": "string"
+    },
+    "defaultDurationHrs": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "courtRoom": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "courtroomId": {
+          "type": "integer"
+        },
+        "courtroomName": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "oucode",
+    "oucodeL1Code",
+    "oucodeL1Name",
+    "oucodeL3Code",
+    "oucodeL3Name",
+    "address1",
+    "address2",
+    "defaultStartTime",
+    "defaultDurationHrs"
+  ],
+  "additionalProperties": false
+}

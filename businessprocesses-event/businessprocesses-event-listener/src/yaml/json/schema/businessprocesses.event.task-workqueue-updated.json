@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/json/schemas/businessprocesses/event/task-workqueue-updated.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "workQueue": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "workQueueName": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    },
+    "changeAuthorId": {
+      "$ref": "http://justice.gov.uk/core/courts/courtsDefinitions.json#/definitions/uuid"
+    },
+    "changeAuthor": {
+      "type": "string",
+      "description": "name of the author"
+    }
+  },
+  "required": [
+    "id",
+    "workQueue",
+    "workQueueName",
+    "details",
+    "changeAuthorId",
+    "changeAuthor"
+  ],
+  "additionalProperties": false
+}
+

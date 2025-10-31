@@ -1,0 +1,105 @@
+{
+  "hearing": {
+    "adjournedFromDate": "2022-07-22",
+    "allocated": false,
+    "courtApplications": [
+
+    ],
+    "courtCentreDetails": {
+      "defaultDuration": 420,
+      "defaultStartTime": "10:00:00",
+      "id": "07e45c88-9e5d-3e44-b664-d5345bb13be2"
+    },
+    "courtCentreId": "07e45c88-9e5d-3e44-b664-d5345bb13be2",
+    "endDate": "2022-07-24",
+    "estimatedMinutes": 19800,
+    "hearingDays": [
+      {
+        "courtCentreId": "07e45c88-9e5d-3e44-b664-d5345bb13be2",
+        "durationMinutes": 19800,
+        "endTime": "2022-08-07T03:00:00.000Z",
+        "hearingDate": "2022-07-24",
+        "sequence": 0,
+        "startTime": "2022-07-24T09:00:00.000Z"
+      }
+    ],
+    "hearingLanguage": "ENGLISH",
+    "id": "e2c08161-8d69-4701-a85c-dd79f4661742",
+    "isSlotsBooked": false,
+    "judiciary": [
+
+    ],
+    "jurisdictionType": "CROWN",
+    "listedCases": [
+      {
+        "caseIdentifier": {
+          "authorityCode": "CITYPF",
+          "authorityId": "baa2ec52-296b-3f38-922a-9e641c1f94d3",
+          "caseReference": "70GD3585722"
+        },
+        "defendants": [
+          {
+            "address": {
+              "address1": "Address line 1",
+              "address2": "Address line 2",
+              "address3": "Address line 3",
+              "address4": "Address line 4",
+              "address5": "Port Waino",
+              "postcode": "TW14 9XD"
+            },
+            "courtProceedingsInitiated": "2022-07-22T09:36:32.732Z",
+            "id": "48d1d78b-7997-438c-81c3-824988382b48",
+            "masterDefendantId": "48d1d78b-7997-438c-81c3-824988382b48",
+            "offences": [
+              {
+                "count": 0,
+                "endDate": "2022-07-20",
+                "id": "dabd80ea-993d-4425-8c16-63b2ce5c212f",
+                "offenceCode": "CC74002",
+                "offenceWording": "The accused was selling alcohol from a privately-owned store when not licensed to do so",
+                "orderIndex": 1,
+                "restrictFromCourtList": false,
+                "seedingHearing": {
+                  "jurisdictionType": "MAGISTRATES",
+                  "seedingHearingId": "35028dac-7c17-4ce6-9a8c-6dc566723e61",
+                  "sittingDay": "2022-07-24"
+                },
+                "shadowListed": false,
+                "startDate": "2022-06-22",
+                "statementOfOffence": {
+                  "legislation": "Contrary to Section 39(1) of, and Schedule 1 to, the Consumer Credit Act 1974.",
+                  "title": "Engage in activity requiring a licence when not a licensee",
+                  "welshLegislation": "Yn groes i Adran 39(1) ac Atodlen 1 Deddf Credyd Defnyddwyr 1974.",
+                  "welshTitle": "Cymryd rhan mewn gweithgaredd y mae angen trwydded ar ei gyfer a chithau ddim yn drwyddedai"
+                }
+              }
+            ],
+            "organisationName": "Oberbrunner and Sons",
+            "restrictFromCourtList": false
+          }
+        ],
+        "id": "cb99104d-cefd-4904-81ec-b18298ea2068",
+        "markers": [
+
+        ],
+        "restrictFromCourtList": false,
+        "shadowListed": false
+      }
+    ],
+    "nonDefaultDays": [
+      {
+        "courtCentreId": "07e45c88-9e5d-3e44-b664-d5345bb13be2",
+        "duration": 19800,
+        "startTime": "2022-07-24T09:00:00.000Z"
+      }
+    ],
+    "nonSittingDays": [
+
+    ],
+    "startDate": "2022-07-24",
+    "type": {
+      "description": "Bail Application",
+      "id": "633224da-6db3-4df5-8097-62cee52f7a61"
+    }
+  }
+}

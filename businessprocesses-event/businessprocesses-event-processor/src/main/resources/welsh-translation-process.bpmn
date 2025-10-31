@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_00o13f0"
+                  targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler"
+                  exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform"
+                  modeler:executionPlatformVersion="7.15.0">
+    <bpmn:process id="welsh-translation-process" name="welsh-translation-process" isExecutable="true">
+        <bpmn:startEvent id="start_welsh_translation_process_event" name="start_welsh_translation_process_event">
+            <bpmn:outgoing>Flow_17y29k4</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:sequenceFlow id="Flow_17y29k4" sourceRef="start_welsh_translation_process_event" targetRef="translate_to_welsh"/>
+        <bpmn:userTask id="translate_to_welsh" name="#{taskName}"
+        camunda:dueDate="#{dueDate}"
+        camunda:workQueue="#{workQueue}"
+        camunda:priority="100">
+            <bpmn:extensionElements>
+                <camunda:inputOutput>
+                    <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
+                    <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
+                    <camunda:inputParameter name="candidateGroups">#{candidateGroups}</camunda:inputParameter>
+                    <camunda:inputParameter name="taskTypeId">#{taskTypeId}</camunda:inputParameter>
+                    <camunda:inputParameter name="masterDefendantId">#{masterDefendantId}</camunda:inputParameter>
+                    <camunda:inputParameter name="defendantName">#{defendantName}</camunda:inputParameter>
+                    <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
+                    <camunda:inputParameter name="materialId">#{materialId}</camunda:inputParameter>
+                    <camunda:inputParameter name="templateName">#{templateName}</camunda:inputParameter>
+                    <camunda:inputParameter name="caseURN">#{caseURN}</camunda:inputParameter>
+                    <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
+                    <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
+                </camunda:inputOutput>
+                <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create"/>
+                <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+                <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete"/>
+                <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete"/>
+                <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+            </bpmn:extensionElements>
+            <bpmn:incoming>Flow_17y29k4</bpmn:incoming>
+            <bpmn:outgoing>Flow_0j4ph8h</bpmn:outgoing>
+        </bpmn:userTask>
+        <bpmn:sequenceFlow id="Flow_0j4ph8h" sourceRef="translate_to_welsh" targetRef="end_welsh_translation_process_event"/>
+        <bpmn:endEvent id="end_welsh_translation_process_event" name="end_welsh_translation_process_event">
+            <bpmn:incoming>Flow_0j4ph8h</bpmn:incoming>
+        </bpmn:endEvent>
+    </bpmn:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+        <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="welsh-translation-process">
+            <bpmndi:BPMNEdge id="Flow_17y29k4_di" bpmnElement="Flow_17y29k4">
+                <di:waypoint x="188" y="120"/>
+                <di:waypoint x="240" y="120"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0j4ph8h_di" bpmnElement="Flow_0j4ph8h">
+                <di:waypoint x="340" y="120"/>
+                <di:waypoint x="392" y="120"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="Activity_1mxd55f_di" bpmnElement="translate_to_welsh">
+                <dc:Bounds x="240" y="80" width="100" height="80"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_0z8eso8_di" bpmnElement="end_welsh_translation_process_event">
+                <dc:Bounds x="392" y="102" width="36" height="36"/>
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="400" y="145" width="20" height="14"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_0nc0nqo_di" bpmnElement="start_welsh_translation_process_event">
+                <dc:Bounds x="152" y="102" width="36" height="36"/>
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="159" y="145" width="22" height="14"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn:definitions>

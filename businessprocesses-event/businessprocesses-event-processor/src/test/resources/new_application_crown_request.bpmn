@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_18601j8" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="new_application_crown_request" name="new_application_crown_request" isExecutable="true">
+    <bpmn:startEvent id="start_crown_new_application_process" name="start">
+      <bpmn:outgoing>Flow_15qcx2k</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_15qcx2k" sourceRef="start_crown_new_application_process" targetRef="new_application_crown" />
+    <bpmn:userTask id="new_application_crown" name="New Application (Crown)" camunda:priority="100">
+      <bpmn:extensionElements>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_15qcx2k</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rdfw2y</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="end_crown_process_event" name="end">
+      <bpmn:incoming>Flow_0rdfw2y</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0rdfw2y" sourceRef="new_application_crown" targetRef="end_crown_process_event" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="new_application_crown_request">
+      <bpmndi:BPMNEdge id="Flow_15qcx2k_di" bpmnElement="Flow_15qcx2k">
+        <di:waypoint x="188" y="160" />
+        <di:waypoint x="350" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rdfw2y_di" bpmnElement="Flow_0rdfw2y">
+        <di:waypoint x="450" y="160" />
+        <di:waypoint x="592" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0io0ee0_di" bpmnElement="start_crown_new_application_process">
+        <dc:Bounds x="152" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="159" y="185" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_04flpoo_di" bpmnElement="end_crown_process_event">
+        <dc:Bounds x="592" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="601" y="185" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wh9wuc_di" bpmnElement="new_application_crown">
+        <dc:Bounds x="350" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

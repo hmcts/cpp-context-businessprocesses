@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/businessprocesses/refdata/query/api/prosecutor-reference-data.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "sequenceNumber": {
+      "type": "integer"
+    },
+    "majorCreditorCode": {
+      "type": "string"
+    },
+    "shortName": {
+      "type": "string"
+    },
+    "nameWelsh": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validTo": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "oucode": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "http://justice.gov.uk/core/courts/address.json"
+    },
+    "spiInFlag": {
+      "type": "boolean"
+    },
+    "spiOutFlag": {
+      "type": "boolean"
+    },
+    "contactEmailAddress": {
+      "type": "string"
+    },
+    "informantEmailAddress": {
+      "type": "string"
+    },
+    "cpsFlag": {
+      "type": "boolean"
+    },
+    "cpsMcEmailAddress": {
+      "type": "string"
+    },
+    "cpsCcEmailAddress": {
+      "type": "string"
+    },
+    "prosecutorCategory": {
+      "type": "string"
+    },
+    "standard": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "fullName"
+  ],
+  "additionalProperties": true
+}
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "id": "http://cpp.moj.gov.uk/businessprocesses/json/schemas/listing/search.hearings.json",
+  "properties": {
+    "hearings": {
+      "type": "array",
+      "items": {
+        "$ref": "http://justice.gov.uk/listing/events/hearing.json"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "$ref": "http://justice.gov.uk/listing/events/notes.json"
+      }
+    }
+  },
+  "required": [
+    "hearings",
+    "notes"
+  ],
+  "additionalProperties": false
+}

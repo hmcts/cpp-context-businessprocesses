@@ -1,0 +1,47 @@
+{
+  "hearingId": "f16f6539-2a7c-4bc8-bca3-f1b17ebcfa46",
+  "jurisdictionType": "${JURISDICTION_TYPE}",
+  "hearingDateTime": "2022-08-24T01:46:36.068Z",
+  "caseDetails": [
+    {
+      "caseId": "${CASE_ID}",
+      "caseUrn": "${CASE_URN1}",
+      "defendantDetails": [
+        {
+          "defendantId":"32ff0722-c287-11e9-9cb5-2a2ae2dbcce4",
+          "defendantFirstName": "Abbie",
+          "defendantLastName": "ARMSTRONG",
+          "defendantRemandStatus": "status",
+          "interpreterLanguageNeeds": "${LANG1}"
+        },
+        {
+          "defendantId": "42ee0722-d286-22e9-8cb5-2a2ae3dbcce9",
+          "defendantFirstName": "John",
+          "defendantLastName": "Doe",
+          "defendantRemandStatus": "status",
+          "interpreterLanguageNeeds": "${LANG2}"
+        }
+      ]
+    },
+    {
+      "caseId": "${CASE_ID2}",
+      "caseUrn": "${CASE_URN2}",
+      "defendantDetails": [
+        {
+          "defendantId": "42ee0722-d286-22e9-8cb5-2a2ae3dbcce9",
+          "defendantFirstName": "John",
+          "defendantLastName": "Doe",
+          "defendantRemandStatus": "status",
+          "interpreterLanguageNeeds": "${LANG2}"
+        },
+        {
+          "defendantId": "34ww0722-d286-22e9-8cb5-2a2ae3ewcki9",
+          "defendantFirstName": "Joe",
+          "defendantLastName": "Dice",
+          "defendantRemandStatus": "status",
+          "interpreterLanguageNeeds": ""
+        }
+      ]
+    }
+  ]
+}

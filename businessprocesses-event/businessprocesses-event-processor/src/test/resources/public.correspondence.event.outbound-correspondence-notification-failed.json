@@ -1,0 +1,10 @@
+{
+  "caseId": "%CASE_ID%",
+  "caseContext": "HMCTS",
+  "draftCorrespondenceId": "cfd45440-c32d-11eb-91bd-08002783bfed",
+  "documentId": "dfd45440-c32d-11eb-91bd-08002783bfed",
+  "notificationId": "dfd45440-c32d-11eb-91bd-08002783bfed",
+  "failedTime": "2022-07-11T12:55:28.180Z",
+  "errorMessage": "Some message",
+  "statusCode": 1
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://moj.gov.uk/correspondence/domain/event/outbound-correspondence-notification-failed.json",
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "caseContext": {
+      "$ref": "#/definitions/caseContext"
+    },
+    "draftCorrespondenceId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "notificationId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "failedTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "errorMessage": {
+      "type": "string"
+    },
+    "statusCode": {
+      "type": "integer"
+    },
+    "documentId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    }
+  },
+  "required": [
+    "caseId",
+    "caseContext",
+    "notificationId",
+    "failedTime",
+    "errorMessage"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "caseContext": {
+      "id": "string",
+      "type": "string",
+      "enum": [
+        "HMCTS",
+        "CPS"
+      ]
+    }
+  }
+}

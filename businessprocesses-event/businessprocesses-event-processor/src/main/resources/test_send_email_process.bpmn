@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0v99ec2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0">
+  <bpmn:process id="test_send_email_process" name="test_send_email_process" isExecutable="true">
+    <bpmn:startEvent id="start_test_send_email_process_event" name="start_test_send_email_process_event">
+      <bpmn:outgoing>Flow_03e7plu</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0bkholq</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_03e7plu" sourceRef="start_test_send_email_process_event" targetRef="taskSendEmail" />
+    <bpmn:endEvent id="end_test_send_email_process_event" name="end_test_send_email_process_event">
+      <bpmn:incoming>Flow_1pilew5</bpmn:incoming>
+      <bpmn:incoming>Flow_1kexv8j</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="taskSendEmail" name="Send Email" camunda:assignee="sendEmailAssignee" camunda:dueDate="#{dueDate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="taskName">#{taskName}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
+          <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:taskListener delegateExpression="${tasksCreatedListener}" event="create" />
+        <camunda:taskListener delegateExpression="${tasksAssignedListener}" event="assignment" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${tasksCompletedListener}" event="delete" />
+        <camunda:taskListener delegateExpression="${tasksUpdatedListener}" event="update" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_03e7plu</bpmn:incoming>
+      <bpmn:outgoing>Flow_1l5uvaw</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1l5uvaw" sourceRef="taskSendEmail" targetRef="taskAssessEmail" />
+    <bpmn:sequenceFlow id="Flow_1pilew5" sourceRef="taskAssessEmail" targetRef="end_test_send_email_process_event" />
+    <bpmn:userTask id="taskAssessEmail" name="Assess Email" camunda:assignee="assessEmailAssignee">
+      <bpmn:incoming>Flow_1l5uvaw</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pilew5</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0bkholq" sourceRef="start_test_send_email_process_event" targetRef="taskSendAnotherEmail" />
+    <bpmn:userTask id="taskSendAnotherEmail" name="Send Another Email">
+      <bpmn:incoming>Flow_0bkholq</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kexv8j</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1kexv8j" sourceRef="taskSendAnotherEmail" targetRef="end_test_send_email_process_event" />
+  </bpmn:process>
+  <bpmn:message id="Message_1lhf5by" name="interruptMessage" />
+  <bpmn:message id="Message_1n6p4se" name="Message_3fb51t8" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="test_send_email_process">
+      <bpmndi:BPMNEdge id="Flow_1kexv8j_di" bpmnElement="Flow_1kexv8j">
+        <di:waypoint x="430" y="330" />
+        <di:waypoint x="740" y="330" />
+        <di:waypoint x="740" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bkholq_di" bpmnElement="Flow_0bkholq">
+        <di:waypoint x="197" y="145" />
+        <di:waypoint x="197" y="330" />
+        <di:waypoint x="330" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pilew5_di" bpmnElement="Flow_1pilew5">
+        <di:waypoint x="620" y="127" />
+        <di:waypoint x="722" y="127" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1l5uvaw_di" bpmnElement="Flow_1l5uvaw">
+        <di:waypoint x="430" y="127" />
+        <di:waypoint x="520" y="127" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03e7plu_di" bpmnElement="Flow_03e7plu">
+        <di:waypoint x="215" y="127" />
+        <di:waypoint x="330" y="127" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_test_send_email_process_event">
+        <dc:Bounds x="179" y="109" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="end_test_send_email_process_event_di" bpmnElement="end_test_send_email_process_event">
+        <dc:Bounds x="722" y="109" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="703" y="85" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vqaxa5_di" bpmnElement="taskSendEmail">
+        <dc:Bounds x="330" y="87" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qceckc_di" bpmnElement="taskAssessEmail">
+        <dc:Bounds x="520" y="87" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_08dlxtq_di" bpmnElement="taskSendAnotherEmail">
+        <dc:Bounds x="330" y="290" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

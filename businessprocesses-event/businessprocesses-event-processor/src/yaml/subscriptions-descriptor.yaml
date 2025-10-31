@@ -1,0 +1,55 @@
+subscriptions_descriptor:
+  spec_version: 1.0.0
+  service: businessprocesses
+  service_component: EVENT_PROCESSOR
+  subscriptions:
+
+    - name: public event subscriptions
+      events:
+        - name: public.sjp.all-offences-for-defendant-dismissed-or-withdrawn
+          schema_uri: http://justice.gov.uk/bpm/public.sjp.all-offences-for-defendant-dismissed-or-withdrawn.json
+        - name: public.hearing.defendant-case-withdrawn-or-dismissed
+          schema_uri: http://justice.gov.uk/json/schemas/hearing/public.hearing.defendant-case-withdrawn-or-dismissed.json
+        - name: public.events.sjp.case-referred-to-court
+          schema_uri: http://cpp.moj.gov.uk/sjp/json/schema/event/public.events.sjp.case-referred-to-court.json
+        - name: public.prosecutioncasefile.query-cases-errors
+          schema_uri: http://justice.gov.uk/bpm/public.prosecutioncasefile.query-cases-errors.json
+        - name: public.hearing.trial-vacated
+          schema_uri: http://cpp.moj.gov.uk/hearing/json/schema/event/public-hearing-trial-vacated.json
+        - name: public.progression.document-added
+          schema_uri: http://cpp.moj.gov.uk/progression/json/schemas/event/public-case-document-added.json
+        - name: public.progression.hearing-resulted
+          schema_uri: http://justice.gov.uk/progression/courts/public.progression.hearing-resulted.json
+        - name: public.progression.court-application-created
+          schema_uri: http://cpp.moj.gov.uk/progression/json/schemas/event/public-court-application-created.json
+        - name: public.hearing.initiated
+          schema_uri: http://cpp.moj.gov.uk/hearing/json/schema/event/public-initiated.json
+        - name: public.prosecutioncasefile.events.case-validation-failed
+          schema_uri: http://moj.gov.uk/cpp/json/schemas/prosecutioncasefile/events/public.prosecutioncasefile.events.case-validation-failed.json
+        - name: public.prosecutioncasefile.events.defendant-validation-failed
+          schema_uri: http://moj.gov.uk/cpp/json/schemas/prosecutioncasefile/events/public.prosecutioncasefile.events.defendant-validation-failed.json
+        - name: public.prosecutioncasefile.events.sjp-validation-failed
+          schema_uri: http://moj.gov.uk/cpp/json/schemas/prosecutioncasefile/events//public.prosecutioncasefile.events.sjp-validation-failed.json
+        - name: public.correspondence.event.outbound-correspondence-notification-failed
+          schema_uri: http://moj.gov.uk/correspondence/domain/event/outbound-correspondence-notification-failed.jsonhttp://moj.gov.uk/cpp/json/schemas/prosecutioncasefile/events//public.prosecutioncasefile.events.sjp-validation-failed.json
+        - name: public.progression.now-notification-suppressed
+          schema_uri: http://moj.gov.uk/cpp/progression/events/public.progression.now-notification-suppressed.json
+        - name: public.hearingnows.now-notification-suppressed
+          schema_uri: http://moj.gov.uk/cpp/hearing/nows/events/public.hearingnows.now-notification-suppressed.json
+        - name: public.progression.welsh-translation-required
+          schema_uri: http://moj.gov.uk/cpp/progression/events/public.progression.welsh-translation-required
+        - name: public.progression.form-finalised
+          schema_uri: http://justice.gov.uk/core/courts/form-finalised.json
+        - name: public.progression.cotr-task-requested
+          schema_uri: http://cpp.moj.gov.uk/progression/json/schemas/event/public.progression.cotr-task-requested.json
+        - name: public.events.hearing.hearing-resulted
+          schema_uri: http://cpp.moj.gov.uk/hearing/json/schema/event/public.events.hearing.hearing-resulted.json
+        - name: public.listing.hearing-listed
+          schema_uri: http://justice.gov.uk/listing/courts/public.listing.hearing-listed.json
+        - name: public.defence.opa-task-requested
+          schema_uri: http://cpp.moj.gov.uk/progression/json/schemas/event/public.defence.opa-task-requested.json
+        - name: public.events.hearing.defendant-details-updated
+          schema_uri: http://cpp.moj.gov.uk/hearing/json/schema/event/public.events.hearing.defendant-details-updated.json
+        - name: public.events.hearing.hearing-detail-changed
+          schema_uri: http://cpp.moj.gov.uk/hearing/json/schema/event/public.events.hearing.hearing-detail-changed.json
+      event_source_name: public.event.source

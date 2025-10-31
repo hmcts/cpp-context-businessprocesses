@@ -1,0 +1,32 @@
+{
+  "hearingId": "${HEARING_ID}",
+  "defendant": {
+    "id": "ec4c67fe-dc0d-4aab-9711-0acc15f857a4",
+    "masterDefendantId": "ec4c67fe-dc0d-4aab-9711-0acc15f857a4",
+    "prosecutionCaseId": "7954fff7-65b5-4097-825c-89a5c47491c2",
+    "personDefendant": {
+      "arrestSummonsNumber": "12345",
+      "bailStatus": {
+        "code": "A",
+        "description": "Not applicable",
+        "id": "86009c70-759d-3308-8de4-194886ff9a77"
+      },
+      "personDetails": {
+        "address": {
+          "address1": "No fixed abode"
+        },
+        "dateOfBirth": "2000-01-01",
+        "documentationLanguageNeeds": "WELSH",
+        "firstName": "Test171",
+        "gender": "NOT_SPECIFIED",
+        "hearingLanguageNeeds": "WELSH",
+        "interpreterLanguageNeeds": "i want welsh interpreter-test16",
+        "lastName": "Test07",
+        "nationalityCode": "GBR",
+        "nationalityDescription": "British",
+        "nationalityId": "49433158-3542-49c8-a9af-581a0e746152",
+        "title": "Mr"
+      }
+    }
+  }
+}

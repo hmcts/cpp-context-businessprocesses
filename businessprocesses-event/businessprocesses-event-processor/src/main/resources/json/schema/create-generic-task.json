@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://moj.gov.uk/cpp/businessprocesses/create/create-generic-task.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "taskTitle": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "due": {
+      "type": "string"
+    },
+    "assignee": {
+      "type": "string"
+    },
+    "candidateGroups": {
+      "type": "string"
+    }
+  }
+}
