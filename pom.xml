@@ -4,12 +4,12 @@
     <parent>
         <groupId>uk.gov.moj.cpp.common</groupId>
         <artifactId>service-parent-pom</artifactId>
-        <version>17.101.1</version>
+        <version>17.103.3</version>
     </parent>
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
     <artifactId>businessprocesses-parent</artifactId>
-    <version>17.0.71-SNAPSHOT</version>
+    <version>17.103.3-CCT-2415-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -35,7 +35,7 @@
         <cpp.camunda.version>7.17.0</cpp.camunda.version>
 
         <!-- corresponding context versions -->
-        <coredomain.version>17.102.11</coredomain.version>
+        <coredomain.version>17.103.1-CCT-2415-SNAPSHOT</coredomain.version>
         <sjp.version>17.0.116</sjp.version>
         <hearing.version>17.0.118</hearing.version>
         <referencedata.version>17.0.113</referencedata.version>
