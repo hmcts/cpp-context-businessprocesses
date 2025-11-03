@@ -9,7 +9,7 @@
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
     <artifactId>businessprocesses-parent</artifactId>
-    <version>17.100.9-CIVIL-SNAPSHOT</version>
+    <version>17.100.10-CIVIL-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
