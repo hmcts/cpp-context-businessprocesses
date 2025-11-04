@@ -17,11 +17,16 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import javax.json.JsonObject;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class CustomTaskCreateIT {
 
@@ -30,6 +35,16 @@ public class CustomTaskCreateIT {
     private static final String LAST_UPDATED_BY_ID = "lastUpdatedByID";
     private static final String LAST_UPDATED_BY_NAME = "lastUpdatedByName";
     private static final String PROCESS_DEFINITION_KEY = "single_custom_task_process";
+    private static final String WELSH_TRANSLATION_PROCESS_DEFINITION_KEY = "Request_WLU_to_translate_welsh_document_custom_task_process";
+    private static final String NOTICE_OR_ORDER_PROCESS_DEFINITION_KEY = "Send_NOW_custom_task_process";
+    private static final String RESULTING_QUERY_PROCESS_DEFINITION_KEY = "Resolve_resulting_query_custom_task_process";
+    private static final String CASE_RESULTS_CUSTOM_PROCESS = "Send_documents_to_prison_custom_task_process";
+    private static final String LIST_BAIL_APPEAL_HEARING_CUSTOM_PROCESS = "list_bail_appeal_hearing_custom_task_process";
+    private static final String LIST_MURDER_CASE_BAIL_APPEAL_HEARING_CUSTOM_PROCESS = "list_murder_case_for_bail_hearing_custom_task_process";
+    private static final String ROTA_GENERAL_ACTIVITY_CUSTOM_PROCESS = "General_ROTA_task_custom_task_process";
+    private static final String SPI_ERROR_IDENTIFIED_CUSTOM_PROCESS = "SPI_error_custom_task_process";
+    private static final String UPDATE_ACCESS_TO_SENSITIVE_CASE_CUSTOM_PROCESS = "update_access_to_sensitive_case_custom_task_process";
+    private static final String WELSH_TRANSLATION_CUSTOM_PROCESS = "translate_to_welsh_custom_task_process";
     private static final String BUSINESS_KEY = "customTask";
     private static final String CASE_ID_VALUE = "8e4b2be0-f92a-4291-9b99-17af7e645472";
     private static final String CASE_ID_WITH_APPLICATION_VALUE = "6322bd2f-63ef-42e7-86c7-6cfaaf3ba19b";
@@ -145,5 +160,38 @@ public class CustomTaskCreateIT {
         assertThat(taskDetails.getString("taskDefinitionKey"), is("custom_activity"));
         assertThat(taskDetails.getString("name"), is("Check phone call"));
 
+    }
+
+    @ParameterizedTest
+    @MethodSource("customTaskProcessProvider")
+    void shouldCreateCustomTaskForVariousProcessDefinitions(String processDefinitionKey, String expectedTaskDefinitionKey) {
+        final Map<String, Object> variablesMap = new HashMap<>();
+        variablesMap.put(TASK_VARIABLE_JSON_INPUT_NAME, TASK_VARIABLE_JSON_INPUT_VALUE);
+        variablesMap.put(USER_ID_NAME, USER_ID_VALUE);
+        variablesMap.put(LAST_UPDATED_BY_ID, CHANGE_AUTHOR_ID);
+        variablesMap.put(LAST_UPDATED_BY_NAME, CHANGE_AUTHOR);
+        variablesMap.put(TASK_TYPE_ID, TASK_TYPE_ID_VALUE);
+        variablesMap.put(CUSTOM_TASK_TYPE, "customTask1");
+        final String processInstanceId = startProcessInstanceWithVariables(processDefinitionKey, BUSINESS_KEY, variablesMap);
+        Optional<String> optionalTaskId = getTaskList(processInstanceId).stream().findFirst();
+        assertThat(optionalTaskId.isPresent(), is(true));
+        final JsonObject taskDetails = getTaskDetails(optionalTaskId.get());
+        assertThat(taskDetails.getString("taskDefinitionKey"), is(expectedTaskDefinitionKey));
+        assertThat(taskDetails.getString("name"), is("Check phone call"));
+    }
+
+    static Stream<Arguments> customTaskProcessProvider() {
+        return Stream.of(
+                Arguments.of(WELSH_TRANSLATION_PROCESS_DEFINITION_KEY, "Request_WLU_to_translate_welsh_document"),
+                Arguments.of(CASE_RESULTS_CUSTOM_PROCESS, "Send_documents_to_prison"),
+                Arguments.of(LIST_BAIL_APPEAL_HEARING_CUSTOM_PROCESS, "list_bail_appeal_hearing"),
+                Arguments.of(LIST_MURDER_CASE_BAIL_APPEAL_HEARING_CUSTOM_PROCESS, "list_murder_case_for_bail_hearing"),
+                Arguments.of(NOTICE_OR_ORDER_PROCESS_DEFINITION_KEY, "Send_NOW"),
+                Arguments.of(RESULTING_QUERY_PROCESS_DEFINITION_KEY, "Resolve_resulting_query"),
+                Arguments.of(ROTA_GENERAL_ACTIVITY_CUSTOM_PROCESS, "General_ROTA_task"),
+                Arguments.of(SPI_ERROR_IDENTIFIED_CUSTOM_PROCESS, "SPI_error"),
+                Arguments.of(UPDATE_ACCESS_TO_SENSITIVE_CASE_CUSTOM_PROCESS, "update_access_to_sensitive_case"),
+                Arguments.of(WELSH_TRANSLATION_CUSTOM_PROCESS, "translate_to_welsh")
+        );
     }
 }
