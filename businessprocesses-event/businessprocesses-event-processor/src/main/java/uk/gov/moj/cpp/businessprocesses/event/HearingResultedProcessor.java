@@ -123,17 +123,17 @@ public class HearingResultedProcessor {
                     }));
         }
 
-        taskMap.forEach((k, v) -> {
-            LOGGER.info("Tasks are iterating with  key {} and value {} for hearingType {} and hearing Id {}", k, v, hearing.getType().getDescription(), hearing.getId());
-            createNewTask(hearing, k, "Bail Application", hearingDate);
+        taskMap.forEach((shortCode, resultId) -> {
+            LOGGER.info("Tasks are iterating with  key {} and value {} for hearingType {} and hearing Id {}", shortCode, resultId, hearing.getType().getDescription(), hearing.getId());
+            createNewTask(hearing, shortCode, "Bail Application", hearingDate);
         });
     }
 
-    private void createNewTask(final Hearing hearing, final String k, String type, final String hearingDate) {
-        if (BailAppealEnum.getBailAppealByType(k) != null && featureControlGuard.isFeatureEnabled(TASK_NAME_LIST_BAIL_APPEAL_HEARING)) {
+    private void createNewTask(final Hearing hearing, final String shortCode, String type, final String hearingDate) {
+        if (BailAppealEnum.getBailAppealByType(shortCode) != null && featureControlGuard.isFeatureEnabled(TASK_NAME_LIST_BAIL_APPEAL_HEARING)) {
             createBailAppealTask(hearing, BPMN_PROCESS_LIST_BAIL_APPEAL_HEARING_PROCESS, type, TASK_NAME_LIST_BAIL_APPEAL_HEARING, hearingDate);
         }
-        if (SeriousBailHearingEnum.getSeriousBailHearingByType(k) != null && featureControlGuard.isFeatureEnabled(TASK_NAME_LIST_MURDER_CASE_FOR_BAIL_HEARING)) {
+        if (SeriousBailHearingEnum.getSeriousBailHearingByType(shortCode) != null && featureControlGuard.isFeatureEnabled(TASK_NAME_LIST_MURDER_CASE_FOR_BAIL_HEARING)) {
             createBailAppealTask(hearing, BPMN_PROCESS_LIST_MURDER_CASE_FOR_BAIL_HEARING_PROCESS, type, TASK_NAME_LIST_MURDER_CASE_FOR_BAIL_HEARING, hearingDate);
         }
     }
@@ -142,15 +142,16 @@ public class HearingResultedProcessor {
     @SuppressWarnings("pmd:NullAssignment")
     private void createBailAppealTask(final Hearing hearing, final String listBailAppealBpmn, final String hearingType, final String taskName, final String hearingDate) {
         hearing.getProsecutionCases().forEach(prosecutionCase -> {
-            String courtCodes = hearing.getCourtCentre() != null ? hearing.getCourtCentre().getCode() : null;
             String custodyTimeLimit = HearingHelper.getCustodyTimeLimit(hearing);
-            final Optional<JudicialResultPrompt> location = getLocation(prosecutionCase);
+            final Optional<JudicialResultPrompt> locationOpt = getLocation(prosecutionCase);
+            final String location = locationOpt.map(JudicialResultPrompt::getValue).orElse(null);
+            final String courtCodes = getCourtCode(location, hearing);
             StartApplicationWorkflowRequest request = new StartApplicationWorkflowRequest.Builder()
                     .withProcessKey(listBailAppealBpmn)
                     .withCaseURN(prosecutionCase.getProsecutionCaseIdentifier().getCaseURN())
                     .withHearingType(hearingType)
                     .withHearingId(hearing.getId().toString())
-                    .withLocation(location.map(JudicialResultPrompt::getValue).orElse(null))
+                    .withLocation(location)
                     .withCaseId(prosecutionCase.getId())
                     .withTaskName(taskName)
                     .withHearingDate(hearingDate)
@@ -161,7 +162,7 @@ public class HearingResultedProcessor {
         });
     }
 
-    public Optional<JudicialResultPrompt> getLocation(final ProsecutionCase prosecutionCase) {
+    private Optional<JudicialResultPrompt> getLocation(final ProsecutionCase prosecutionCase) {
         return prosecutionCase.getDefendants().stream()
                 .flatMap(defendant -> defendant.getOffences().stream())
                 .filter(offence -> offence != null && offence.getJudicialResults() != null)
@@ -170,6 +171,19 @@ public class HearingResultedProcessor {
                 .flatMap(judicialResult -> judicialResult.getJudicialResultPrompts().stream())
                 .filter(judicialResultPrompt -> judicialResultPrompt.getPromptReference() != null && "crownCourtName".equals(judicialResultPrompt.getPromptReference()))
                 .findFirst();
+    }
+
+    private String getCourtCode(final String location, final Hearing hearing) {
+        if (location != null) {
+            JsonObject courtCentreDetailsJson = referenceDataService.retrieveCourtCentreDetailsByCourtRoomName(location);
+            return ReferenceDataService.getCourtCentreOuCode(courtCentreDetailsJson);
+        }
+
+        if (hearing != null && hearing.getCourtCentre() != null) {
+            return hearing.getCourtCentre().getCode();
+        }
+
+        return null;
     }
 
     private void startApplicationWorkFlow(final StartApplicationWorkflowRequest request) {

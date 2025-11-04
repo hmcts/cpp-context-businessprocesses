@@ -32,7 +32,7 @@
         "prosecutionCaseIdentifier": {
           "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
           "prosecutionAuthorityCode": "TFL",
-          "caseURN": "TFL98765"
+          "caseURN": "${CASE_URN_1}"
         },
         "originatingOrganisation": "G01FT01AB",
         "initiationCode": "J",
@@ -113,6 +113,19 @@
                         "value": "1614",
                         "welshLabel": "",
                         "judicialResultPromptTypeId": "dab7161b-4ece-4863-a3ea-0a319bb71d14"
+                      },
+                      {
+                        "courtExtract": "N",
+                        "isFinancialImposition": false,
+                        "judicialResultPromptTypeId": "de91870f-f1e3-4dcd-a8ee-fa409ee34beb",
+                        "label": "Crown Court name",
+                        "promptReference": "crownCourtName",
+                        "promptSequence": 400,
+                        "type": "FIXL",
+                        "usergroups": [],
+                        "value": "Croydon Crown Court",
+                        "welshLabel": "",
+                        "welshValue": ""
                       }
                     ],
                     "label": "Imprisonment",
@@ -132,7 +145,11 @@
                   }
                 ],
                 "offenceDateCode": 4,
-                "maxPenalty": "Max Penalty"
+                "maxPenalty": "Max Penalty",
+                "custodyTimeLimit": {
+                  "isCtlExtended": false,
+                  "timeLimit": "2022-03-31"
+                }
               }
             ],
             "personDefendant": {
@@ -183,7 +200,7 @@
         "prosecutionCaseIdentifier": {
           "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
           "prosecutionAuthorityCode": "TFL",
-          "caseURN": "TFL98765"
+          "caseURN": "${CASE_URN_2}"
         },
         "originatingOrganisation": "G01FT01AB",
         "initiationCode": "J",
@@ -270,7 +287,7 @@
         "prosecutionCaseIdentifier": {
           "prosecutionAuthorityId": "cf73207f-3ced-488a-82a0-3fba79c2ce85",
           "prosecutionAuthorityCode": "TFL",
-          "caseURN": "TFL98765"
+          "caseURN": "${CASE_URN_3}"
         },
         "originatingOrganisation": "G01FT01AB",
         "initiationCode": "J",
