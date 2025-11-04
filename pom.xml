@@ -9,7 +9,7 @@
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
     <artifactId>businessprocesses-parent</artifactId>
-    <version>17.0.71-SNAPSHOT</version>
+    <version>17.101.1-lpt1755-FRAMEWORK-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -36,7 +36,7 @@
 
         <!-- corresponding context versions -->
         <coredomain.version>17.102.11</coredomain.version>
-        <sjp.version>17.0.116</sjp.version>
+        <sjp.version>17.101.2-DD-35098</sjp.version>
         <hearing.version>17.0.118</hearing.version>
         <referencedata.version>17.0.113</referencedata.version>
         <progression.version>17.0.198</progression.version>
