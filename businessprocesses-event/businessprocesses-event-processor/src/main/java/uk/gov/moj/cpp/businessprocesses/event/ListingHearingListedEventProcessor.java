@@ -10,6 +10,8 @@ import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.L
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.LAST_UPDATED_BY_NAME;
 
 import uk.gov.justice.core.courts.Hearing;
+import uk.gov.justice.listing.courts.CaseUrns;
+import uk.gov.justice.listing.courts.HearingListed;
 import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
 import uk.gov.justice.services.core.annotation.Handles;
 import uk.gov.justice.services.core.annotation.ServiceComponent;
@@ -52,13 +54,12 @@ public class ListingHearingListedEventProcessor {
 
     public void handleHearingListed(final JsonEnvelope jsonEnvelope) {
         LOGGER.info("Received the Bail payload.  {}", jsonEnvelope.payload());
-        final Hearing hearing = jsonObjectToObjectConverter.convert(jsonEnvelope.payloadAsJsonObject().getJsonObject("hearing"), Hearing.class);
-        if (isNotEmpty(hearing.getProsecutionCases())) {
-            hearing.getProsecutionCases().forEach(listedCase -> {
-                        final String caseURN = listedCase.getProsecutionCaseIdentifier().getCaseURN();
-                        final String hearingId = hearing.getId().toString();
-
-                        final String hearingType = hearing.getType().getDescription();
+        final HearingListed hearingListed = jsonObjectToObjectConverter.convert(jsonEnvelope.payloadAsJsonObject().getJsonObject("hearingListed"), HearingListed.class);
+        if (isNotEmpty(hearingListed.getCaseUrns())) {
+            hearingListed.getCaseUrns().forEach(caseUrn -> {
+                        final String caseURN = caseUrn.getCaseURN();
+                        final String hearingId = hearingListed.getHearingId().toString();
+                        final String hearingType = hearingListed.getHearingType();
                         LOGGER.info("Complete Bail Hearing tasks for caseURN {}, hearingId {} and hearingType {}", caseURN, hearingId, hearingType);
                         if ("Bail Application".equals(hearingType)) {
                             completeBailHearingTasks(caseURN, hearingId, hearingType, BPMN_PROCESS_LIST_BAIL_APPEAL_HEARING_PROCESS, BPMN_PROCESS_LIST_MURDER_CASE_FOR_BAIL_HEARING_PROCESS);

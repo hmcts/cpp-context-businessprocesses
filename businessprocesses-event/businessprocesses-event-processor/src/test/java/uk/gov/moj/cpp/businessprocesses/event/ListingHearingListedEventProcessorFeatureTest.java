@@ -9,6 +9,7 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 import uk.gov.justice.core.courts.Hearing;
+import uk.gov.justice.listing.courts.HearingListed;
 import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
 import uk.gov.justice.services.core.featurecontrol.FeatureControlGuard;
 import uk.gov.justice.services.messaging.JsonEnvelope;
@@ -54,9 +55,9 @@ public class ListingHearingListedEventProcessorFeatureTest {
     @Test
     void shouldCallHandleHearingListedWhenFeatureIsEnabled() {
         when(featureControlGuard.isFeatureEnabled("camunda-listing-hearing-listed")).thenReturn(true);
-        Hearing hearing = mock(Hearing.class);
-        when(jsonObjectToObjectConverter.convert(any(), any())).thenReturn(hearing);
-        when(hearing.getProsecutionCases()).thenReturn(Collections.emptyList()); // Adjust as needed based on your scenario
+        HearingListed hearingListed = mock(HearingListed.class);
+        when(jsonObjectToObjectConverter.convert(any(), any())).thenReturn(hearingListed);
+        when(hearingListed.getCaseUrns()).thenReturn(Collections.emptyList()); // Adjust as needed based on your scenario
 
         listingHearingListedEventProcessor.handleHearingListedProcessor(jsonEnvelope);
 
