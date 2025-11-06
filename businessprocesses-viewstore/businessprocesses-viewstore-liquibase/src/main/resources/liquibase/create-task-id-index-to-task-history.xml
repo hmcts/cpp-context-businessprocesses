@@ -4,12 +4,12 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="create-task-id-index-to-task-history" author="mcengiz">
-        <createIndex indexName="task_history_hearing_task_id_idx"
+        <createIndex indexName="task_history_task_id_idx"
                      tableName="task_history">
             <column name="task_id"/>
         </createIndex>
         <rollback>
-            <dropIndex indexName="task_history_hearing_task_id_idx" tableName="task_history"/>
+            <dropIndex indexName="task_history_task_id_idx" tableName="task_history"/>
         </rollback>
     </changeSet>
 
