@@ -45,6 +45,7 @@ public class CustomTaskCreateIT {
     private static final String SPI_ERROR_IDENTIFIED_CUSTOM_PROCESS = "SPI_error_custom_task_process";
     private static final String UPDATE_ACCESS_TO_SENSITIVE_CASE_CUSTOM_PROCESS = "update_access_to_sensitive_case_custom_task_process";
     private static final String WELSH_TRANSLATION_CUSTOM_PROCESS = "translate_to_welsh_custom_task_process";
+    private static final String SUMMONS_APPLICATION_CUSTOM_PROCESS = "process_summons_application_custom_task_process";
     private static final String BUSINESS_KEY = "customTask";
     private static final String CASE_ID_VALUE = "8e4b2be0-f92a-4291-9b99-17af7e645472";
     private static final String CASE_ID_WITH_APPLICATION_VALUE = "6322bd2f-63ef-42e7-86c7-6cfaaf3ba19b";
@@ -191,7 +192,8 @@ public class CustomTaskCreateIT {
                 Arguments.of(ROTA_GENERAL_ACTIVITY_CUSTOM_PROCESS, "General_ROTA_task"),
                 Arguments.of(SPI_ERROR_IDENTIFIED_CUSTOM_PROCESS, "SPI_error"),
                 Arguments.of(UPDATE_ACCESS_TO_SENSITIVE_CASE_CUSTOM_PROCESS, "update_access_to_sensitive_case"),
-                Arguments.of(WELSH_TRANSLATION_CUSTOM_PROCESS, "translate_to_welsh")
+                Arguments.of(WELSH_TRANSLATION_CUSTOM_PROCESS, "translate_to_welsh"),
+                Arguments.of(SUMMONS_APPLICATION_CUSTOM_PROCESS, "process_summons_application")
         );
     }
 }
