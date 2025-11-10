@@ -6,4 +6,5 @@
     <include file="liquibase/create-task-history-initial-tables.xml"/>
     <include file="liquibase/add-task-type-id-column-to-task.xml"/>
     <include file="liquibase/add-details-column-to-task_history.xml"/>
+    <include file="liquibase/create-task-id-index-to-task-history.xml"/>
 </databaseChangeLog>
