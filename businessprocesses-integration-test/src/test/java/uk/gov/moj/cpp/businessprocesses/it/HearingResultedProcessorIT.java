@@ -47,6 +47,8 @@ import uk.gov.justice.services.messaging.Metadata;
 import uk.gov.moj.cpp.businessprocesses.helper.CustomMessageProducerClient;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 import javax.jms.MessageConsumer;
@@ -152,8 +154,8 @@ public class HearingResultedProcessorIT {
         assertThat(taskVariablesPayloadResponse.getJsonObject(CASE_URN).getString("value"), is(caseUrn1));
         assertThat(taskVariablesPayloadResponse.getJsonObject(HEARING_ID).getString("value"), is(hearingId));
         assertThat(taskVariablesPayloadResponse.getJsonObject(WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(DUE_DATE).getString("value"), is("2025-06-24T23:59:59.000Z"));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is("2025-06-24T23:59:59.000Z"));
+        assertThat(taskVariablesPayloadResponse.getJsonObject(DUE_DATE).getString("value"), is(calculateDueDate(2)));
+        assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is(calculateDueDate(2)));
         assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(TASK_TYPE_ID).getString("value"), is("392f4966-9833-4c7e-b084-75e882a5d190"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(REGION).getString("value"), is("Croydon Crown Court"));
@@ -235,8 +237,8 @@ public class HearingResultedProcessorIT {
         assertThat(taskVariablesPayloadResponse.getJsonObject(CASE_URN).getString("value"), is(caseUrn1));
         assertThat(taskVariablesPayloadResponse.getJsonObject(HEARING_ID).getString("value"), is(hearingId));
         assertThat(taskVariablesPayloadResponse.getJsonObject(WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(DUE_DATE).getString("value"), is("2025-06-20T23:59:59.000Z"));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is("2025-06-20T23:59:59.000Z"));
+        assertThat(taskVariablesPayloadResponse.getJsonObject(DUE_DATE).getString("value"), is(calculateDueDate(0)));
+        assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is(calculateDueDate(0)));
         assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(TASK_TYPE_ID).getString("value"), is("d5d09d44-f50b-4c77-b6d1-424062e91758"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(REGION).getString("value"), is("Croydon Crown Court"));
@@ -300,5 +302,9 @@ public class HearingResultedProcessorIT {
 
     private JsonObject getProcessInstances(final JsonArray processInstances, final String businessKey) {
         return !processInstances.isEmpty() && processInstances.getJsonObject(0).getString("businessKey").equals(businessKey) ? processInstances.getJsonObject(0) : null;
+    }
+
+    public static String calculateDueDate(int daysToAdd) {
+        return LocalDate.now().plusDays(daysToAdd).format(DateTimeFormatter.ISO_LOCAL_DATE) + "T23:59:59.000Z";
     }
 }
