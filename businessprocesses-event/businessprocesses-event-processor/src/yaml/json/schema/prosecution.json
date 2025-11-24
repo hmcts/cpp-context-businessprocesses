@@ -16,6 +16,22 @@
     "channel": {
       "type": "string",
       "$ref": "http://justice.gov.uk/bpm/json/schemas/bpm-definitions.json#/definitions/channel"
+    },
+    "externalId": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid",
+      "description": "ID originating from the client (SPI or CPPI) for referencing the original message"
+    },
+    "isCivil": {
+      "description": "Marker to indicate that MoJ offence reference data should be used as opposed to criminal offence reference data",
+      "type": "boolean"
+    },
+    "isGroupMember": {
+      "description": "Indicates if a case is part of a group of cases within the hearing",
+      "type": "boolean"
+    },
+    "isGroupMaster": {
+      "description": "Indicates which case within a group (isGroupMember = true) is the master and should be returned by the backend to the UI",
+      "type": "boolean"
     }
   },
   "required": [
