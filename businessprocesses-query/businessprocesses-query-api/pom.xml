@@ -3,7 +3,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.bpm</groupId>
         <artifactId>businessprocesses-query</artifactId>
-        <version>17.103.5-CCT-2415-SNAPSHOT</version>
+        <version>17.103.6-CCT-2415-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
