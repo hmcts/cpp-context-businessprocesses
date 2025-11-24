@@ -8,8 +8,8 @@ ARG wildfly_home=/opt/jboss/wildfly
 ARG wildfly_user=jboss
 ARG context_group_name=bpm
 ARG context_name=businessprocesses
-ARG framework_version
-ARG eventstore_version
+ARG framework_version=17.101.6
+ARG eventstore_version=17.101.5
 
 ADD ${mavenArtifactBaseUrl}/uk/gov/moj/cpp/${context_group_name}/${context_name}-service/${version}/${context_name}-service-${version}.war ${wildfly_home}/standalone/deployments/
 USER root
