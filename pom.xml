@@ -35,13 +35,13 @@
         <cpp.camunda.version>7.17.0</cpp.camunda.version>
 
         <!-- corresponding context versions -->
-        <coredomain.version>17.104.0-M5-CCT-2357</coredomain.version>
-        <sjp.version>17.0.116</sjp.version>
+        <coredomain.version>17.102.14-CCT-2357-SNAPSHOT</coredomain.version>
+        <sjp.version>17.0.130</sjp.version>
         <hearing.version>17.0.118</hearing.version>
         <referencedata.version>17.0.113</referencedata.version>
-        <progression.version>17.0.198</progression.version>
+        <progression.version>17.0.206</progression.version>
         <usersgroups.version>17.0.39</usersgroups.version>
-        <listing.version>17.0.123</listing.version>
+        <listing.version>17.0.125</listing.version>
         <!-- end - corresponding context versions -->
         <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>
     </properties>
