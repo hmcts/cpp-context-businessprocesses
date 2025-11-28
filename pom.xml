@@ -4,12 +4,12 @@
     <parent>
         <groupId>uk.gov.moj.cpp.common</groupId>
         <artifactId>service-parent-pom</artifactId>
-        <version>17.101.1</version>
+        <version>17.103.5</version>
     </parent>
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
     <artifactId>businessprocesses-parent</artifactId>
-    <version>17.0.73-SNAPSHOT</version>
+    <version>17.103.74-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -35,13 +35,14 @@
         <cpp.camunda.version>7.17.0</cpp.camunda.version>
 
         <!-- corresponding context versions -->
-        <coredomain.version>17.102.13</coredomain.version>
-        <sjp.version>17.0.130</sjp.version>
-        <hearing.version>17.0.118</hearing.version>
+        <coredomain.version>17.103.10</coredomain.version>
+        <sjp.version>17.0.140</sjp.version>
+        <hearing.version>17.0.132</hearing.version>
         <referencedata.version>17.0.113</referencedata.version>
-        <progression.version>17.0.206</progression.version>
+        <progression.version>17.0.211</progression.version>
         <usersgroups.version>17.0.39</usersgroups.version>
         <listing.version>17.0.125</listing.version>
+        <h2.version>1.4.196</h2.version>
         <!-- end - corresponding context versions -->
         <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>
     </properties>
