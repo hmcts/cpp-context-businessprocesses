@@ -191,7 +191,6 @@ public class HearingResultedProcessor {
         processVariables.put(CASE_URN, request.getCaseURN());
         processVariables.put(HEARING_TYPE, request.getHearingType());
         processVariables.put(HEARING_ID, request.getHearingId());
-        processVariables.put(REGION, request.getLocation());
         processVariables.put(HEARING_DATE, request.getHearingDate());
         processVariables.put(CUSTODY_TIME_LIMIT, request.getCustodyTimeLimit());
         final String userId = systemUserProvider.getContextSystemUserId().map(UUID::toString).orElse(null);

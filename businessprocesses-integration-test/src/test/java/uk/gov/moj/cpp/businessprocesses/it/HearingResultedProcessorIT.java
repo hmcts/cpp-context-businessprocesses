@@ -28,7 +28,6 @@ import static uk.gov.moj.cpp.businessprocesses.helper.Constants.LAST_UPDATED_BY_
 import static uk.gov.moj.cpp.businessprocesses.helper.Constants.LAST_UPDATED_BY_NAME;
 import static uk.gov.moj.cpp.businessprocesses.helper.Constants.PREVIOUS_DUE;
 import static uk.gov.moj.cpp.businessprocesses.helper.Constants.PREVIOUS_WORK_QUEUE;
-import static uk.gov.moj.cpp.businessprocesses.helper.Constants.REGION;
 import static uk.gov.moj.cpp.businessprocesses.helper.Constants.TASK_TYPE_ID;
 import static uk.gov.moj.cpp.businessprocesses.helper.Constants.WORK_QUEUE;
 import static uk.gov.moj.cpp.businessprocesses.helper.FileUtil.getFileContentAsJson;
@@ -158,7 +157,6 @@ public class HearingResultedProcessorIT {
         assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is(calculateDueDate(2)));
         assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(TASK_TYPE_ID).getString("value"), is("392f4966-9833-4c7e-b084-75e882a5d190"));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(REGION).getString("value"), is("Croydon Crown Court"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(COURT_CODES).getString("value"), is("B62IZ00"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(CUSTODY_TIME_LIMIT).getString("value"), is("2022-03-31"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(LAST_UPDATED_BY_ID).getString("value"), is(notNullValue()));
@@ -241,7 +239,6 @@ public class HearingResultedProcessorIT {
         assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is(calculateDueDate(0)));
         assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(TASK_TYPE_ID).getString("value"), is("d5d09d44-f50b-4c77-b6d1-424062e91758"));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(REGION).getString("value"), is("Croydon Crown Court"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(COURT_CODES).getString("value"), is("B62IZ00"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(CUSTODY_TIME_LIMIT).getString("value"), is("2022-03-31"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(LAST_UPDATED_BY_ID).getString("value"), is(notNullValue()));
