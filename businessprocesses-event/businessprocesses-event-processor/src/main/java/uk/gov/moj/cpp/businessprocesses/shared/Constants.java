@@ -103,6 +103,7 @@ public class Constants {
     public static final String PLACE_HOLDER = "-";
     public static final String PREFIX_SEND_DOCUMENTS_TO_PRISON = "sendDocumentsToPrison_";
     public static final String PRISON_ORGANISATION_NAME = "prisonOrganisationName";
+    public static final String PROMPT_CROWN_COURT_NAME = "crownCourtName";
     public static final String PROMPT_REFERENCE = "promptReference";
     public static final String PROSECUTION_CASE_IDENTIFIER = "prosecutionCaseIdentifier";
     public static final String PROSECUTOR = "PROSECUTOR";
