@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class JsonHelper {
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonHelper.class);
 
     public static JsonObject getJsonObject(final String json) {
-        try (final JsonReader reader = Json.createReader(new StringReader(json))) {
+        try (final JsonReader reader = JsonObjects.createReader(new StringReader(json))) {
             return reader.readObject();
         }
     }

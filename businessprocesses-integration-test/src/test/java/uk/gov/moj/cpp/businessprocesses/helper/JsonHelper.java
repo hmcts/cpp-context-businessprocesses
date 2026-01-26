@@ -11,7 +11,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
@@ -25,7 +25,7 @@ public class JsonHelper {
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonHelper.class);
 
     public static JsonObject getJsonObject(final String json) {
-        try (final JsonReader reader = Json.createReader(new StringReader(json))) {
+        try (final JsonReader reader = JsonObjects.createReader(new StringReader(json))) {
             return reader.readObject();
         }
     }

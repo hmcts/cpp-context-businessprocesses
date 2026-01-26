@@ -7,8 +7,8 @@ import static java.net.HttpURLConnection.HTTP_OK;
 import static java.util.Collections.emptyList;
 import static java.util.Objects.isNull;
 import static java.util.stream.Collectors.toList;
-import static javax.json.Json.createObjectBuilder;
-import static javax.json.Json.createReader;
+import static uk.gov.justice.services.messaging.JsonObjects.createObjectBuilder;
+import static uk.gov.justice.services.messaging.JsonObjects.createReader;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
@@ -373,13 +373,13 @@ public class BpmRestApiHelper {
     }
 
     private static JsonArray getJsonArray(String payload) {
-        try (final JsonReader reader = Json.createReader(new StringReader(payload))) {
+        try (final JsonReader reader = JsonObjects.createReader(new StringReader(payload))) {
             return reader.readArray();
         }
     }
 
     private static JsonObject getJsonObject(String payload) {
-        try (final JsonReader reader = Json.createReader(new StringReader(payload))) {
+        try (final JsonReader reader = JsonObjects.createReader(new StringReader(payload))) {
             return reader.readObject();
         }
     }

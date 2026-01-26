@@ -4,12 +4,12 @@
     <parent>
         <groupId>uk.gov.moj.cpp.common</groupId>
         <artifactId>service-parent-pom</artifactId>
-        <version>17.103.5</version>
+        <version>17.103.9-M1</version>
     </parent>
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
     <artifactId>businessprocesses-parent</artifactId>
-    <version>17.103.75-SNAPSHOT</version>
+    <version>17.103.75-PEG-2848-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -37,9 +37,9 @@
         <!-- corresponding context versions -->
         <coredomain.version>17.103.10</coredomain.version>
         <sjp.version>17.0.140</sjp.version>
-        <hearing.version>17.0.132</hearing.version>
-        <referencedata.version>17.0.113</referencedata.version>
-        <progression.version>17.0.211</progression.version>
+        <hearing.version>17.0.142</hearing.version>
+        <referencedata.version>17.103.122</referencedata.version>
+        <progression.version>17.0.223</progression.version>
         <usersgroups.version>17.0.39</usersgroups.version>
         <listing.version>17.0.125</listing.version>
         <h2.version>1.4.196</h2.version>
