@@ -1,7 +1,7 @@
 package uk.gov.moj.cpp.businessprocesses.delegate;
 
 import static java.util.UUID.randomUUID;
-import static javax.json.Json.createArrayBuilder;
+import static uk.gov.justice.services.messaging.JsonObjects.createArrayBuilder;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.gov.justice.services.core.annotation.Component.EVENT_PROCESSOR;
 import static uk.gov.justice.services.messaging.Envelope.metadataBuilder;
@@ -29,7 +29,7 @@ import java.util.stream.IntStream;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
@@ -72,7 +72,7 @@ public class RemoveDDJAccessServiceTask implements JavaDelegate {
 
         LOGGER.info("Remove DDJ Access from case Service task triggered caseId {}", caseId);
 
-        final JsonObject criteriaBuilder = Json.createObjectBuilder()
+        final JsonObject criteriaBuilder = JsonObjects.createObjectBuilder()
                 .add(TARGET, caseId)
                 .add(ACTION, "Access")
                 .add(OBJECT, "Case")
@@ -97,7 +97,7 @@ public class RemoveDDJAccessServiceTask implements JavaDelegate {
 
                 casePermissions.stream().forEach(arrayBuilder::add);
 
-                final JsonObject deletePermissionsPayload = Json.createObjectBuilder()
+                final JsonObject deletePermissionsPayload = JsonObjects.createObjectBuilder()
                         .add("permissionIds", arrayBuilder.build()).build();
 
                 sender.sendAsAdmin(envelopeFrom(metadata, deletePermissionsPayload));
