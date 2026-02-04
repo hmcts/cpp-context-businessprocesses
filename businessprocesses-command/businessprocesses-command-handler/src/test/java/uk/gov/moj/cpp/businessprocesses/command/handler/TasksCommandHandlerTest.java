@@ -3,11 +3,11 @@ package uk.gov.moj.cpp.businessprocesses.command.handler;
 import static java.util.UUID.randomUUID;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static uk.gov.justice.services.core.annotation.Component.COMMAND_HANDLER;
+import static uk.gov.justice.services.messaging.JsonObjects.createObjectBuilder;
 import static uk.gov.justice.services.test.utils.core.helper.EventStreamMockHelper.verifyAppendAndGetArgumentFrom;
 import static uk.gov.justice.services.test.utils.core.matchers.HandlerMatcher.isHandler;
 import static uk.gov.justice.services.test.utils.core.matchers.HandlerMethodMatcher.method;
@@ -41,7 +41,6 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.json.Json;
 import javax.json.JsonObject;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -154,7 +153,7 @@ public class TasksCommandHandlerTest {
         when (workQueue.getQueueName()).thenReturn("Queue Name");
         when(referenceDataService.getWorkQueueByWorkQueueId(any())).thenReturn(Optional.of(workQueue));
 
-        final JsonObject commandPayload = Json.createObjectBuilder()
+        final JsonObject commandPayload = createObjectBuilder()
                 .add(ID_FIELD, ID.toString())
                 .add(TASK_TYPE_ID_FIELD, TASK_TYPE_ID_VALUE.toString())
                 .add(REFERENCE_FIELD, REFERENCE)
@@ -201,7 +200,7 @@ public class TasksCommandHandlerTest {
         //Given
         setupMockedEventStream(ID, this.eventStream, new TaskAggregate());
         when(this.eventSource.getStreamById(ID)).thenReturn(this.eventStream);
-        final JsonObject commandPayload = Json.createObjectBuilder()
+        final JsonObject commandPayload = createObjectBuilder()
                 .add(ID_FIELD, ID.toString())
                 .add(CHANGE_AUTHOR_FIELD, CHANGE_AUTHOR)
                 .add(CHANGE_AUTHOR_ID_FIELD, CHANGE_AUTHOR_ID.toString())
@@ -236,7 +235,7 @@ public class TasksCommandHandlerTest {
         setupMockedEventStream(ID, this.eventStream, new TaskAggregate());
         when(this.eventSource.getStreamById(ID)).thenReturn(this.eventStream);
 
-        final JsonObject commandPayload = Json.createObjectBuilder()
+        final JsonObject commandPayload = createObjectBuilder()
                 .add(ID_FIELD, ID.toString())
                 .add(CHANGE_AUTHOR_FIELD, CHANGE_AUTHOR)
                 .add(CHANGE_AUTHOR_ID_FIELD, CHANGE_AUTHOR_ID.toString())
@@ -268,7 +267,7 @@ public class TasksCommandHandlerTest {
         setupMockedEventStream(ID, this.eventStream, new TaskAggregate());
         when(this.eventSource.getStreamById(ID)).thenReturn(this.eventStream);
 
-        final JsonObject commandPayload = Json.createObjectBuilder()
+        final JsonObject commandPayload = createObjectBuilder()
                 .add(ID_FIELD, ID.toString())
                 .add(CHANGE_AUTHOR_FIELD, CHANGE_AUTHOR)
                 .add(CHANGE_AUTHOR_ID_FIELD, CHANGE_AUTHOR_ID.toString())
@@ -306,7 +305,7 @@ public class TasksCommandHandlerTest {
         when(referenceDataService.getWorkQueueByWorkQueueId(any())).thenReturn(Optional.of(mockWorkQueue));
 
 
-        final JsonObject commandPayload = Json.createObjectBuilder()
+        final JsonObject commandPayload = createObjectBuilder()
                 .add(ID_FIELD, ID.toString())
                 .add(CHANGE_AUTHOR_FIELD, CHANGE_AUTHOR)
                 .add(CHANGE_AUTHOR_ID_FIELD, CHANGE_AUTHOR_ID.toString())
@@ -351,7 +350,7 @@ public class TasksCommandHandlerTest {
         when(referenceDataService.getWorkQueueByWorkQueueId(any())).thenReturn(Optional.empty());
 
 
-        final JsonObject commandPayload = Json.createObjectBuilder()
+        final JsonObject commandPayload = createObjectBuilder()
                 .add(ID_FIELD, ID.toString())
                 .add(CHANGE_AUTHOR_FIELD, CHANGE_AUTHOR)
                 .add(CHANGE_AUTHOR_ID_FIELD, CHANGE_AUTHOR_ID.toString())
