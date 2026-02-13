@@ -6,7 +6,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.bpm</groupId>
         <artifactId>businessprocesses-parent</artifactId>
-        <version>17.0.74-CAD-126-SNAPSHOT</version>
+        <version>17.0.75-CAD-126-SNAPSHOT</version>
     </parent>
 
     <artifactId>businessprocesses-integration-test</artifactId>
