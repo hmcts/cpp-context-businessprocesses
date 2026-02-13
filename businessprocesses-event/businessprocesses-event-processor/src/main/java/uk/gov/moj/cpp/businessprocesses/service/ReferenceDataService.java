@@ -49,6 +49,7 @@ public class ReferenceDataService {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final String REFERENCE_DATA_QUERY_COURT_CENTRES_BY_COURT_ROOM = "referencedata.query.courtroom";
     private static final String REFERENCE_DATA_QUERY_COURT_CENTRES_BY_COURT_ROOMS = "referencedata.query.ou.courtrooms.ou-courtroom-code";
+    private static final String REFERENCE_DATA_QUERY_COURT_CENTRES_BY_COURT_ROOM_NAME = "referencedata.query.ou.courtrooms.ou-courtroom-name";
 
     private static final String RESULT_DEFINITION_ID = "resultDefinitionId";
     @Inject
@@ -153,6 +154,22 @@ public class ReferenceDataService {
             return requester.requestAsAdmin(envelopeFrom(requestEnvelope.metadata(), requestEnvelope.payload())).asJsonObject();
         } catch (Exception e) {
             LOGGER.error("Error retrieving court centre details for courtRoomCode: {}", courtRoomCode, e);
+            return null;
+        }
+    }
+
+    public JsonObject retrieveCourtCentreDetailsByCourtRoomName(final String courtRoomName) {
+        try {
+            final JsonObject payload = createObjectBuilder().add("ouCourtRoomName", courtRoomName).build();
+
+            final JsonEnvelope requestEnvelope = envelopeFrom(
+                    JsonEnvelope.metadataBuilder()
+                            .withName(REFERENCE_DATA_QUERY_COURT_CENTRES_BY_COURT_ROOM_NAME)
+                            .withId(randomUUID()).build(), payload);
+
+            return requester.requestAsAdmin(envelopeFrom(requestEnvelope.metadata(), requestEnvelope.payload())).asJsonObject();
+        } catch (Exception e) {
+            LOGGER.error("Error retrieving court centre details for courtRoomName: {}", courtRoomName, e);
             return null;
         }
     }

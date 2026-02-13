@@ -45,6 +45,7 @@ public class ReferenceDataServiceStub {
     private static final String COURT_ROOM_QUERY_URL = "/referencedata-service/query/api/rest/referencedata/courtrooms";
     private static final String COURT_ROOM_MEDIA_TYPE = "application/vnd.referencedata.ou-courtroom+json";
     private static final String OU_COURT_ROOM_CODE_MEDIA_TYPE = "application/vnd.referencedata.ou.courtrooms.ou-courtroom-code+json";
+    private static final String OU_COURT_ROOM_NAME_MEDIA_TYPE = "application/vnd.referencedata.ou.courtrooms.ou-courtroom-name+json";
 
 
     public static void stubWorkflowTaskTypes() throws IOException {
@@ -227,6 +228,21 @@ public class ReferenceDataServiceStub {
                         .withBody(courtRoom.toString())));
 
         waitForStubToBeReady(COURT_ROOM_QUERY_URL + "/" + courtRoomID, COURT_ROOM_MEDIA_TYPE);
+
+    }
+
+    public static void stubCourtRoomName() {
+        String body = getPayload("referencedata.court.rooms.welsh.json").replaceAll("%COURT_ROOM_ID%", "f8254db1-1683-483e-afb3-b87fde5a0a26")
+                .replaceAll("%OUCODE%", "B62IZ00");
+        JsonObject courtRoom = createReader(new StringReader(body)).readObject();
+
+        stubFor(get(urlPathEqualTo(COURT_ROOM_QUERY_URL))
+                .willReturn(aResponse().withStatus(SC_OK)
+                        .withHeader("CPPID", randomUUID().toString())
+                        .withHeader("Content-Type", COURT_ROOM_MEDIA_TYPE)
+                        .withBody(courtRoom.toString())));
+
+        waitForStubToBeReady(COURT_ROOM_QUERY_URL, OU_COURT_ROOM_NAME_MEDIA_TYPE);
 
     }
 

@@ -3,6 +3,7 @@ package uk.gov.moj.cpp.businessprocesses.event;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static uk.gov.justice.services.core.annotation.Component.EVENT_PROCESSOR;
 import static uk.gov.moj.cpp.businessprocesses.shared.Constants.BPMN_PROCESS_CASE_RESULTS;
 import static uk.gov.moj.cpp.businessprocesses.shared.Constants.CASE_STATUS;
@@ -14,6 +15,7 @@ import static uk.gov.moj.cpp.businessprocesses.shared.Constants.PROMPT_REFERENCE
 import static uk.gov.moj.cpp.businessprocesses.shared.Constants.SYSTEM_USER_NAME;
 import static uk.gov.moj.cpp.businessprocesses.shared.Constants.TASK_NAME_SEND_DOCUMENTS_TO_PRISON;
 import static uk.gov.moj.cpp.businessprocesses.shared.Constants.VALUE;
+import static uk.gov.moj.cpp.businessprocesses.shared.Constants.PROMPT_CROWN_COURT_NAME;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.CASE_ID;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.CASE_URN;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.COURT_CODES;
@@ -40,6 +42,7 @@ import uk.gov.justice.services.core.dispatcher.SystemUserProvider;
 import uk.gov.justice.services.core.featurecontrol.FeatureControlGuard;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.moj.cpp.businessprocesses.pojo.CaseHearingResultedDefendantDetails;
+import uk.gov.moj.cpp.businessprocesses.service.ReferenceDataService;
 import uk.gov.moj.cpp.businessprocesses.service.TaskTypeService;
 import uk.gov.moj.cpp.businessprocesses.shared.HearingHelper;
 
@@ -64,6 +67,7 @@ import org.slf4j.LoggerFactory;
 public class CaseHearingResultedEventProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseHearingResultedEventProcessor.class);
+    private static final String JUDICIAL_RESULT_PROMPTS = "judicialResultPrompts";
 
     private static final Set<String> CJS_RESULT_CODE_FOR_SENDING_DOCUMENTS_TO_PRISON = Stream.of("1002", "1007", "1024", "1081", "1088", "1507", "3132", "4046", "4049", "4051")
             .collect(Collectors.toSet());
@@ -73,6 +77,9 @@ public class CaseHearingResultedEventProcessor {
 
     @Inject
     private TaskTypeService taskTypeService;
+
+    @Inject
+    private ReferenceDataService referenceDataService;
 
     @Inject
     private SystemUserProvider systemUserProvider;
@@ -118,7 +125,7 @@ public class CaseHearingResultedEventProcessor {
                 .forEach(prosecutionCase -> startProcessForCaseHearingResulted(hearingId, hearingDate, jurisdiction, (JsonObject) prosecutionCase, courtCodes, custodyTimeLimit));
     }
 
-    private void startProcessForCaseHearingResulted(final String hearingId, final String hearingDate, final String jurisdiction, final JsonObject prosecutionCase, final String courtCodes, final String custodyTimeLimit) {
+    private void startProcessForCaseHearingResulted(final String hearingId, final String hearingDate, final String jurisdiction, final JsonObject prosecutionCase, String courtCodes, final String custodyTimeLimit) {
 
         final String caseId = prosecutionCase.getString("id");
         final boolean executeInstantly = false;
@@ -136,6 +143,11 @@ public class CaseHearingResultedEventProcessor {
             final String urn = prosecutionCaseIdentifier.containsKey("caseURN") ? prosecutionCaseIdentifier.getString("caseURN") : prosecutionCaseIdentifier.getString("prosecutionAuthorityReference");
             final Map<String, Object> sendDocumentsToPrisonProcessVariables = getDocumentsToPrisonProcessVariables(jurisdiction, urn, caseHearingResultedDefendantDetailsList, processVariables);
             processVariables.putAll(sendDocumentsToPrisonProcessVariables);
+            courtCodes = caseHearingResultedDefendantDetailsList.stream()
+                    .map(CaseHearingResultedDefendantDetails::courtCode)
+                    .filter(Objects::nonNull)
+                    .distinct()
+                    .findFirst().orElse(courtCodes);
         }
 
         processVariables.put(HEARING_ID, hearingId);
@@ -147,7 +159,7 @@ public class CaseHearingResultedEventProcessor {
         processVariables.put(LAST_UPDATED_BY_ID, userId);
         processVariables.put(LAST_UPDATED_BY_NAME, SYSTEM_USER_NAME);
 
-        if(courtCodes != null) {
+        if(!isBlank(courtCodes)) {
             processVariables.put(COURT_CODES, courtCodes);
         }
 
@@ -172,11 +184,11 @@ public class CaseHearingResultedEventProcessor {
     private Map<String, Object> getDocumentsToPrisonProcessVariables(final String jurisdiction, final String urn, final List<CaseHearingResultedDefendantDetails> caseHearingResultedDefendantDetailsList, final Map<String, Object> processVariables) {
         processVariables.put(CASE_URN, urn);
         final CaseHearingResultedDefendantDetails caseHearingResultedDefendantDetails = caseHearingResultedDefendantDetailsList.get(0);
-        processVariables.put(DEFENDANT_ID, caseHearingResultedDefendantDetails.getId());
-        processVariables.put(DEFENDANT_NAME, caseHearingResultedDefendantDetails.getName());
-        processVariables.put(DEFENDANT_REMAND_STATUS, caseHearingResultedDefendantDetails.getRemandStatus());
+        processVariables.put(DEFENDANT_ID, caseHearingResultedDefendantDetails.id());
+        processVariables.put(DEFENDANT_NAME, caseHearingResultedDefendantDetails.name());
+        processVariables.put(DEFENDANT_REMAND_STATUS, caseHearingResultedDefendantDetails.remandStatus());
         processVariables.put(NOTE, getNotesFromCaseHearingResultedDefendantDetails(caseHearingResultedDefendantDetailsList));
-        processVariables.put(PRISON_NAME, caseHearingResultedDefendantDetails.getPrisonName());
+        processVariables.put(PRISON_NAME, caseHearingResultedDefendantDetails.prisonName());
 
         if (CROWN_JURISDICTION_TYPE.equals(jurisdiction)) {
             processVariables.put(WORK_QUEUE, CROWN_COURT_ADMIN_WORK_QUEUE_ID);
@@ -199,24 +211,25 @@ public class CaseHearingResultedEventProcessor {
                             defendantName = getNameFromPersonDefendant(personDefendant);
                             remandStatus = personDefendant.containsKey("bailStatus") ? personDefendant.getJsonObject("bailStatus").getString("description") : EMPTY;
                         }
-                        final String prisonName = extractPrisonName(judicialResult.getJsonArray("judicialResultPrompts"));
-                        caseHearingResultedDefendantDetailsList.add(new CaseHearingResultedDefendantDetails(defendantName, defendantId, remandStatus, prisonName));
+                        final String prisonName = extractPrisonName(judicialResult.getJsonArray(JUDICIAL_RESULT_PROMPTS));
+                        final String courtCode = extractCourtCode(judicialResult.getJsonArray(JUDICIAL_RESULT_PROMPTS));
+                        caseHearingResultedDefendantDetailsList.add(new CaseHearingResultedDefendantDetails(defendantName, defendantId, remandStatus, prisonName, courtCode));
                     }
                 });
         return caseHearingResultedDefendantDetailsList;
     }
 
-    private String extractPrisonName(final JsonArray judicialResultPrompts) {
+    private String extractPromptValue(final JsonArray judicialResultPrompts, final String promptReference) {
         if (isNull(judicialResultPrompts)) {
             return EMPTY;
         }
         return judicialResultPrompts.getValuesAs(JsonObject.class).stream()
-                .filter(CaseHearingResultedEventProcessor::isPrisonOrganisationName)
+                .filter(jsonObject -> jsonObject.containsKey(PROMPT_REFERENCE) && jsonObject.getString(PROMPT_REFERENCE).equals(promptReference))
                 .findAny().map(jsonObject -> jsonObject.getString(VALUE)).orElse(EMPTY);
     }
 
-    private static boolean isPrisonOrganisationName(final JsonObject jsonObject) {
-        return jsonObject.containsKey(PROMPT_REFERENCE) && jsonObject.getString(PROMPT_REFERENCE).equals(PRISON_ORGANISATION_NAME);
+    private String extractPrisonName(final JsonArray judicialResultPrompts) {
+        return extractPromptValue(judicialResultPrompts, PRISON_ORGANISATION_NAME);
     }
 
     private JsonObject getCustodialResultsInOffencesForSendingDocumentsToPrison(final JsonArray offences) {
@@ -253,7 +266,7 @@ public class CaseHearingResultedEventProcessor {
 
     private String getNotesFromCaseHearingResultedDefendantDetails(final List<CaseHearingResultedDefendantDetails> caseHearingResultedDefendantDetailsList) {
         return caseHearingResultedDefendantDetailsList.stream()
-                .map(CaseHearingResultedDefendantDetails::getName)
+                .map(CaseHearingResultedDefendantDetails::name)
                 .collect(Collectors.joining(",", "[", "]"));
     }
 
@@ -263,5 +276,14 @@ public class CaseHearingResultedEventProcessor {
         }
         JsonObject courtCentre = courtHearing.getJsonObject("courtCentre");
         return courtCentre != null && courtCentre.containsKey("code") ? courtCentre.getString("code") : null;
+    }
+
+    private String extractCourtCode(final JsonArray judicialResultPrompts) {
+        final String courtName = extractPromptValue(judicialResultPrompts, PROMPT_CROWN_COURT_NAME);
+        if (!isBlank(courtName)) {
+            JsonObject courtCentreDetailsJson = referenceDataService.retrieveCourtCentreDetailsByCourtRoomName(courtName);
+            return ReferenceDataService.getCourtCentreOuCode(courtCentreDetailsJson);
+        }
+        return null;
     }
 }
