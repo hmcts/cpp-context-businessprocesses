@@ -153,8 +153,8 @@ public class HearingResultedProcessorIT {
         assertThat(taskVariablesPayloadResponse.getJsonObject(CASE_URN).getString("value"), is(caseUrn1));
         assertThat(taskVariablesPayloadResponse.getJsonObject(HEARING_ID).getString("value"), is(hearingId));
         assertThat(taskVariablesPayloadResponse.getJsonObject(WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(DUE_DATE).getString("value"), is(calculateDueDate(2)));
-        assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is(calculateDueDate(2)));
+        assertThat(taskVariablesPayloadResponse.getJsonObject(DUE_DATE).getString("value"), is(calculateDueDate(0)));
+        assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_DUE).getString("value"), is(calculateDueDate(0)));
         assertThat(taskVariablesPayloadResponse.getJsonObject(PREVIOUS_WORK_QUEUE).getString("value"), is("66567e81-931e-337e-a5b3-47e0b221bcc7"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(TASK_TYPE_ID).getString("value"), is("392f4966-9833-4c7e-b084-75e882a5d190"));
         assertThat(taskVariablesPayloadResponse.getJsonObject(COURT_CODES).getString("value"), is("B62IZ00"));

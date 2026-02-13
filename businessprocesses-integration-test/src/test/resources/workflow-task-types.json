@@ -388,7 +388,7 @@
       "validFrom": "2020-10-01",
       "validTo": "2030-09-30",
       "organisationId": "320ed98-31c6-43cb-9a5f-e5629e7f558c",
-      "dueDateCalc": "${now()+2d}",
+      "dueDateCalc": "${now()}",
       "deepLink": "Hearing DL",
       "workQueueId": "66567e81-931e-337e-a5b3-47e0b221bcc7"
     },
