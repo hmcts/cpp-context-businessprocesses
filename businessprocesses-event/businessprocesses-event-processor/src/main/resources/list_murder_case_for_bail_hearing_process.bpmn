@@ -23,7 +23,6 @@
           <camunda:inputParameter name="hearingDate">#{hearingDate}</camunda:inputParameter>
           <camunda:inputParameter name="lastUpdatedByID">#{lastUpdatedByID}</camunda:inputParameter>
           <camunda:inputParameter name="lastUpdatedByName">#{lastUpdatedByName}</camunda:inputParameter>
-          <camunda:inputParameter name="region">#{region}</camunda:inputParameter>
           <camunda:inputParameter name="isDeletable">#{isDeletable}</camunda:inputParameter>
           <camunda:inputParameter name="isDeferrable">#{isDeferrable}</camunda:inputParameter>
         </camunda:inputOutput>
