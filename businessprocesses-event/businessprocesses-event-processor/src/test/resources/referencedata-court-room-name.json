@@ -1,0 +1,18 @@
+{
+  "id": "4d3332e0-d6de-37a9-b638-b14e8a944cd6",
+  "oucode": "C42BS00",
+  "oucodeL1Code": "C",
+  "oucodeL1Name": "Crown Courts",
+  "oucodeL3Code": "BS",
+  "oucodeL3Name": "Basildon Crown Court",
+  "address1": "Basildon Combined Court",
+  "address2": "The Gore",
+  "address3": "Basildon",
+  "address4": "Essex",
+  "postcode": "SS14 2EW",
+  "oucodeL3WelshName": "Llys Y Goron Basildon",
+  "defaultStartTime": "10:30:00",
+  "defaultDurationHrs": "06:00:00",
+  "courtLocationCode": "0461",
+  "courtId": "461"
+}
