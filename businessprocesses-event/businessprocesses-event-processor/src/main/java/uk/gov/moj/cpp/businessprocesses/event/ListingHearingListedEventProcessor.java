@@ -54,7 +54,7 @@ public class ListingHearingListedEventProcessor {
 
     public void handleHearingListed(final JsonEnvelope jsonEnvelope) {
         LOGGER.info("Received the Bail payload.  {}", jsonEnvelope.payload());
-        final HearingListed hearingListed = jsonObjectToObjectConverter.convert(jsonEnvelope.payloadAsJsonObject().getJsonObject("hearingListed"), HearingListed.class);
+        final HearingListed hearingListed = jsonObjectToObjectConverter.convert(jsonEnvelope.payloadAsJsonObject(), HearingListed.class);
         if (isNotEmpty(hearingListed.getCaseUrns())) {
             hearingListed.getCaseUrns().forEach(caseUrn -> {
                         final String caseURN = caseUrn.getCaseURN();
