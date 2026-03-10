@@ -3,11 +3,19 @@ package uk.gov.moj.cpp.businessprocesses.event;
 
 import static java.util.Optional.of;
 import static java.util.UUID.randomUUID;
+import static javax.json.Json.createArrayBuilder;
+import static javax.json.Json.createObjectBuilder;
 import static org.camunda.bpm.engine.test.mock.Mocks.register;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.mock;
 import static uk.gov.justice.services.test.utils.core.reflection.ReflectionUtil.setField;
+import static uk.gov.justice.services.test.utils.core.messaging.MetadataBuilderFactory.metadataWithRandomUUID;
+import static uk.gov.justice.services.messaging.JsonEnvelope.envelopeFrom;
 import static uk.gov.moj.cpp.businessprocesses.shared.Constants.SYSTEM_USER_NAME;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.CUSTODY_TIME_LIMIT;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.HEARING_DATE;
@@ -16,12 +24,18 @@ import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.T
 import uk.gov.justice.services.common.util.UtcClock;
 import uk.gov.justice.services.core.dispatcher.SystemUserProvider;
 import uk.gov.justice.services.core.featurecontrol.FeatureControlGuard;
+import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
+import uk.gov.justice.services.messaging.JsonEnvelope;
+import uk.gov.justice.listing.courts.HearingListed;
 import uk.gov.moj.cpp.businessprocesses.listener.TasksCompletedListener;
 import uk.gov.moj.cpp.businessprocesses.listener.TasksCreatedListener;
 
 import java.time.ZonedDateTime;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.UUID;
+
+import javax.json.JsonObject;
 
 import org.camunda.bpm.engine.ProcessEngineConfiguration;
 import org.camunda.bpm.engine.RuntimeService;
@@ -66,6 +80,9 @@ public class ListingHearingListedEventProcessorTest {
 
     @Mock
     private FeatureControlGuard featureControlGuard;
+
+    @Mock
+    private JsonObjectToObjectConverter jsonObjectToObjectConverter;
 
     private static final String USER_ID = randomUUID().toString();
     private static final String HEARING_ID = "hearingId";
@@ -279,6 +296,27 @@ public class ListingHearingListedEventProcessorTest {
         camundaTaskService.createTaskQuery().list();
         listingHearingListedEventProcessor.completeBailHearingTasks(caseId2, hearingId2, BLA_HEARING_TYPE, "invalid_list_serious_case_bail_hearing");
         assertThat(camundaTaskService.createTaskQuery().count(), Matchers.is(3L));
+    }
+
+    @Test
+    public void shouldConvertPayloadAndProcessWhenHandleHearingListedCalled() {
+        UUID hearingId = randomUUID();
+        JsonObject payload = createObjectBuilder()
+                .add("hearingId", hearingId.toString())
+                .add("hearingType", "Bail Application")
+                .add("caseUrns", createArrayBuilder()
+                        .add(createObjectBuilder().add("caseURN", "TFL4359536").build())
+                        .build())
+                .build();
+        JsonEnvelope jsonEnvelope = envelopeFrom(metadataWithRandomUUID("public.listing.hearing-listed"), payload);
+
+        HearingListed hearingListed = mock(HearingListed.class);
+        when(jsonObjectToObjectConverter.convert(any(), any())).thenReturn(hearingListed);
+        when(hearingListed.getCaseUrns()).thenReturn(Collections.emptyList());
+
+        listingHearingListedEventProcessor.handleHearingListed(jsonEnvelope);
+
+        verify(jsonObjectToObjectConverter, times(1)).convert(eq(payload), eq(HearingListed.class));
     }
 
     private HashMap<String, Object> createProcessVariables(final String hearingId, final String hearingType, final String taskName, final String caseUrn) {
