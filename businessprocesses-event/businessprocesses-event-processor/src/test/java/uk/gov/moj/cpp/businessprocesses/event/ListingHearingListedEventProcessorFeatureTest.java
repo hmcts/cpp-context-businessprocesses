@@ -2,6 +2,7 @@ package uk.gov.moj.cpp.businessprocesses.event;
 
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -9,6 +10,7 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 import uk.gov.justice.core.courts.Hearing;
+import uk.gov.justice.listing.courts.HearingListed;
 import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
 import uk.gov.justice.services.core.featurecontrol.FeatureControlGuard;
 import uk.gov.justice.services.messaging.JsonEnvelope;
@@ -54,14 +56,14 @@ public class ListingHearingListedEventProcessorFeatureTest {
     @Test
     void shouldCallHandleHearingListedWhenFeatureIsEnabled() {
         when(featureControlGuard.isFeatureEnabled("camunda-listing-hearing-listed")).thenReturn(true);
-        Hearing hearing = mock(Hearing.class);
-        when(jsonObjectToObjectConverter.convert(any(), any())).thenReturn(hearing);
-        when(hearing.getProsecutionCases()).thenReturn(Collections.emptyList()); // Adjust as needed based on your scenario
+        HearingListed hearingListed = mock(HearingListed.class);
+        when(jsonObjectToObjectConverter.convert(any(), any())).thenReturn(hearingListed);
+        when(hearingListed.getCaseUrns()).thenReturn(Collections.emptyList());
 
         listingHearingListedEventProcessor.handleHearingListedProcessor(jsonEnvelope);
 
         verify(featureControlGuard, times(1)).isFeatureEnabled("camunda-listing-hearing-listed");
-        verify(jsonObjectToObjectConverter, times(1)).convert(any(), any());
+        verify(jsonObjectToObjectConverter, times(1)).convert(eq(jsonObject), eq(HearingListed.class));
     }
 
 

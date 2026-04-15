@@ -509,20 +509,19 @@
       "id": "de91870f-f1e3-4dcd-a8ee-fa409ee34beb",
       "label": "Crown Court name",
       "resultPromptRule": "mandatory",
-      "type": "TXT",
-      "sequence": 400,
-      "financial": "N",
-      "reference": "crownCourtName",
-      "userGroups": [
-
-      ],
-      "min": "1",
-      "max": "100",
-      "courtExtract": "N",
-      "jurisdiction": "M",
-      "hidden": false,
+      "type": "FIXL",
       "nameEmail": false,
-      "associatedWithReferenceData": false
+      "referenceDataKey": "crownCourtName",
+      "hidden": false,
+      "associateToReferenceData": true,
+      "sequence": 400,
+      "userGroups": [],
+      "courtExtract": "N",
+      "financial": "N",
+      "jurisdiction": "M",
+      "min": "1",
+      "max": "120",
+      "reference": "crownCourtName"
     }
   ],
   "financial": "N",

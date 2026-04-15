@@ -26,8 +26,10 @@ import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.services.core.dispatcher.SystemUserProvider;
 import uk.gov.justice.services.core.featurecontrol.FeatureControlGuard;
 import uk.gov.justice.services.messaging.JsonEnvelope;
+import uk.gov.moj.cpp.businessprocesses.service.ReferenceDataService;
 import uk.gov.moj.cpp.businessprocesses.service.TaskTypeService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +57,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import uk.gov.moj.cpp.businessprocesses.util.TestDataProvider;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -128,6 +131,9 @@ public class CaseHearingResultedEventProcessorTest {
     @Mock
     private TaskTypeService taskTypeService;
 
+    @Mock
+    private ReferenceDataService referenceDataService;
+
     @Captor
     private ArgumentCaptor<Map> processVariablesCaptor1;
 
@@ -153,11 +159,12 @@ public class CaseHearingResultedEventProcessorTest {
     private final JsonObjectToObjectConverter jsonToObjectConverter = new JsonObjectToObjectConverter(objectMapper);
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws IOException {
         when(taskTypeService.getTaskVariablesFromRefData(REMOVE_DDJ_FROM_HEARING_TASK_NAME, PROSECUTION_CASE_ID1, "2022-10-04T12:00:15.351Z", null)).thenReturn(getTaskReferenceData(PROSECUTION_CASE_ID1));
         when(taskTypeService.getTaskVariablesFromRefData(SEND_DOCUMENTS_TO_PRISON_TASK_NAME, PROSECUTION_CASE_ID1, "2022-10-04T12:00:15.351Z", null)).thenReturn(getTaskReferenceData(PROSECUTION_CASE_ID1));
         when(systemUserProvider.getContextSystemUserId()).thenReturn(of(SYSTEM_USER_ID));
         when(featureControlGuard.isFeatureEnabled(any())).thenReturn(true);
+        when(referenceDataService.retrieveCourtCentreDetailsByCourtRoomName(any())).thenReturn(TestDataProvider.getReferenceDataCourtRoomsPayload());
     }
 
     @Test
@@ -305,7 +312,7 @@ public class CaseHearingResultedEventProcessorTest {
 
     @ParameterizedTest
     @MethodSource("sendDocumentToPrisonResultCodesProvider")
-    public void shouldStartCaseResultedProcessForCrownHearingWithAllResultsFinalForCase(String cjsCode) {
+    void shouldStartCaseResultedProcessForCrownHearingWithAllResultsFinalForCase(String cjsCode) {
 
         // Given
         when(systemUserProvider.getContextSystemUserId()).thenReturn(of(SYSTEM_USER_ID));
@@ -338,14 +345,14 @@ public class CaseHearingResultedEventProcessorTest {
         assertThat(processVariables.get(DEFENDANT_NAME), is("John1 Doe1"));
         assertThat(processVariables.get(DEFENDANT_REMAND_STATUS), is(REMAND_STATUS));
         assertThat(processVariables.get(PRISON_NAME), is("HMP/YOI Low Newton"));
-        assertThat(processVariables.get(COURT_CODES), is("B01LY00"));
+        assertThat(processVariables.get(COURT_CODES), is("B62IZ00"));
         assertThat(processVariables.get(CUSTODY_TIME_LIMIT), is(CUSTODY_TIME_LIMIT_VAL));
 
     }
 
     @ParameterizedTest
     @MethodSource("sendDocumentToPrisonResultCodesProvider")
-    public void shouldStartCaseResultedProcessForMagistratesHearingAndSendDocumentsToPrisonWithAllResultsFinalForCaseWIthMultipleCases(String cjsCode) {
+    void shouldStartCaseResultedProcessForMagistratesHearingAndSendDocumentsToPrisonWithAllResultsFinalForCaseWIthMultipleCases(String cjsCode) {
 
         // Given
         when(taskTypeService.getTaskVariablesFromRefData(SEND_DOCUMENTS_TO_PRISON_TASK_NAME, PROSECUTION_CASE_ID2, "2022-10-04T12:00:15.351Z", null)).thenReturn(getTaskReferenceData(PROSECUTION_CASE_ID2));
@@ -430,7 +437,7 @@ public class CaseHearingResultedEventProcessorTest {
         assertThat(processVariables3.get(DEFENDANT_NAME), is("John31 Doe31"));
         assertThat(processVariables3.get(NOTE), is("[John31 Doe31,John32 Doe32]"));
         assertThat(processVariables3.get(PRISON_NAME), is("HMP/YOI Low Newton"));
-        assertThat(processVariables3.get(COURT_CODES), is("B01LY00"));
+        assertThat(processVariables3.get(COURT_CODES), is("B62IZ00"));
         assertThat(processVariables3.get(CUSTODY_TIME_LIMIT), is(CUSTODY_TIME_LIMIT_VAL2));
 
         final Map processVariables4 = processVariablesCaptor4.getValue();

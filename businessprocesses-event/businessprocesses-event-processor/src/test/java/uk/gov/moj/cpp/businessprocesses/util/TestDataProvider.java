@@ -37,6 +37,7 @@ public class TestDataProvider {
     private static final String PROGRESSION_QUERY_PROSECUTION_CASE_EXIST_BY_CASEURN = "progression.query.case-exist-by-caseurn";
     private static final String WORKFLOW_TASK_TYPES_JSON = "workflow-task-types.json";
     private static final String REFERENCE_DATA_COURT_ROOMS_JSON = "referencedata.court.rooms.welsh.json";
+    private static final String REFERENCE_DATA_COURT_ROOM_NAME_JSON = "referencedata-court-room-name.json";
     private static final ObjectMapper objectMapper = new ObjectMapperProducer().objectMapper();
 
 
@@ -113,5 +114,9 @@ public class TestDataProvider {
 
     public static JsonObject getReferenceDataCourtRoomsPayload() throws IOException {
         return getJsonObjectFromResource(REFERENCE_DATA_COURT_ROOMS_JSON);
+    }
+
+    public static JsonObject getReferenceDataCourtByCourtNamePayload() throws IOException {
+        return getJsonObjectFromResource(REFERENCE_DATA_COURT_ROOM_NAME_JSON);
     }
 }
