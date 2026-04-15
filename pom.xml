@@ -36,12 +36,12 @@
 
         <!-- corresponding context versions -->
         <coredomain.version>17.104.2</coredomain.version>
-        <sjp.version>17.0.140</sjp.version>
+        <sjp.version>17.103.167</sjp.version>
         <hearing.version>17.0.144</hearing.version>
-        <referencedata.version>17.103.124</referencedata.version>
-        <progression.version>17.0.224</progression.version>
-        <usersgroups.version>17.0.39</usersgroups.version>
-        <listing.version>17.0.125</listing.version>
+        <referencedata.version>17.103.131</referencedata.version>
+        <progression.version>17.0.246</progression.version>
+        <usersgroups.version>17.104.46</usersgroups.version>
+        <listing.version>17.103.156</listing.version>
         <h2.version>1.4.196</h2.version>
         <!-- end - corresponding context versions -->
         <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>

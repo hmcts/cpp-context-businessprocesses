@@ -234,6 +234,22 @@ public class ReferenceDataServiceTest {
         verifyNoMoreInteractions(requester);
     }
 
+    @Test
+    public void retrieveCourtCentreDetailsByCourtRoomName() {
+        when(requester.requestAsAdmin(any(JsonEnvelope.class))).thenReturn(courtRoomNameResponseEnvelope());
+        String ouCode = ReferenceDataService.getCourtCentreOuCode(target.retrieveCourtCentreDetailsByCourtRoomName("testOuCourtRoomName"));
+        assertThat(ouCode, is("oucode"));
+        verify(requester).requestAsAdmin(envelopeArgumentCaptor.capture());
+
+        assertThat(envelopeArgumentCaptor.getValue(), Is.is(jsonEnvelope(
+                metadata().withName("referencedata.query.ou.courtrooms.ou-courtroom-name"),
+                payloadIsJson(allOf(
+                        withJsonPath("$.ouCourtRoomName", equalTo("testOuCourtRoomName"))
+                )))
+        ));
+        verifyNoMoreInteractions(requester);
+    }
+
     private JsonEnvelope courtRoomResponseEnvelope() {
         return JsonEnvelope.envelopeFrom(
                 metadataBuilder().
@@ -248,6 +264,16 @@ public class ReferenceDataServiceTest {
         return JsonEnvelope.envelopeFrom(
                 metadataBuilder().
                         withName("referencedata.query.courtrooms").
+                        withId(randomUUID()),
+                createObjectBuilder()
+                        .add("id", randomUUID().toString())
+                        .add("oucode", "oucode"));
+    }
+
+    private JsonEnvelope courtRoomNameResponseEnvelope() {
+        return JsonEnvelope.envelopeFrom(
+                metadataBuilder().
+                        withName("referencedata.query.ou.courtrooms.ou-courtroom-name").
                         withId(randomUUID()),
                 createObjectBuilder()
                         .add("id", randomUUID().toString())
