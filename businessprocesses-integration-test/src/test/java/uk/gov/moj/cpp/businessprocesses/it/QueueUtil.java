@@ -2,6 +2,7 @@ package uk.gov.moj.cpp.businessprocesses.it;
 
 import static java.util.Optional.ofNullable;
 import static uk.gov.justice.services.messaging.JsonEnvelope.envelopeFrom;
+import static uk.gov.justice.services.messaging.JsonObjects.createReader;
 import static uk.gov.moj.cpp.businessprocesses.it.OptionalPresent.ifPresent;
 
 import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
@@ -18,7 +19,6 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
-import javax.json.Json;
 import javax.json.JsonObject;
 
 import io.restassured.path.json.JsonPath;
@@ -126,7 +126,7 @@ public class QueueUtil {
 
     public static Optional<JsonObject> retrieveMessageAsJsonObject(final MessageConsumer consumer) {
         return ifPresent(retrieveMessageAsString(consumer, RETRIEVE_TIMEOUT),
-                (x) -> Optional.of(Json.createReader(new StringReader(x)).readObject())
+                (x) -> Optional.of(createReader(new StringReader(x)).readObject())
         ).orElse(Optional::empty);
     }
 

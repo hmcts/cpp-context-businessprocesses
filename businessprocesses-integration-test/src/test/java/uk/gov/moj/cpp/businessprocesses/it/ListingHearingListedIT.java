@@ -11,6 +11,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static uk.gov.justice.services.messaging.JsonEnvelope.metadataBuilder;
+import static uk.gov.justice.services.messaging.JsonObjects.createArrayBuilder;
+import static uk.gov.justice.services.messaging.JsonObjects.createObjectBuilder;
 import static uk.gov.moj.cpp.businessprocesses.helper.BpmRestApiHelper.getProcessInstanceList;
 import static uk.gov.moj.cpp.businessprocesses.helper.BpmRestApiHelper.getTaskList;
 import static uk.gov.moj.cpp.businessprocesses.helper.BpmRestApiHelper.waitForEvent;
@@ -28,7 +30,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
-import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 
@@ -111,11 +112,11 @@ class ListingHearingListedIT {
     }
 
     private JsonObject createHearingListedPayload(final String hearingId, final String hearingType, final String caseUrn) {
-        return Json.createObjectBuilder()
+        return createObjectBuilder()
                 .add("hearingId", hearingId)
                 .add("hearingType", hearingType)
-                .add("caseUrns", Json.createArrayBuilder()
-                        .add(Json.createObjectBuilder().add("caseURN", caseUrn).build())
+                .add("caseUrns", createArrayBuilder()
+                        .add(createObjectBuilder().add("caseURN", caseUrn).build())
                         .build())
                 .build();
     }
