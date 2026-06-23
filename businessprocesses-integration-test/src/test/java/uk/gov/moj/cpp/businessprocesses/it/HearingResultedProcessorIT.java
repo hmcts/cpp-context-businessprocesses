@@ -50,9 +50,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-import javax.jms.MessageConsumer;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
+import jakarta.jms.MessageConsumer;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonObject;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Resources;

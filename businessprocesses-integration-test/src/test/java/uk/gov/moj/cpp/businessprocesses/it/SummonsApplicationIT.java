@@ -24,8 +24,8 @@ import uk.gov.moj.cpp.businessprocesses.stub.ProgressionServiceStub;
 import java.io.IOException;
 import java.time.Duration;
 
-import javax.json.JsonArray;
-import javax.json.JsonObject;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonObject;
 
 import com.google.common.collect.ImmutableMap;
 import org.awaitility.Awaitility;

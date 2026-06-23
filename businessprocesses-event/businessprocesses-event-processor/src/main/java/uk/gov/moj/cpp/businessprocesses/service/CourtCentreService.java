@@ -2,8 +2,8 @@ package uk.gov.moj.cpp.businessprocesses.service;
 
 import static java.util.Objects.nonNull;
 
-import javax.inject.Inject;
-import javax.json.JsonObject;
+import jakarta.inject.Inject;
+import jakarta.json.JsonObject;
 
 public class CourtCentreService {
 

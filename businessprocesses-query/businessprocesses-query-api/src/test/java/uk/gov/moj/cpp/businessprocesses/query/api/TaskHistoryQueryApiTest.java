@@ -17,7 +17,7 @@ import uk.gov.moj.cpp.businessprocesses.query.view.TaskHistoryQueryView;
 
 import java.util.Map;
 
-import javax.json.JsonObjectBuilder;
+import jakarta.json.JsonObjectBuilder;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

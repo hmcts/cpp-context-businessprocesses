@@ -18,6 +18,10 @@
         <!-- job executor configurations -->
         <property name="jobExecutorActivate" value="false"/>
 
+        <!-- Camunda 7.20+ enforces a non-null history TTL on every process definition (ENGINE-12018).
+             Provide an engine-wide default so existing models parse without per-model changes. -->
+        <property name="historyTimeToLive" value="P180D"/>
+
     </bean>
 
 </beans>

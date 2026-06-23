@@ -9,8 +9,8 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.moj.cpp.businessprocesses.shared.Constants;
 import uk.gov.moj.cpp.businessprocesses.shared.InterpreterForWelshActivityHandler;
 
-import javax.inject.Inject;
-import javax.json.JsonObject;
+import jakarta.inject.Inject;
+import jakarta.json.JsonObject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

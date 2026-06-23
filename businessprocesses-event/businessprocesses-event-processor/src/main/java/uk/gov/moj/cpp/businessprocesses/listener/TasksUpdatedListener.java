@@ -12,10 +12,10 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.moj.cpp.businessprocesses.shared.MandatoryTaskVariablesNotFoundException;
 import uk.gov.moj.cpp.businessprocesses.shared.TaskAuditService;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonObjectBuilder;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
 

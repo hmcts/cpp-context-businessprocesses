@@ -12,8 +12,8 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 
-import javax.json.JsonObject;
-import javax.json.JsonReader;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonReader;
 
 import org.json.JSONObject;
 import org.skyscreamer.jsonassert.JSONCompareResult;

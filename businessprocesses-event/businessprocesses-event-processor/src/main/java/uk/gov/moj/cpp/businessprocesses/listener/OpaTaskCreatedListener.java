@@ -42,8 +42,8 @@ import uk.gov.moj.cpp.businessprocesses.shared.WorkflowTaskTypeMapper;
 
 import java.util.UUID;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.camunda.bpm.engine.TaskService;

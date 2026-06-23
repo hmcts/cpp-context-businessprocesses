@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 import uk.gov.justice.services.common.util.UtcClock;
+import uk.gov.justice.services.test.utils.persistence.HibernateTestEntityManagerProvider;
 import uk.gov.moj.cpp.businessprocesses.persistence.entity.TaskEntity;
 import uk.gov.moj.cpp.businessprocesses.persistence.entity.TaskHistoryEntity;
 import uk.gov.moj.cpp.businessprocesses.persistence.repository.TaskRepository;
@@ -15,15 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.inject.Inject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-import org.apache.deltaspike.testcontrol.api.junit.CdiTestRunner;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+class TaskRepositoryTest {
 
-@RunWith(CdiTestRunner.class)
-public class TaskRepositoryTest {
+    private static final String PERSISTENCE_UNIT = "businessprocesses-test-persistence-unit";
+
     private static final UUID taskId = randomUUID();
     private static final UUID taskTypeId = randomUUID();
     private static final String reference = "TFL4359536";
@@ -42,16 +42,21 @@ public class TaskRepositoryTest {
     private static final String eventType = "Hearing";
     private static final String changeAuthor = "John";
 
-    @Inject
+    @RegisterExtension
+    static HibernateTestEntityManagerProvider hibernateTestEntityManagerProvider =
+            new HibernateTestEntityManagerProvider(PERSISTENCE_UNIT);
+
     private TaskRepository taskRepository;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void createRepositoryAndSeedTask() {
+        taskRepository = new TaskRepository();
+        hibernateTestEntityManagerProvider.injectEntityManagerInto(taskRepository);
         taskRepository.save(createTaskEntity());
     }
 
     @Test
-    public void shouldFindTaskByTaskId() {
+    void shouldFindTaskByTaskId() {
 
         // When
         final TaskEntity taskEntity = taskRepository.findBy(taskId);

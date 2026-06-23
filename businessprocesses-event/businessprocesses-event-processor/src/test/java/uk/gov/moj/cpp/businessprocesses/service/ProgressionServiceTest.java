@@ -20,7 +20,7 @@ import uk.gov.moj.cpp.businessprocesses.util.TestDataProvider;
 
 import java.io.IOException;
 
-import javax.json.JsonObject;
+import jakarta.json.JsonObject;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

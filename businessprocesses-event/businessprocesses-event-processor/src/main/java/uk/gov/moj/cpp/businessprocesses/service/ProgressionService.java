@@ -15,9 +15,9 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
-import javax.json.JsonObject;
-import javax.json.JsonValue;
+import jakarta.inject.Inject;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonValue;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

@@ -10,7 +10,7 @@ import uk.gov.moj.cpp.businessprocesses.pojo.PublicHoliday;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 /**
  * Calculates future or past dates, but only using working days (not weekends or public holidays).

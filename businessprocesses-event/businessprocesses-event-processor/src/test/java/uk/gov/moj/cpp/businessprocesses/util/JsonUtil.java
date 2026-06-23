@@ -5,7 +5,7 @@ import uk.gov.justice.services.common.converter.StringToJsonObjectConverter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
-import javax.json.JsonObject;
+import jakarta.json.JsonObject;
 
 import com.google.common.io.Resources;
 
