@@ -1,6 +1,6 @@
+# Java 25 / WildFly 40 upgrade (25.104.x)
 name: CPP Context Verify & Validation
 
-# Need to update this for actual migration
 trigger:
   branches:
     include:
@@ -21,12 +21,12 @@ resources:
       type: github
       name: hmcts/cpp-azure-devops-templates
       endpoint: 'hmcts'
-      ref: 'main'
+      ref: 'wildfly40'
 
 pool:
   name: "MDV-ADO-AGENT-AKS-01"
   demands:
-    - identifier -equals centos8-j17
+    - identifier -equals ubuntu-j25-postgres
 
 variables:
   sonarqubeProject: "uk.gov.moj.cpp.bpm:businessprocesses-parent"
@@ -48,3 +48,4 @@ stages:
           serviceName: ${{ variables['service_Name'] }}
           itTestFolder: ${{ variables['itTest_Folder'] }}
           isCamunda: true
+          aksDeployBranch: 'wildfly40'
