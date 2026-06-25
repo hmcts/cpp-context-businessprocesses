@@ -104,19 +104,19 @@ public class HearingInitiatedEventProcessor {
         LOGGER.info("Received event1 'public.hearing.initiated' for hearing: {}", hearingId);
         LOGGER.info("payload:{}", eventPayload);
 
-        if (isCaseDetailsExists(eventPayload)) {
-            handleCaseDetails(eventPayload.getJsonArray(CASE_DETAILS), hearingId, hearingDate, jurisdiction);
-        } else {
+        if (isApplicationDetailsExists(eventPayload)) {
             LOGGER.info("{} for application", hearingId);
             handleApplicationDetails(eventPayload.getJsonArray(APPLICATION_DETAILS), hearingId, hearingDate, jurisdiction);
             summonsApplicationTaskHandler.handleSummonsApplicationHearingInitiated(jsonEnvelope);
+        } else {
+            handleCaseDetails(eventPayload.getJsonArray(CASE_DETAILS), hearingId, hearingDate, jurisdiction);
         }
     }
 
-    private boolean isCaseDetailsExists(final JsonObject eventPayload) {
-        return eventPayload.containsKey(CASE_DETAILS)
-                && eventPayload.getJsonArray(CASE_DETAILS) != null
-                && !eventPayload.getJsonArray(CASE_DETAILS).isEmpty();
+    private boolean isApplicationDetailsExists(final JsonObject eventPayload) {
+        return eventPayload.containsKey(APPLICATION_DETAILS)
+                && eventPayload.getJsonArray(APPLICATION_DETAILS) != null
+                && !eventPayload.getJsonArray(APPLICATION_DETAILS).isEmpty();
     }
 
     private void handleCaseDetails(final JsonArray caseDetails, final String hearingId, final String hearingDate, final String jurisdiction) {
