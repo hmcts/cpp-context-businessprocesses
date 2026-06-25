@@ -40,7 +40,7 @@ public class SummonsApplicationHandler {
     public static final String HEARING = "hearing";
     public static final String ID = "id";
 
-    private static final List<String> SUMMONS_TYPE_CODES = Arrays.asList("MC80804", "MC80518");
+    private static final List<String> SUMMONS_TYPE_CODES = Arrays.asList("MC80804", "MC80518", "CJ03510", "CJ03506");
 
     // lookup against the code rather than the id ??
     private static final UUID SUMMONS_APPROVED = UUID.fromString("0f44eeb9-2c81-430d-9a60-bbdaf8c4a093");
