@@ -101,11 +101,13 @@ public class HearingInitiatedEventProcessor {
         final String hearingDate = eventPayload.getString(HEARING_DATE_TIME);
         final String jurisdiction = eventPayload.getString(JURISDICTION_TYPE);
 
-        LOGGER.info("Received event 'public.hearing.initiated' for hearing: {}", hearingId);
+        LOGGER.info("Received event1 'public.hearing.initiated' for hearing: {}", hearingId);
+        LOGGER.info("payload:{}", eventPayload);
 
         if (isCaseDetailsExists(eventPayload)) {
             handleCaseDetails(eventPayload.getJsonArray(CASE_DETAILS), hearingId, hearingDate, jurisdiction);
         } else {
+            LOGGER.info("{} for application", hearingId);
             handleApplicationDetails(eventPayload.getJsonArray(APPLICATION_DETAILS), hearingId, hearingDate, jurisdiction);
             summonsApplicationTaskHandler.handleSummonsApplicationHearingInitiated(jsonEnvelope);
         }

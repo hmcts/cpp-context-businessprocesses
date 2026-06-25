@@ -62,9 +62,11 @@ public class SummonsApplicationHandler {
 
         final JsonObject eventPayload = jsonEnvelope.payloadAsJsonObject();
         final String hearingId = eventPayload.getString(Constants.HEARING_ID);
+        LOGGER.info("handleSummonsApplicationHearingInitiated {}", hearingId);
 
         // call the get hearing
         final Hearing hearing = hearingService.getHearing(hearingId);
+        LOGGER.info("hearing:{}", hearing.toString());
 
         final List<CourtApplication> courtApplications =
                 ofNullable(hearing.getCourtApplications())
