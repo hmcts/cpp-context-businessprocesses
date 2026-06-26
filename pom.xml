@@ -4,12 +4,12 @@
     <parent>
         <groupId>uk.gov.moj.cpp.common</groupId>
         <artifactId>service-parent-pom</artifactId>
-        <version>17.104.0</version>
+        <version>25.104.0-M4</version>
     </parent>
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
     <artifactId>businessprocesses-parent</artifactId>
-    <version>17.104.89-SNAPSHOT</version>
+    <version>25.104.0-M1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -32,18 +32,20 @@
         <sonar.coverage.exclusions>**/pojo/*</sonar.coverage.exclusions>
         <sonar.cpd.exclusions>**/pojo/*</sonar.cpd.exclusions>
         <mvn.site.url>file://${project.build.directory}/site</mvn.site.url>
-        <cpp.camunda.version>7.17.0</cpp.camunda.version>
+        <cpp.camunda.version>7.24.0</cpp.camunda.version>
 
         <!-- corresponding context versions -->
-        <coredomain.version>17.104.4</coredomain.version>
-        <sjp.version>17.103.169</sjp.version>
-        <hearing.version>17.0.144</hearing.version>
-        <referencedata.version>17.103.132</referencedata.version>
-        <progression.version>17.0.252</progression.version>
-        <usersgroups.version>17.104.49</usersgroups.version>
-        <listing.version>17.103.162</listing.version>
-        <h2.version>1.4.196</h2.version>
+        <coredomain.version>25.104.0-M4</coredomain.version>
+        <sjp.version>17.104.180</sjp.version>
+        <hearing.version>17.104.173</hearing.version>
+        <referencedata.version>17.103.133</referencedata.version>
+        <progression.version>17.0.269</progression.version>
+        <usersgroups.version>17.104.50</usersgroups.version>
+        <listing.version>17.103.175</listing.version>
+        <h2.version>2.3.232</h2.version>
         <!-- end - corresponding context versions -->
+        <!-- Artemis Jakarta client for ITs; matches the Artemis shipped in WildFly 40. Move to the BOM in a future milestone. -->
+        <artemis.version>2.53.0</artemis.version>
         <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>
     </properties>
 

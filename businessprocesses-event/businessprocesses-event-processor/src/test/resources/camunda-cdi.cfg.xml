@@ -11,6 +11,9 @@
         <property name="databaseSchemaUpdate" value="true" />
         <property name="jobExecutorActivate" value="false" />
         <property name="mailServerPort" value="5025" />
+
+        <!-- Camunda 7.20+ enforces a non-null history TTL on every process definition (ENGINE-12018). -->
+        <property name="historyTimeToLive" value="P180D" />
         <property name="enableExpressionsInAdhocQueries" value="true" />
 
         <!-- turn off metrics reporter -->

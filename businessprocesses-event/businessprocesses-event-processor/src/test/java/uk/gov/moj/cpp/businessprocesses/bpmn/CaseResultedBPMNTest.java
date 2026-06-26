@@ -34,7 +34,7 @@ import uk.gov.moj.cpp.businessprocesses.shared.TaskAuditService;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.json.JsonObject;
+import jakarta.json.JsonObject;
 
 import org.camunda.bpm.engine.HistoryService;
 import org.camunda.bpm.engine.ProcessEngineConfiguration;

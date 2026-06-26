@@ -7,8 +7,8 @@ import static uk.gov.moj.cpp.businessprocesses.shared.Constants.TASK_VARIABLES_J
 import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.moj.cpp.businessprocesses.create.CreateGenericTask;
 
-import javax.inject.Named;
-import javax.json.JsonObject;
+import jakarta.inject.Named;
+import jakarta.json.JsonObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.camunda.bpm.engine.delegate.DelegateExecution;

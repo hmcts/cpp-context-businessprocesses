@@ -5,6 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 import uk.gov.justice.services.common.util.UtcClock;
+import uk.gov.justice.services.test.utils.persistence.HibernateTestEntityManagerProvider;
 import uk.gov.moj.cpp.businessprocesses.persistence.entity.TaskEntity;
 import uk.gov.moj.cpp.businessprocesses.persistence.entity.TaskHistoryEntity;
 import uk.gov.moj.cpp.businessprocesses.persistence.repository.TaskHistoryRepository;
@@ -13,15 +14,13 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import javax.inject.Inject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-import org.apache.deltaspike.testcontrol.api.junit.CdiTestRunner;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+class TaskHistoryRepositoryTest {
 
-@RunWith(CdiTestRunner.class)
-public class TaskHistoryRepositoryTest {
+    private static final String PERSISTENCE_UNIT = "businessprocesses-test-persistence-unit";
 
     private static final UUID taskHistoryId = randomUUID();
     private static final UUID taskId = randomUUID();
@@ -41,16 +40,21 @@ public class TaskHistoryRepositoryTest {
     private static final String details = "Assigned to: Bob Smith";
     private static final ZonedDateTime hearingDate = new UtcClock().now();
 
-    @Inject
+    @RegisterExtension
+    static HibernateTestEntityManagerProvider hibernateTestEntityManagerProvider =
+            new HibernateTestEntityManagerProvider(PERSISTENCE_UNIT);
+
     private TaskHistoryRepository taskHistoryRepository;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void createRepositoryAndSeedHistory() {
+        taskHistoryRepository = new TaskHistoryRepository();
+        hibernateTestEntityManagerProvider.injectEntityManagerInto(taskHistoryRepository);
         taskHistoryRepository.save(createTaskHistoryEntity());
     }
 
     @Test
-    public void shouldFindTaskHistoryById() {
+    void shouldFindTaskHistoryById() {
 
         // When
         taskHistoryRepository.save(createTaskHistoryEntity());
@@ -79,7 +83,7 @@ public class TaskHistoryRepositoryTest {
     }
 
     @Test
-    public void shouldFindTaskHistoryByTaskId() {
+    void shouldFindTaskHistoryByTaskId() {
 
         // When
         taskHistoryRepository.save(createTaskHistoryEntity());

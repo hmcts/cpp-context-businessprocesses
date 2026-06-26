@@ -8,7 +8,6 @@ import static uk.gov.justice.services.messaging.JsonEnvelope.metadataBuilder;
 import static uk.gov.moj.cpp.businessprocesses.helper.BpmRestApiHelper.getProcessInstanceList;
 import static uk.gov.moj.cpp.businessprocesses.helper.BpmRestApiHelper.getTaskList;
 import static uk.gov.moj.cpp.businessprocesses.it.QueueUtil.publicEvents;
-import static uk.gov.moj.cpp.businessprocesses.it.QueueUtil.sendMessage;
 import static uk.gov.moj.cpp.businessprocesses.stub.ReferenceDataServiceStub.stubPublicHolidays;
 import static uk.gov.moj.cpp.businessprocesses.stub.ReferenceDataServiceStub.stubWorkQueueForQueueName;
 import static uk.gov.moj.cpp.businessprocesses.stub.ReferenceDataServiceStub.stubWorkflowTaskTypes;
@@ -24,9 +23,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.json.JsonObject;
+import jakarta.jms.JMSException;
+import jakarta.jms.MessageProducer;
+import jakarta.json.JsonObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
@@ -76,7 +75,7 @@ public class OpaWorkFlowIT {
                 .withNumberOfDays(4)
                 .build();
         final JsonObject payload = (JsonObject) objectToJsonValueConverter.convert(opaReviewNotesUpdated);
-        sendMessage(publicMessageClient, PUBLIC_DEFENCE_OPA_TASK_REQUESTED, payload, metadata);
+        publicEvents.sendMessage(publicMessageClient, PUBLIC_DEFENCE_OPA_TASK_REQUESTED, payload, metadata);
         final List<String> processInstanceList = getProcessInstanceList(OPA_CUSTOM_TASK_PROCESS_PROCESS_NAME);
         final String processInstanceId = processInstanceList.get(processInstanceList.size() - 1);
         MatcherAssert.assertThat(processInstanceId, CoreMatchers.is(CoreMatchers.notNullValue()));

@@ -21,7 +21,7 @@ import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.W
 
 import uk.gov.justice.services.messaging.Metadata;
 
-import javax.json.JsonObjectBuilder;
+import jakarta.json.JsonObjectBuilder;
 
 import org.camunda.bpm.engine.impl.persistence.entity.TaskEntity;
 import org.camunda.bpm.engine.variable.impl.VariableMapImpl;

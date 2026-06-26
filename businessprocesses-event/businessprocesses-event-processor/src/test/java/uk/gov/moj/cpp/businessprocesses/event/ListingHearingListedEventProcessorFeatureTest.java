@@ -17,7 +17,7 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import java.util.Collections;
 
-import javax.json.JsonObject;
+import jakarta.json.JsonObject;
 
 import org.camunda.bpm.extension.junit5.test.ProcessEngineExtension;
 import org.junit.jupiter.api.BeforeEach;

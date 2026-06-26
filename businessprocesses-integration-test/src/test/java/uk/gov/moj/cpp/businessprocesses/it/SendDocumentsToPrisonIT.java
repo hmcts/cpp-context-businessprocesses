@@ -24,8 +24,8 @@ import uk.gov.moj.cpp.platform.test.feature.toggle.FeatureStubber;
 import java.io.IOException;
 import java.util.UUID;
 
-import javax.json.JsonArray;
-import javax.json.JsonObject;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonObject;
 
 import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.BeforeEach;

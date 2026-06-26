@@ -7,7 +7,7 @@ import uk.gov.justice.services.core.audit.AuditService;
 import uk.gov.justice.services.core.sender.Sender;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 public class PublishEventService {
 

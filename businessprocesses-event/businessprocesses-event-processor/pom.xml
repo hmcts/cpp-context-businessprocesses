@@ -3,7 +3,7 @@
     <parent>
         <artifactId>businessprocesses-event</artifactId>
         <groupId>uk.gov.moj.cpp.bpm</groupId>
-        <version>17.104.89-SNAPSHOT</version>
+        <version>25.104.0-M1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -45,21 +45,24 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- camunda cdi beans -->
+        <!-- camunda cdi beans (Jakarta EE variant for WildFly 40 / Jakarta EE 11) -->
         <dependency>
             <groupId>org.camunda.bpm</groupId>
-            <artifactId>camunda-engine-cdi</artifactId>
+            <artifactId>camunda-engine-cdi-jakarta</artifactId>
         </dependency>
 
-        <!-- provides a default EjbProcessApplication -->
+        <!-- provides a default EjbProcessApplication (Jakarta EE variant — the javax
+             camunda-ejb-client's DefaultEjbProcessApplication is a javax.ejb @Stateless and
+             WF40's jakarta camunda subsystem rejects it as "neither a JakartaServletProcessApplication
+             nor an EJB Session Bean Component") -->
         <dependency>
             <groupId>org.camunda.bpm.javaee</groupId>
-            <artifactId>camunda-ejb-client</artifactId>
+            <artifactId>camunda-ejb-client-jakarta</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -132,11 +135,6 @@
             <!-- BPMN local storage -->
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.xml.ws</groupId>
-            <artifactId>jaxws-api</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -236,9 +234,14 @@
                 <artifactId>rest-client-generator-plugin</artifactId>
                 <dependencies>
                     <dependency>
-                        <groupId>javax</groupId>
-                        <artifactId>javaee-api</artifactId>
+                        <groupId>jakarta.platform</groupId>
+                        <artifactId>jakarta.jakartaee-api</artifactId>
                         <version>${javaee-api.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                        <version>${jakarta.xml.bind-api.raml.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>uk.gov.moj.cpp.sjp</groupId>
@@ -334,9 +337,14 @@
                 <artifactId>messaging-client-generator-plugin</artifactId>
                 <dependencies>
                     <dependency>
-                        <groupId>javax</groupId>
-                        <artifactId>javaee-api</artifactId>
+                        <groupId>jakarta.platform</groupId>
+                        <artifactId>jakarta.jakartaee-api</artifactId>
                         <version>${javaee-api.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                        <version>${jakarta.xml.bind-api.raml.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>uk.gov.moj.cpp.bpm</groupId>
