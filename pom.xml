@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!-- Java 25 / WildFly 40 / Camunda 7.24 (25.104.x) upgrade — release-build re-trigger after the wildfly-app chart was republished with the global Camunda historyTimeToLive (P180D) default; no functional change. -->
+    <!-- Java 25 / WildFly 40 / Camunda 7.24 (25.104.x) upgrade — release-build re-trigger once the shared workmanagement Camunda DB is on the 7.24 schema (camunda-liquibase 25.104.0-M1, built by boxworkmanagement/workmanagementproxy). businessprocesses has no camunda-liquibase of its own. No functional change. -->
     <parent>
         <groupId>uk.gov.moj.cpp.common</groupId>
         <artifactId>service-parent-pom</artifactId>
