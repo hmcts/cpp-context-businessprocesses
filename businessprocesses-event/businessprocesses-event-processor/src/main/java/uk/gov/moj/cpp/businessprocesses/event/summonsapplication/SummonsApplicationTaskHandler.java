@@ -1,6 +1,9 @@
 package uk.gov.moj.cpp.businessprocesses.event.summonsapplication;
 
-import static uk.gov.moj.cpp.businessprocesses.shared.Constants.*;
+import static uk.gov.moj.cpp.businessprocesses.shared.Constants.APPLICATION_ID;
+import static uk.gov.moj.cpp.businessprocesses.shared.Constants.APPLICATION_REFERENCE;
+import static uk.gov.moj.cpp.businessprocesses.shared.Constants.PROCESS_NEW_SUMMONS_APPLICATION;
+import static uk.gov.moj.cpp.businessprocesses.shared.Constants.SYSTEM_USER_NAME;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.CASE_URN;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.COMPLETION_REASON;
 import static uk.gov.moj.cpp.businessprocesses.shared.ProcessVariableConstants.COURT_CODES;
