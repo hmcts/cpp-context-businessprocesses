@@ -28,6 +28,7 @@ public class TestDataProvider {
     private static final Logger LOGGER = getLogger(TestDataProvider.class);
     private static final String HEARINGS_JSON = "hearings.json";
     private static final String PROSECUTION_CASE_CAAG_JSON = "prosecutionCaseCaag.json";
+    private static final String PROSECUTION_CASE_CAAG_WITH_UNKNOWN_FIELDS_JSON = "prosecutionCaseCaagWithUnknownFields.json";
     private static final String PROSECUTION_CASE_JSON = "progression.query.prosecutioncase.json";
     private static final String PROSECUTION_CASE_EXIST_JSON = "progression.query.case-exists-by-caseurn.json";
     private static final String LISTING_SEARCH_HEARINGS_QUERY = "listing.allocated.and.unallocated.hearings";
@@ -45,6 +46,16 @@ public class TestDataProvider {
         JsonObject responseJsonObject = null;
         try {
             responseJsonObject = getJsonObjectFromResource(PROSECUTION_CASE_CAAG_JSON);
+        } catch (IOException e) {
+            LOGGER.error("error while parsing prosecution json");
+        }
+        return envelopeFrom(metadataWithRandomUUID(PROGRESSION_QUERY_PROSECUTION_CASE_CAAG), responseJsonObject);
+    }
+
+    public static Envelope<JsonObject> getResponseEnvelopeFromProgressionCaagWithUnknownFields() {
+        JsonObject responseJsonObject = null;
+        try {
+            responseJsonObject = getJsonObjectFromResource(PROSECUTION_CASE_CAAG_WITH_UNKNOWN_FIELDS_JSON);
         } catch (IOException e) {
             LOGGER.error("error while parsing prosecution json");
         }
