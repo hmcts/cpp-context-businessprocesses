@@ -135,9 +135,6 @@
                                         uk.gov.justice.generation.pojo.plugin.classmodifying.AddToStringMethodToClassPlugin
                                     </plugin>
                                     <plugin>
-                                        uk.gov.justice.generation.pojo.plugin.classmodifying.AddAdditionalPropertiesToClassPlugin
-                                    </plugin>
-                                    <plugin>
                                         uk.gov.justice.generation.pojo.plugin.typemodifying.ReferenceCustomReturnTypePlugin
                                     </plugin>
                                     <plugin>

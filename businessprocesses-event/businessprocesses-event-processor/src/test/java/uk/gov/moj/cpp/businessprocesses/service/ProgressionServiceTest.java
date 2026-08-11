@@ -10,6 +10,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static uk.gov.moj.cpp.businessprocesses.util.TestDataProvider.getResponseEnvelopeFromProgressionCaag;
+import static uk.gov.moj.cpp.businessprocesses.util.TestDataProvider.getResponseEnvelopeFromProgressionCaagWithUnknownFields;
 import static uk.gov.moj.cpp.businessprocesses.util.TestDataProvider.getResponseEnvelopeFromProgressionProsecutionCaseExist;
 
 import uk.gov.justice.courts.progression.query.Caag;
@@ -52,6 +53,17 @@ public class ProgressionServiceTest {
         assertThat(caag.getCaseId(), is("1082bd2f-63ef-42e7-86c7-6cfaaf3ba10a"));
         assertThat(caag.getDefendants(), hasSize(1));
         assertThat(caag.getDefendants().get(0).getCtlExpiryDate(), is("2025-03-31"));
+    }
+
+    @Test
+    public void shouldGetProsecutionCaseCaagWhenResponseContainsUnknownFields() {
+        when(requester.request(any(Envelope.class), eq(JsonObject.class))).thenReturn(getResponseEnvelopeFromProgressionCaagWithUnknownFields());
+
+        final Caag caag = target.getProsecutionCaseCaag(USER_ID, CASE_ID);
+        assertThat(caag, notNullValue());
+        assertThat(caag.getCaseId(), is("1ebc24c9-d427-428f-a79c-ea1b5351e9d8"));
+        assertThat(caag.getCaseDetails().getCaseURN(), is("CI86C5FUC1"));
+        assertThat(caag.getDefendants(), hasSize(1));
     }
 
     @Test

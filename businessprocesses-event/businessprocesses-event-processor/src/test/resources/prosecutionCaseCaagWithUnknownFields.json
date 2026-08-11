@@ -1,0 +1,62 @@
+{
+  "caseId": "1ebc24c9-d427-428f-a79c-ea1b5351e9d8",
+  "caseDetails": {
+    "caseURN": "CI86C5FUC1",
+    "civilFees": [
+      {
+        "feeId": "f3c9f6a8-5cf8-4399-9650-2b927bf01b77",
+        "feeStatus": "OUTSTANDING",
+        "feeType": "INITIAL"
+      },
+      {
+        "feeId": "921b5b04-6722-4365-bc89-f60f53975199",
+        "feeStatus": "NOT_APPLICABLE",
+        "feeType": "CONTESTED"
+      }
+    ],
+    "initiationCode": "O",
+    "isCivil": true
+  },
+  "prosecutorDetails": {
+    "address": {
+      "address1": "Town Hall",
+      "address2": "Market Place",
+      "address3": "Ripley",
+      "postcode": "DE5 3BT"
+    },
+    "prosecutionAuthorityCode": "AMBVBC",
+    "prosecutionAuthorityId": "36fee6c0-1058-4b86-a064-4e49be547f27"
+  },
+  "defendants": [
+    {
+      "address": {
+        "address1": "Address line 1",
+        "postcode": "SA1 1AD"
+      },
+      "caagDefendantOffences": [
+        {
+          "caagResults": [],
+          "count": 0,
+          "id": "6fbd1edf-189c-4f0d-9ecc-f894cb3a149d",
+          "offenceCode": "FB89501",
+          "offenceLegislation": "In accordance with section 14B of the Football Spectators Act 1989.",
+          "offenceLegislationWelsh": "Yn unol ag adran 14B Deddf Gwylwyr Pêl-droed 1989.",
+          "offenceTitle": "Complaint for a football banning order",
+          "offenceTitleWelsh": "Achwyneb am orchymyn gwaharddiad pêl-droed",
+          "orderIndex": 1,
+          "startDate": "2025-11-11",
+          "wording": "Complaint for a football banning order because it is alleged that the respondent has caused or contributed to violence or disorder in the United Kingdom or elsewhere, namely Violence."
+        }
+      ],
+      "firstName": "a",
+      "gender": "NOT_SPECIFIED",
+      "id": "f8ae3a20-4f03-4f13-8043-8e58a92ce4a4",
+      "lastName": "c",
+      "masterDefendantId": "f8ae3a20-4f03-4f13-8043-8e58a92ce4a4",
+      "nationality": "British"
+    }
+  ],
+  "appealsLodgedInfo": {
+    "appealsLodged": false
+  }
+}
