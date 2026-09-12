@@ -98,14 +98,21 @@
                     <argLine>@{argLine} -Duser.timezone=UTC</argLine>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <configuration>
-                    <argLine>-Duser.timezone=UTC</argLine>
-                </configuration>
-            </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <configuration>
+                        <!-- Must stay in pluginManagement - declaring failsafe under build/plugins
+                             activates the inherited executions, which runs the ITs during the
+                             ordinary build, before the WAR is deployed. -->
+                        <argLine>-Duser.timezone=UTC</argLine>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
