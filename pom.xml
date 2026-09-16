@@ -5,7 +5,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.common</groupId>
         <artifactId>service-parent-pom</artifactId>
-        <version>25.104.0-M10</version>
+        <version>25.104.2</version>
     </parent>
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
@@ -36,9 +36,9 @@
         <cpp.camunda.version>7.24.0</cpp.camunda.version>
 
         <!-- corresponding context versions -->
-        <coredomain.version>25.104.0-M11</coredomain.version>
+        <coredomain.version>25.104.2</coredomain.version>
         <sjp.version>17.104.192</sjp.version>
-        <hearing.version>17.104.183</hearing.version>
+        <hearing.version>17.104.200</hearing.version>
         <referencedata.version>17.104.138</referencedata.version>
         <progression.version>17.0.286</progression.version>
         <usersgroups.version>17.104.50</usersgroups.version>
@@ -86,7 +86,33 @@
                     <attachClasses>true</attachClasses>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- CPP contexts always run in UTC (matching the WildFly runtime); keep the tests
+                         consistent so date/time boundary comparisons are not JVM-timezone-sensitive.
+                         Without this, DueDateCalculationServiceTest's now-plus-n-days expectations
+                         fail in the 23:00-00:00 UTC window, when local time is already the next day.
+                         @{argLine} preserves the JaCoCo agent argLine. -->
+                    <argLine>@{argLine} -Duser.timezone=UTC</argLine>
+                </configuration>
+            </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <configuration>
+                        <!-- Must stay in pluginManagement - declaring failsafe under build/plugins
+                             activates the inherited executions, which runs the ITs during the
+                             ordinary build, before the WAR is deployed. -->
+                        <argLine>-Duser.timezone=UTC</argLine>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
