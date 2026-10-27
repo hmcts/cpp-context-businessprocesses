@@ -44,6 +44,7 @@ class ProcessArchiveDeploymentTest {
         assertTrue(resources.size() > 0, "The test must exercise the packaged BPMN resources");
 
         final ProcessEngine engine = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration()
+                .setProcessEngineName("process-archives-" + UUID.randomUUID())
                 .setJdbcUrl("jdbc:h2:mem:process-archives-" + UUID.randomUUID())
                 .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
                 .setJobExecutorActivate(false)
