@@ -35,7 +35,7 @@
         <cpp.camunda.version>7.17.0</cpp.camunda.version>
 
         <!-- corresponding context versions -->
-        <coredomain.version>17.104.4</coredomain.version>
+        <coredomain.version>17.104.6</coredomain.version>
         <sjp.version>17.104.197</sjp.version>
         <hearing.version>17.104.209</hearing.version>
         <referencedata.version>17.104.141</referencedata.version>
