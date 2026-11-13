@@ -9,7 +9,7 @@
 
     <groupId>uk.gov.moj.cpp.bpm</groupId>
     <artifactId>businessprocesses-parent</artifactId>
-    <version>17.104.92-CHD-2786-SNAPSHOT</version>
+    <version>17.104.92-2786-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -38,7 +38,7 @@
         <coredomain.version>17.104.6-CHD-2786-SNAPSHOT</coredomain.version>
         <sjp.version>17.104.197</sjp.version>
         <hearing.version>17.104.209</hearing.version>
-        <referencedata.version>17.104.141</referencedata.version>
+        <referencedata.version>17.104.149</referencedata.version>
         <progression.version>17.104.308</progression.version>
         <usersgroups.version>25.104.52</usersgroups.version>
         <listing.version>17.104.15</listing.version>
